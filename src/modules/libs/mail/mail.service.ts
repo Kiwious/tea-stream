@@ -5,6 +5,7 @@ import { render } from '@react-email/components'
 
 import type { SessionMetadata } from '@/src/shared/types/session-metadata.types'
 
+import { DeactivateTemplate } from './templates/deactivate.template'
 import { ResetPasswordTemplate } from './templates/reset-password.template'
 import { VerifyTemplate } from './templates/verification.template'
 
@@ -31,6 +32,15 @@ export class MailService {
 			ResetPasswordTemplate({ domain, token, metadata })
 		)
 		await this.sendMail(email, 'Password reset', html)
+	}
+
+	public async sendDeactivateToken(
+		email: string,
+		token: string,
+		metadata: SessionMetadata
+	) {
+		const html = await render(DeactivateTemplate({ token, metadata }))
+		await this.sendMail(email, 'Deactivate account', html)
 	}
 
 	private async sendMail(

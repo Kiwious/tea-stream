@@ -36,6 +36,8 @@ export type UserMinAggregateOutputType = {
   isEmailVerified: boolean | null
   isTotpEnabled: boolean | null
   totpSecret: string | null
+  isDeactivated: boolean | null
+  deactivatedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -52,6 +54,8 @@ export type UserMaxAggregateOutputType = {
   isEmailVerified: boolean | null
   isTotpEnabled: boolean | null
   totpSecret: string | null
+  isDeactivated: boolean | null
+  deactivatedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -68,6 +72,8 @@ export type UserCountAggregateOutputType = {
   isEmailVerified: number
   isTotpEnabled: number
   totpSecret: number
+  isDeactivated: number
+  deactivatedAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -86,6 +92,8 @@ export type UserMinAggregateInputType = {
   isEmailVerified?: true
   isTotpEnabled?: true
   totpSecret?: true
+  isDeactivated?: true
+  deactivatedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -102,6 +110,8 @@ export type UserMaxAggregateInputType = {
   isEmailVerified?: true
   isTotpEnabled?: true
   totpSecret?: true
+  isDeactivated?: true
+  deactivatedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -118,6 +128,8 @@ export type UserCountAggregateInputType = {
   isEmailVerified?: true
   isTotpEnabled?: true
   totpSecret?: true
+  isDeactivated?: true
+  deactivatedAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -207,6 +219,8 @@ export type UserGroupByOutputType = {
   isEmailVerified: boolean
   isTotpEnabled: boolean
   totpSecret: string | null
+  isDeactivated: boolean
+  deactivatedAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
@@ -244,6 +258,8 @@ export type UserWhereInput = {
   isEmailVerified?: Prisma.BoolFilter<"User"> | boolean
   isTotpEnabled?: Prisma.BoolFilter<"User"> | boolean
   totpSecret?: Prisma.StringNullableFilter<"User"> | string | null
+  isDeactivated?: Prisma.BoolFilter<"User"> | boolean
+  deactivatedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   tokens?: Prisma.TokenListRelationFilter
@@ -261,6 +277,8 @@ export type UserOrderByWithRelationInput = {
   isEmailVerified?: Prisma.SortOrder
   isTotpEnabled?: Prisma.SortOrder
   totpSecret?: Prisma.SortOrderInput | Prisma.SortOrder
+  isDeactivated?: Prisma.SortOrder
+  deactivatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tokens?: Prisma.TokenOrderByRelationAggregateInput
@@ -281,6 +299,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   isEmailVerified?: Prisma.BoolFilter<"User"> | boolean
   isTotpEnabled?: Prisma.BoolFilter<"User"> | boolean
   totpSecret?: Prisma.StringNullableFilter<"User"> | string | null
+  isDeactivated?: Prisma.BoolFilter<"User"> | boolean
+  deactivatedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   tokens?: Prisma.TokenListRelationFilter
@@ -298,6 +318,8 @@ export type UserOrderByWithAggregationInput = {
   isEmailVerified?: Prisma.SortOrder
   isTotpEnabled?: Prisma.SortOrder
   totpSecret?: Prisma.SortOrderInput | Prisma.SortOrder
+  isDeactivated?: Prisma.SortOrder
+  deactivatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -320,6 +342,8 @@ export type UserScalarWhereWithAggregatesInput = {
   isEmailVerified?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   isTotpEnabled?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   totpSecret?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  isDeactivated?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  deactivatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -336,6 +360,8 @@ export type UserCreateInput = {
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tokens?: Prisma.TokenCreateNestedManyWithoutUserInput
@@ -353,6 +379,8 @@ export type UserUncheckedCreateInput = {
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tokens?: Prisma.TokenUncheckedCreateNestedManyWithoutUserInput
@@ -370,6 +398,8 @@ export type UserUpdateInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tokens?: Prisma.TokenUpdateManyWithoutUserNestedInput
@@ -387,6 +417,8 @@ export type UserUncheckedUpdateInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tokens?: Prisma.TokenUncheckedUpdateManyWithoutUserNestedInput
@@ -404,6 +436,8 @@ export type UserCreateManyInput = {
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -420,6 +454,8 @@ export type UserUpdateManyMutationInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -436,6 +472,8 @@ export type UserUncheckedUpdateManyInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -452,6 +490,8 @@ export type UserCountOrderByAggregateInput = {
   isEmailVerified?: Prisma.SortOrder
   isTotpEnabled?: Prisma.SortOrder
   totpSecret?: Prisma.SortOrder
+  isDeactivated?: Prisma.SortOrder
+  deactivatedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -468,6 +508,8 @@ export type UserMaxOrderByAggregateInput = {
   isEmailVerified?: Prisma.SortOrder
   isTotpEnabled?: Prisma.SortOrder
   totpSecret?: Prisma.SortOrder
+  isDeactivated?: Prisma.SortOrder
+  deactivatedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -484,6 +526,8 @@ export type UserMinOrderByAggregateInput = {
   isEmailVerified?: Prisma.SortOrder
   isTotpEnabled?: Prisma.SortOrder
   totpSecret?: Prisma.SortOrder
+  isDeactivated?: Prisma.SortOrder
+  deactivatedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -503,6 +547,10 @@ export type NullableStringFieldUpdateOperationsInput = {
 
 export type BoolFieldUpdateOperationsInput = {
   set?: boolean
+}
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -537,6 +585,8 @@ export type UserCreateWithoutTokensInput = {
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -553,6 +603,8 @@ export type UserUncheckedCreateWithoutTokensInput = {
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -585,6 +637,8 @@ export type UserUpdateWithoutTokensInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -601,6 +655,8 @@ export type UserUncheckedUpdateWithoutTokensInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -648,6 +704,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: boolean
+  isDeactivated?: boolean
+  deactivatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tokens?: boolean | Prisma.User$tokensArgs<ExtArgs>
@@ -666,6 +724,8 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: boolean
+  isDeactivated?: boolean
+  deactivatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -682,6 +742,8 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: boolean
+  isDeactivated?: boolean
+  deactivatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -698,11 +760,13 @@ export type UserSelectScalar = {
   isEmailVerified?: boolean
   isTotpEnabled?: boolean
   totpSecret?: boolean
+  isDeactivated?: boolean
+  deactivatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "username" | "displayName" | "avatar" | "bio" | "isVerified" | "isEmailVerified" | "isTotpEnabled" | "totpSecret" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "username" | "displayName" | "avatar" | "bio" | "isVerified" | "isEmailVerified" | "isTotpEnabled" | "totpSecret" | "isDeactivated" | "deactivatedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tokens?: boolean | Prisma.User$tokensArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -727,6 +791,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     isEmailVerified: boolean
     isTotpEnabled: boolean
     totpSecret: string | null
+    isDeactivated: boolean
+    deactivatedAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["user"]>
@@ -1164,6 +1230,8 @@ export interface UserFieldRefs {
   readonly isEmailVerified: Prisma.FieldRef<"User", 'Boolean'>
   readonly isTotpEnabled: Prisma.FieldRef<"User", 'Boolean'>
   readonly totpSecret: Prisma.FieldRef<"User", 'String'>
+  readonly isDeactivated: Prisma.FieldRef<"User", 'Boolean'>
+  readonly deactivatedAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
