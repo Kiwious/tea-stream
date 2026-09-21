@@ -16,6 +16,7 @@ import { TotpModule } from './modules/auth/totp/totp.module'
 import { VerificationModule } from './modules/auth/verification/verification.module'
 import { CronModule } from './modules/cron/cron.module'
 import { MailModule } from './modules/libs/mail/mail.module'
+import { StorageModule } from './modules/libs/storage/storage.module'
 import { IS_DEV_ENV } from './shared/utils/is-dev.util'
 
 @Module({
@@ -45,7 +46,8 @@ import { IS_DEV_ENV } from './shared/utils/is-dev.util'
 		PasswordRecoveryModule,
 		TotpModule,
 		DeactivateModule,
-		CronModule
+		CronModule,
+		StorageModule
 	]
 })
 export class CoreModule {}
