@@ -31,8 +31,6 @@ export class CronService {
 			await this.mailService.sendAccountDeletion(user.email)
 		}
 
-		console.log('Deactivated accounts', deactivatedAccounts)
-
 		await this.prismaService.user.deleteMany({
 			where: {
 				isDeactivated: true,

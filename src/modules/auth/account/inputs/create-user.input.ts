@@ -9,7 +9,7 @@ import {
 
 @InputType()
 export class CreateUserInput {
-	@Field()
+	@Field(() => String)
 	@IsString()
 	@IsNotEmpty()
 	@Matches(/^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$/)
