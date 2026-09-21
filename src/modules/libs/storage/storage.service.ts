@@ -1,4 +1,5 @@
 import {
+	DeleteObjectCommand,
 	type DeleteObjectCommandInput,
 	PutObjectCommand,
 	type PutObjectCommandInput,
