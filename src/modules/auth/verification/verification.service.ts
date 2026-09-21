@@ -1,13 +1,10 @@
-import {
-	BadRequestException,
-	Injectable,
-	NotFoundException
-} from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import type { Request } from 'express'
 
 import { User } from '@/prisma/generated/browser'
 import { TokenType } from '@/prisma/generated/enums'
 import { PrismaService } from '@/src/core/prisma/prisma.service'
+import { checkTokenExpired } from '@/src/shared/utils/check-token-expired.util'
 import { generateToken } from '@/src/shared/utils/generate-token.util'
 import { getSessionMetadata } from '@/src/shared/utils/session-metadata.util'
 import { saveSession } from '@/src/shared/utils/session.util'
@@ -15,7 +12,6 @@ import { saveSession } from '@/src/shared/utils/session.util'
 import { MailService } from '../../libs/mail/mail.service'
 
 import { VerificationInput } from './inputs/verification.input'
-import { checkTokenExpired } from '@/src/shared/utils/check-token-expired.util'
 
 @Injectable()
 export class VerificationService {
@@ -56,9 +52,7 @@ export class VerificationService {
 
 		const sessionMetadata = getSessionMetadata(req, userAgent)
 
-		await saveSession(req, user, sessionMetadata)
-
-		return user
+		return saveSession(req, user, sessionMetadata)
 	}
 
 	public async sendVerificationToken(user: User) {
