@@ -33,6 +33,7 @@ model User {
 
   tokens      Token[]
   socialLinks SocialLink[]
+  stream      Stream?
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -54,6 +55,27 @@ model SocialLink {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("social_links")
+}
+
+model Stream {
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  title        String
+  thumbnailUrl String? @map("thumbnail_url")
+
+  ingressId String? @unique @map("ingress_id")
+  serverUrl String? @map("server_url")
+  streamKey String? @map("stream_key")
+
+  isLive Boolean @default(false) @map("is_live")
+
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String? @unique @map("user_id") @db.Uuid
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("streams")
 }
 
 model Token {

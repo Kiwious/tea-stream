@@ -264,6 +264,7 @@ export type UserWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   tokens?: Prisma.TokenListRelationFilter
   socialLinks?: Prisma.SocialLinkListRelationFilter
+  stream?: Prisma.XOR<Prisma.StreamNullableScalarRelationFilter, Prisma.StreamWhereInput> | null
 }
 
 export type UserOrderByWithRelationInput = {
@@ -284,6 +285,7 @@ export type UserOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   tokens?: Prisma.TokenOrderByRelationAggregateInput
   socialLinks?: Prisma.SocialLinkOrderByRelationAggregateInput
+  stream?: Prisma.StreamOrderByWithRelationInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -307,6 +309,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   tokens?: Prisma.TokenListRelationFilter
   socialLinks?: Prisma.SocialLinkListRelationFilter
+  stream?: Prisma.XOR<Prisma.StreamNullableScalarRelationFilter, Prisma.StreamWhereInput> | null
 }, "id" | "email" | "username">
 
 export type UserOrderByWithAggregationInput = {
@@ -369,6 +372,7 @@ export type UserCreateInput = {
   updatedAt?: Date | string
   tokens?: Prisma.TokenCreateNestedManyWithoutUserInput
   socialLinks?: Prisma.SocialLinkCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -389,6 +393,7 @@ export type UserUncheckedCreateInput = {
   updatedAt?: Date | string
   tokens?: Prisma.TokenUncheckedCreateNestedManyWithoutUserInput
   socialLinks?: Prisma.SocialLinkUncheckedCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -409,6 +414,7 @@ export type UserUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tokens?: Prisma.TokenUpdateManyWithoutUserNestedInput
   socialLinks?: Prisma.SocialLinkUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -429,6 +435,7 @@ export type UserUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tokens?: Prisma.TokenUncheckedUpdateManyWithoutUserNestedInput
   socialLinks?: Prisma.SocialLinkUncheckedUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -580,6 +587,22 @@ export type UserUpdateOneWithoutSocialLinksNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSocialLinksInput, Prisma.UserUpdateWithoutSocialLinksInput>, Prisma.UserUncheckedUpdateWithoutSocialLinksInput>
 }
 
+export type UserCreateNestedOneWithoutStreamInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutStreamInput, Prisma.UserUncheckedCreateWithoutStreamInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutStreamInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutStreamNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutStreamInput, Prisma.UserUncheckedCreateWithoutStreamInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutStreamInput
+  upsert?: Prisma.UserUpsertWithoutStreamInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutStreamInput, Prisma.UserUpdateWithoutStreamInput>, Prisma.UserUncheckedUpdateWithoutStreamInput>
+}
+
 export type UserCreateNestedOneWithoutTokensInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutTokensInput, Prisma.UserUncheckedCreateWithoutTokensInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutTokensInput
@@ -613,6 +636,7 @@ export type UserCreateWithoutSocialLinksInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   tokens?: Prisma.TokenCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSocialLinksInput = {
@@ -632,6 +656,7 @@ export type UserUncheckedCreateWithoutSocialLinksInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   tokens?: Prisma.TokenUncheckedCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSocialLinksInput = {
@@ -667,6 +692,7 @@ export type UserUpdateWithoutSocialLinksInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tokens?: Prisma.TokenUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSocialLinksInput = {
@@ -686,6 +712,103 @@ export type UserUncheckedUpdateWithoutSocialLinksInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tokens?: Prisma.TokenUncheckedUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUncheckedUpdateOneWithoutUserNestedInput
+}
+
+export type UserCreateWithoutStreamInput = {
+  id?: string
+  email: string
+  password: string
+  username: string
+  displayName: string
+  avatar?: string | null
+  bio?: string | null
+  isVerified?: boolean
+  isEmailVerified?: boolean
+  isTotpEnabled?: boolean
+  totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tokens?: Prisma.TokenCreateNestedManyWithoutUserInput
+  socialLinks?: Prisma.SocialLinkCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutStreamInput = {
+  id?: string
+  email: string
+  password: string
+  username: string
+  displayName: string
+  avatar?: string | null
+  bio?: string | null
+  isVerified?: boolean
+  isEmailVerified?: boolean
+  isTotpEnabled?: boolean
+  totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tokens?: Prisma.TokenUncheckedCreateNestedManyWithoutUserInput
+  socialLinks?: Prisma.SocialLinkUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutStreamInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutStreamInput, Prisma.UserUncheckedCreateWithoutStreamInput>
+}
+
+export type UserUpsertWithoutStreamInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutStreamInput, Prisma.UserUncheckedUpdateWithoutStreamInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutStreamInput, Prisma.UserUncheckedCreateWithoutStreamInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutStreamInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutStreamInput, Prisma.UserUncheckedUpdateWithoutStreamInput>
+}
+
+export type UserUpdateWithoutStreamInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tokens?: Prisma.TokenUpdateManyWithoutUserNestedInput
+  socialLinks?: Prisma.SocialLinkUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutStreamInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tokens?: Prisma.TokenUncheckedUpdateManyWithoutUserNestedInput
+  socialLinks?: Prisma.SocialLinkUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutTokensInput = {
@@ -705,6 +828,7 @@ export type UserCreateWithoutTokensInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   socialLinks?: Prisma.SocialLinkCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutTokensInput = {
@@ -724,6 +848,7 @@ export type UserUncheckedCreateWithoutTokensInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   socialLinks?: Prisma.SocialLinkUncheckedCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutTokensInput = {
@@ -759,6 +884,7 @@ export type UserUpdateWithoutTokensInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   socialLinks?: Prisma.SocialLinkUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTokensInput = {
@@ -778,6 +904,7 @@ export type UserUncheckedUpdateWithoutTokensInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   socialLinks?: Prisma.SocialLinkUncheckedUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUncheckedUpdateOneWithoutUserNestedInput
 }
 
 
@@ -838,6 +965,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   updatedAt?: boolean
   tokens?: boolean | Prisma.User$tokensArgs<ExtArgs>
   socialLinks?: boolean | Prisma.User$socialLinksArgs<ExtArgs>
+  stream?: boolean | Prisma.User$streamArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -899,6 +1027,7 @@ export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tokens?: boolean | Prisma.User$tokensArgs<ExtArgs>
   socialLinks?: boolean | Prisma.User$socialLinksArgs<ExtArgs>
+  stream?: boolean | Prisma.User$streamArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -909,6 +1038,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     tokens: Prisma.$TokenPayload<ExtArgs>[]
     socialLinks: Prisma.$SocialLinkPayload<ExtArgs>[]
+    stream: Prisma.$StreamPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1322,6 +1452,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tokens<T extends Prisma.User$tokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$tokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   socialLinks<T extends Prisma.User$socialLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$socialLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SocialLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  stream<T extends Prisma.User$streamArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$streamArgs<ExtArgs>>): Prisma.Prisma__StreamClient<runtime.Types.Result.GetResult<Prisma.$StreamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1804,6 +1935,25 @@ export type User$socialLinksArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.SocialLinkScalarFieldEnum | Prisma.SocialLinkScalarFieldEnum[]
+}
+
+/**
+ * User.stream
+ */
+export type User$streamArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Stream
+   */
+  select?: Prisma.StreamSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Stream
+   */
+  omit?: Prisma.StreamOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StreamInclude<ExtArgs> | null
+  where?: Prisma.StreamWhereInput
 }
 
 /**

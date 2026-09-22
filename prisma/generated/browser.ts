@@ -28,6 +28,11 @@ export type User = Prisma.UserModel
  */
 export type SocialLink = Prisma.SocialLinkModel
 /**
+ * Model Stream
+ * 
+ */
+export type Stream = Prisma.StreamModel
+/**
  * Model Token
  * 
  */
