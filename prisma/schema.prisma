@@ -31,12 +31,29 @@ model User {
   isDeactivated Boolean   @default(false) @map("is_deactivated")
   deactivatedAt DateTime? @map("deactivated_at")
 
-  tokens Token[]
+  tokens      Token[]
+  socialLinks SocialLink[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("users")
+}
+
+model SocialLink {
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  title    String
+  url      String
+  position Int
+
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @db.Uuid
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("social_links")
 }
 
 model Token {

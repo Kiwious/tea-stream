@@ -52,6 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
+  SocialLink: 'SocialLink',
   Token: 'Token'
 } as const
 
@@ -90,6 +91,19 @@ export const UserScalarFieldEnum = {
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const SocialLinkScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  url: 'url',
+  position: 'position',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SocialLinkScalarFieldEnum = (typeof SocialLinkScalarFieldEnum)[keyof typeof SocialLinkScalarFieldEnum]
 
 
 export const TokenScalarFieldEnum = {

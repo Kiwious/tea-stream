@@ -9,5 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User.js'
+export type * from './models/SocialLink.js'
 export type * from './models/Token.js'
 export type * from './commonInputTypes.js'
