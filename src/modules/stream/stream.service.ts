@@ -1,5 +1,7 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import type { FileUpload } from 'graphql-upload/processRequest.js'
+import { AccessToken } from 'livekit-server-sdk'
 import sharp from 'sharp'
 
 import type { Prisma, User } from '@/prisma/generated/browser'
@@ -9,11 +11,13 @@ import { StorageService } from '../libs/storage/storage.service'
 
 import { ChangeStreamInfoInput } from './inputs/change-stream-info.input'
 import { FiltersInput } from './inputs/filters.input'
+import { GenerateStreamTokenInput } from './inputs/generate-stream-token.input'
 
 @Injectable()
 export class StreamService {
 	constructor(
 		private readonly prismaService: PrismaService,
+		private readonly configService: ConfigService,
 		private readonly storageService: StorageService
 	) {}
 
@@ -141,6 +145,55 @@ export class StreamService {
 		})
 
 		return true
+	}
+
+	public async generateToken(input: GenerateStreamTokenInput) {
+		const { channelId, userId } = input
+
+		let self: { id: string; username: string }
+
+		const user = await this.prismaService.user.findUnique({
+			where: { id: userId }
+		})
+
+		if (user) {
+			self = {
+				id: user.id,
+				username: user.username
+			}
+		} else {
+			self = {
+				id: userId,
+				username: `Viewer ${Math.floor(Math.random() * 100000)}`
+			}
+		}
+
+		const channel = await this.prismaService.user.findUnique({
+			where: { id: channelId }
+		})
+
+		if (!channel) {
+			throw new NotFoundException('Channel not found')
+		}
+
+		const isHost = self.id === channel.id
+
+		const token = new AccessToken(
+			this.configService.getOrThrow<string>('LIVEKIT_API_KEY'),
+			this.configService.getOrThrow<string>('LIVEKIT_API_SECRET'),
+			{
+				identity: isHost ? `Host-${self.id}` : self.id.toString(),
+				name: self.username
+			}
+		)
+
+		token.addGrant({
+			room: channel.id,
+			roomJoin: true,
+			canPublish: false
+		})
+
+		return { token: token.toJwt() }
 	}
 
 	private async findByUserId(user: User) {
