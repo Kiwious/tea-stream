@@ -10,6 +10,14 @@ export class CategoryService {
 		const categories = await this.prismaService.category.findMany({
 			orderBy: {
 				createdAt: 'desc'
+			},
+			include: {
+				streams: {
+					include: {
+						user: true,
+						category: true
+					}
+				}
 			}
 		})
 		return categories
@@ -28,7 +36,15 @@ export class CategoryService {
 
 		const categories = await this.prismaService.category.findMany({
 			skip: 0,
-			take: total
+			take: total,
+			include: {
+				streams: {
+					include: {
+						user: true,
+						category: true
+					}
+				}
+			}
 		})
 
 		return Array.from(randomIndexes).map(idx => categories[idx])
