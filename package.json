@@ -23,7 +23,9 @@
 		"db:generate": "prisma generate",
 		"db:reset": "prisma migrate reset",
 		"db:studio": "prisma studio",
-		"db:format": "prisma format"
+		"db:format": "prisma format",
+		"db:seed": "ts-node src/core/prisma/prisma.seed.ts",
+		"assets:fetch": "ts-node scripts/fetch-assets.ts"
 	},
 	"dependencies": {
 		"@apollo/server": "^5.5.1",
