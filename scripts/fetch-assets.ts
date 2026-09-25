@@ -124,7 +124,7 @@ async function downloadJson<T>(url: string): Promise<T> {
 	return JSON.parse((await download(url)).toString('utf8')) as T
 }
 
-/** Uploads with the same key shape the app itself uses (leading slash). */
+/** Uploads with the same key shape the app itself uses (no leading slash). */
 async function upload(key: string, buffer: Buffer) {
 	if (dryRun) {
 		logger.log(`[dry-run] would upload ${key} (${buffer.length} bytes)`)
@@ -306,7 +306,7 @@ async function uploadCategories(index: Map<string, Artwork>) {
 		if (!cover) continue
 
 		await upload(
-			`/categories/${slug}.webp`,
+			`categories/${slug}.webp`,
 			await toWebp(cover, CATEGORY_SIZE)
 		)
 	}
@@ -363,7 +363,7 @@ async function uploadStreamThumbnails(index: Map<string, Artwork>) {
 		if (artwork?.screenshots.length) {
 			const buffer = await download(pickRandom(artwork.screenshots))
 			await upload(
-				`/streams/${username}.webp`,
+				`streams/${username}.webp`,
 				await toWebp(buffer, STREAM_SIZE)
 			)
 			continue
@@ -372,7 +372,7 @@ async function uploadStreamThumbnails(index: Map<string, Artwork>) {
 		if (artwork?.localScreenshots.length) {
 			const buffer = await readFile(pickRandom(artwork.localScreenshots))
 			await upload(
-				`/streams/${username}.webp`,
+				`streams/${username}.webp`,
 				await toWebp(buffer, STREAM_SIZE)
 			)
 			continue
@@ -389,7 +389,7 @@ async function uploadAvatars() {
 		)
 
 		await upload(
-			`/channels/${username}.webp`,
+			`channels/${username}.webp`,
 			await toWebp(buffer, AVATAR_SIZE)
 		)
 	}

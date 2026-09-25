@@ -31,7 +31,7 @@ export class ProfileService {
 		}
 
 		const buffer = Buffer.concat(chunks)
-		const fileName = `/channels/${user.username}.webp`
+		const fileName = `channels/${user.username}.webp`
 
 		if (file.filename && file.filename.endsWith('.gif')) {
 			const proccessedBuffer = await sharp(buffer, { animated: true })

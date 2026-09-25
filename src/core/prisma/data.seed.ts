@@ -4,105 +4,105 @@ export const categoriesData = [
 		slug: 'just-chatting',
 		description:
 			'Laid-back conversations with the community, Q&A sessions and everything life throws in between.',
-		thumbnailUrl: '/categories/just-chatting.webp'
+		thumbnailUrl: 'categories/just-chatting.webp'
 	},
 	{
 		title: 'Programming',
 		slug: 'programming',
 		description:
 			'Live coding, code reviews and building real projects from the ground up.',
-		thumbnailUrl: '/categories/programming.webp'
+		thumbnailUrl: 'categories/programming.webp'
 	},
 	{
 		title: 'Hearts of Iron IV',
 		slug: 'hearts-of-iron-iv',
 		description:
 			'Grand strategy on a world map: production lines, focus trees and campaigns that last for days.',
-		thumbnailUrl: '/categories/hearts-of-iron-iv.webp'
+		thumbnailUrl: 'categories/hearts-of-iron-iv.webp'
 	},
 	{
 		title: 'Dota 2',
 		slug: 'dota-2',
 		description:
 			'Complex team fights, deep itemization and legendary late-game comebacks.',
-		thumbnailUrl: '/categories/dota-2.webp'
+		thumbnailUrl: 'categories/dota-2.webp'
 	},
 	{
 		title: 'Counter Strike 2',
 		slug: 'counter-strike-2',
 		description:
 			'Tactical 5v5 shooter action, clutch rounds and competitive ranked matches.',
-		thumbnailUrl: '/categories/counter-strike-2.webp'
+		thumbnailUrl: 'categories/counter-strike-2.webp'
 	},
 	{
 		title: 'Rust',
 		slug: 'rust',
 		description:
 			'Hardcore survival, base building and raids where trust is the rarest resource.',
-		thumbnailUrl: '/categories/rust.webp'
+		thumbnailUrl: 'categories/rust.webp'
 	},
 	{
 		title: 'War Thunder',
 		slug: 'war-thunder',
 		description:
 			'Combined arms battles across tanks, planes and ships with realistic damage models.',
-		thumbnailUrl: '/categories/war-thunder.webp'
+		thumbnailUrl: 'categories/war-thunder.webp'
 	},
 	{
 		title: 'Minecraft',
 		slug: 'minecraft',
 		description:
 			'Building, surviving and exploring in the most famous blocky world out there.',
-		thumbnailUrl: '/categories/minecraft.webp'
+		thumbnailUrl: 'categories/minecraft.webp'
 	},
 	{
 		title: 'PayDay 3',
 		slug: 'payday-3',
 		description:
 			'Co-op heists, stealth runs and loud shootouts when the plan falls apart.',
-		thumbnailUrl: '/categories/payday-3.webp'
+		thumbnailUrl: 'categories/payday-3.webp'
 	},
 	{
 		title: 'Geometry Dash',
 		slug: 'geometry-dash',
 		description:
 			'Rhythm-based platforming, impossible levels and attempt counters in the thousands.',
-		thumbnailUrl: '/categories/geometry-dash.webp'
+		thumbnailUrl: 'categories/geometry-dash.webp'
 	},
 	{
 		title: 'Arma 3',
 		slug: 'arma-3',
 		description:
 			'Large-scale military simulation with realistic ballistics, milsim ops and roleplay servers.',
-		thumbnailUrl: '/categories/arma-3.webp'
+		thumbnailUrl: 'categories/arma-3.webp'
 	},
 	{
 		title: 'Subnautica',
 		slug: 'subnautica',
 		description:
 			'Underwater survival on an alien ocean planet, full of discovery and deep-sea dread.',
-		thumbnailUrl: '/categories/subnautica.webp'
+		thumbnailUrl: 'categories/subnautica.webp'
 	},
 	{
 		title: 'Brawl Stars',
 		slug: 'brawl-stars',
 		description:
 			'Fast-paced 3v3 mobile brawls, ranked pushes and brawler unlock celebrations.',
-		thumbnailUrl: '/categories/brawl-stars.webp'
+		thumbnailUrl: 'categories/brawl-stars.webp'
 	},
 	{
 		title: 'League of Legends',
 		slug: 'league-of-legends',
 		description:
 			"MOBA battles on Summoner's Rift, from solo queue grinds to pro play analysis.",
-		thumbnailUrl: '/categories/league-of-legends.webp'
+		thumbnailUrl: 'categories/league-of-legends.webp'
 	},
 	{
 		title: 'Satisfactory',
 		slug: 'satisfactory',
 		description:
 			'Factory automation on an alien planet: conveyor spaghetti, endless production chains and just one more upgrade.',
-		thumbnailUrl: '/categories/satisfactory.webp'
+		thumbnailUrl: 'categories/satisfactory.webp'
 	}
 ]
 

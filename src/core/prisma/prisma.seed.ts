@@ -61,7 +61,7 @@ async function main() {
 							password: await hash('12345678'),
 							username,
 							displayName: username,
-							avatar: `/channels/${username}.webp`,
+							avatar: `channels/${username}.webp`,
 							isEmailVerified: true,
 							socialLinks: {
 								createMany: {
@@ -89,7 +89,7 @@ async function main() {
 					await tx.stream.create({
 						data: {
 							title: randomTitle,
-							thumbnailUrl: `/streams/${createdUser.username}.webp`,
+							thumbnailUrl: `streams/${createdUser.username}.webp`,
 							user: {
 								connect: {
 									id: createdUser.id
