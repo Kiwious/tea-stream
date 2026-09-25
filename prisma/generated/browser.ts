@@ -33,6 +33,11 @@ export type SocialLink = Prisma.SocialLinkModel
  */
 export type Stream = Prisma.StreamModel
 /**
+ * Model ChatMessage
+ * 
+ */
+export type ChatMessage = Prisma.ChatMessageModel
+/**
  * Model Category
  * 
  */
