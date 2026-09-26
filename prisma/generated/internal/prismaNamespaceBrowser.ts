@@ -56,6 +56,7 @@ export const ModelName = {
   Stream: 'Stream',
   ChatMessage: 'ChatMessage',
   Category: 'Category',
+  Follow: 'Follow',
   Token: 'Token'
 } as const
 
@@ -152,6 +153,17 @@ export const CategoryScalarFieldEnum = {
 } as const
 
 export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
+export const FollowScalarFieldEnum = {
+  id: 'id',
+  followerId: 'followerId',
+  followingId: 'followingId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FollowScalarFieldEnum = (typeof FollowScalarFieldEnum)[keyof typeof FollowScalarFieldEnum]
 
 
 export const TokenScalarFieldEnum = {

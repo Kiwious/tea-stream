@@ -65,6 +65,11 @@ export type ChatMessage = Prisma.ChatMessageModel
  */
 export type Category = Prisma.CategoryModel
 /**
+ * Model Follow
+ * 
+ */
+export type Follow = Prisma.FollowModel
+/**
  * Model Token
  * 
  */
