@@ -25,6 +25,10 @@ export class GqlAuthGuard implements CanActivate {
 			where: { id: request.session.userId }
 		})
 
+		if (!user) {
+			throw new UnauthorizedException('Not authorized')
+		}
+
 		request.user = user
 
 		return true
