@@ -84,3 +84,18 @@ export type NotificationSettings = Prisma.NotificationSettingsModel
  * 
  */
 export type Token = Prisma.TokenModel
+/**
+ * Model Transaction
+ * 
+ */
+export type Transaction = Prisma.TransactionModel
+/**
+ * Model SponsorshipPlan
+ * 
+ */
+export type SponsorshipPlan = Prisma.SponsorshipPlanModel
+/**
+ * Model SponsorshipSubscription
+ * 
+ */
+export type SponsorshipSubscription = Prisma.SponsorshipSubscriptionModel

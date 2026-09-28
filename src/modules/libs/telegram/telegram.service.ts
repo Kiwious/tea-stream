@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config'
 import { Action, Command, Ctx, Start, Update } from 'nestjs-telegraf'
 import { Context, Telegraf } from 'telegraf'
 
-import type { User } from '@/prisma/generated/browser'
+import type { SponsorshipPlan, User } from '@/prisma/generated/browser'
 import { TokenType } from '@/prisma/generated/enums'
 import { PrismaService } from '@/src/core/prisma/prisma.service'
 import type { SessionMetadata } from '@/src/shared/types/session-metadata.types'
@@ -145,6 +145,20 @@ export class TelegramService extends Telegraf {
 				'<b>❌ You are not following any channels.</b>'
 			)
 		}
+	}
+
+	public async sendNewSponsorship(
+		chatId: string,
+		plan: SponsorshipPlan,
+		sponsor: User
+	) {
+		await this.telegram.sendMessage(
+			chatId,
+			MESSAGES.newSponsorship(plan, sponsor),
+			{
+				parse_mode: 'HTML'
+			}
+		)
 	}
 
 	public async sendDeactivateToken(

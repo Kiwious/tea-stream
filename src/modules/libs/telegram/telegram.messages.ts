@@ -1,4 +1,4 @@
-import type { User } from '@/prisma/generated/browser'
+import type { SponsorshipPlan, User } from '@/prisma/generated/browser'
 import type { SessionMetadata } from '@/src/shared/types/session-metadata.types'
 
 export const MESSAGES = {
@@ -66,5 +66,12 @@ export const MESSAGES = {
 	newFollowing: (follower: User, followersCount: number) =>
 		`<b>👥 You have a new follower!</b>\n\n` +
 		`It's <a href="https://teastream.ru/${follower.username}">${follower.displayName}</a>\n\n` +
-		`Total followers on your channel: ${followersCount}`
+		`Total followers on your channel: ${followersCount}`,
+	newSponsorship: (plan: SponsorshipPlan, sponsor: User) =>
+		`<b>🎉 New sponsor!</b>\n\n` +
+		`You have received a new sponsorship for the <b>${plan.title}</b> plan.\n` +
+		`💰 Amount: <b>${plan.price} €</b>\n` +
+		`👤 Sponsor: <a href="https://teastream.ru/${sponsor.username}">${sponsor.displayName}</a>\n` +
+		`📅 Date: <b>${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</b>\n\n` +
+		`Thank you for your work and support on the TeaStream platform!`
 }

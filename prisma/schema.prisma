@@ -43,6 +43,11 @@ model User {
   followers  Follow[] @relation(name: "followings")
   followings Follow[] @relation(name: "followers")
 
+  transactions             Transaction[]
+  sponsorshipPlans         SponsorshipPlan[]
+  sponsorshipSubscriptions SponsorshipSubscription[] @relation(name: "sponsorship_subscriptions")
+  sponsors                 SponsorshipSubscription[] @relation(name: "sponsors")
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
@@ -190,6 +195,65 @@ model Token {
   @@map("tokens")
 }
 
+model Transaction {
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  amount   Float
+  currency String
+
+  stripeSubscriptionId String?           @map("stripe_subscription_id")
+  status               TransactionStatus @default(PENDING)
+
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String? @map("user_id") @db.Uuid
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("transactions")
+}
+
+model SponsorshipPlan {
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  title       String
+  description String?
+  price       Float
+
+  stripeProductId String @map("stripe_product_id")
+  stripePlanId    String @map("stripe_plan_id")
+
+  channel   User?   @relation(fields: [channelId], references: [id])
+  channelId String? @db.Uuid
+
+  sponsorshipSubscriptions SponsorshipSubscription[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("sponsorship_plans")
+}
+
+model SponsorshipSubscription {
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  expiresAt DateTime @map("expires_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user   User?   @relation(name: "sponsorship_subscriptions", fields: [userId], references: [id])
+  userId String? @db.Uuid
+
+  channel   User?   @relation(name: "sponsors", fields: [channelId], references: [id])
+  channelId String? @db.Uuid
+
+  sponsorshipPlan   SponsorshipPlan? @relation(fields: [sponsorshipPlanId], references: [id])
+  sponsorshipPlanId String?          @db.Uuid
+
+  @@map("sponsorship_subscriptions")
+}
+
 enum TokenType {
   EMAIL_VERIFY
   PASSWORD_RESET
@@ -207,4 +271,13 @@ enum NotificationType {
   VERIFIED_CHANNEL
 
   @@map("notification_types")
+}
+
+enum TransactionStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  EXPIRED
+
+  @@map("transaction_statuses")
 }
