@@ -73,5 +73,13 @@ export const MESSAGES = {
 		`💰 Amount: <b>${plan.price} €</b>\n` +
 		`👤 Sponsor: <a href="https://teastream.ru/${sponsor.username}">${sponsor.displayName}</a>\n` +
 		`📅 Date: <b>${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</b>\n\n` +
-		`Thank you for your work and support on the TeaStream platform!`
+		`Thank you for your work and support on the TeaStream platform!`,
+	enableTwoFactor:
+		`🔐 Secure your account!\n\n` +
+		`Enable two-factor authentication in your <a href="https://teastream.ru/dashboard/settings">account settings</a>.`,
+	verifyChannel:
+		`<b>🎉 Congratulations! Your channel has been verified</b>\n\n` +
+		`We're happy to let you know that your channel is now verified and you've received an official badge.\n\n` +
+		`The verification badge confirms the authenticity of your channel and increases viewer trust.\n\n` +
+		`Thank you for being with us and continuing to grow your channel with TeaStream!`
 }

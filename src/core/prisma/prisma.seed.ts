@@ -78,6 +78,9 @@ async function main() {
 										}
 									]
 								}
+							},
+							notificationSettings: {
+								create: {}
 							}
 						}
 					})
