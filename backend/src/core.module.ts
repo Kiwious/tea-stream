@@ -3,6 +3,7 @@ import { ApolloDriver } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
+import { join } from 'node:path'
 
 import { getGraphQLConfig } from './core/config/graphql.config'
 import { getLiveKitConfig } from './core/config/livekit.config'
