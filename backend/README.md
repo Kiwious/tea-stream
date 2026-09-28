@@ -91,28 +91,28 @@ docker compose up -d
 
 ```bash
 cd backend
-npm install        # führt automatisch `prisma generate` aus (postinstall)
+yarn install       # führt automatisch `prisma generate` aus (postinstall)
 ```
 
 ### 4. Datenbank migrieren und befüllen
 
 ```bash
-npm run db:push    # Migrationen anwenden (prisma migrate dev)
-npm run db:seed    # Testdaten: Kategorien, User, Streams
+yarn db:push        # Migrationen anwenden (prisma migrate dev)
+yarn db:seed        # Testdaten: Kategorien, User, Streams
 ```
 
 Optional Platzhalter-Bilder für die Seed-Daten nach S3 hochladen:
 
 ```bash
-npm run assets:fetch
-npm run assets:fetch -- --only=avatars --force
-npm run assets:fetch -- --dry-run
+yarn assets:fetch
+yarn assets:fetch --only=avatars --force
+yarn assets:fetch --dry-run
 ```
 
 ### 5. Starten
 
 ```bash
-npm run start:dev
+yarn start:dev
 ```
 
 Die GraphQL-API ist dann unter `http://localhost:<APPLICATION_PORT><GRAPHQL_PREFIX>` erreichbar. Im Modus `NODE_ENV=development` ist der GraphQL Playground aktiv.
@@ -160,7 +160,7 @@ LiveKit braucht eine öffentlich erreichbare URL (z. B. über ngrok oder Cloudfl
 ## Prisma-Workflow
 
 1. `prisma/schema.prisma` ändern
-2. `npm run db:push` – erstellt eine neue Migration in `prisma/migrations/` und generiert den Client
+2. `yarn db:push` – erstellt eine neue Migration in `prisma/migrations/` und generiert den Client
 3. Migration zusammen mit dem Schema committen
 
-`prisma/generated/` ist in `.gitignore` und wird bei `npm install` bzw. `npm run db:generate` neu erzeugt.
+`prisma/generated/` ist in `.gitignore` und wird bei `yarn install` bzw. `yarn db:generate` neu erzeugt.
