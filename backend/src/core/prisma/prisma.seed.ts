@@ -1,11 +1,14 @@
 import { BadRequestException, Logger } from '@nestjs/common'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { hash } from 'argon2'
-import 'dotenv/config'
+import dotenv from 'dotenv'
 
 import { Prisma, PrismaClient } from '../../../prisma/generated/client'
+import { ENV_FILE_PATH } from '../../shared/utils/env-path.util'
 
 import { categoriesData, streamTitles, usernames } from './data.seed'
+
+dotenv.config({ path: ENV_FILE_PATH })
 
 const adapter = new PrismaPg({
 	connectionString: process.env.POSTGRES_URI

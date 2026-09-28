@@ -1,15 +1,18 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { Logger } from '@nestjs/common'
 import { PrismaPg } from '@prisma/adapter-pg'
-import 'dotenv/config'
+import dotenv from 'dotenv'
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import sharp from 'sharp'
 
+import { ENV_FILE_PATH } from '@/src/shared/utils/env-path.util'
+
 import { PrismaClient } from '../prisma/generated/client'
 import { categoriesData, usernames } from '../src/core/prisma/data.seed'
 
+dotenv.config({ path: ENV_FILE_PATH })
 /**
  * Downloads placeholder artwork for the seeded categories, streams and
  * channels, then uploads it to S3 under the exact keys the seed writes

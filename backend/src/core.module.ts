@@ -3,7 +3,6 @@ import { ApolloDriver } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
-import { join } from 'node:path'
 
 import { getGraphQLConfig } from './core/config/graphql.config'
 import { getLiveKitConfig } from './core/config/livekit.config'
@@ -35,11 +34,13 @@ import { TransactionModule } from './modules/sponsorship/transaction/transaction
 import { IngressModule } from './modules/stream/ingress/ingress.module'
 import { StreamModule } from './modules/stream/stream.module'
 import { WebhookModule } from './modules/webhook/webhook.module'
+import { ENV_FILE_PATH } from './shared/utils/env-path.util'
 import { IS_DEV_ENV } from './shared/utils/is-dev.util'
 
 @Module({
 	imports: [
 		ConfigModule.forRoot({
+			envFilePath: ENV_FILE_PATH,
 			ignoreEnvFile: !IS_DEV_ENV,
 			isGlobal: true,
 			expandVariables: true

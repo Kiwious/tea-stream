@@ -1,98 +1,166 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# TeaStream – Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+GraphQL-API für die Streaming-Plattform TeaStream. Gebaut mit **NestJS**, **Apollo GraphQL**, **Prisma** (PostgreSQL) und **Redis**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Tech-Stack
 
-## Description
+| Bereich         | Technologie                                            |
+| --------------- | ------------------------------------------------------ |
+| Framework       | NestJS 12, Express 5                                   |
+| API             | GraphQL (Apollo Server 5, Code-First), Subscriptions   |
+| Datenbank       | PostgreSQL + Prisma 7 (`@prisma/adapter-pg`)           |
+| Sessions        | `express-session` mit Redis-Store                      |
+| Streaming       | LiveKit (Ingress, Webhooks)                            |
+| Zahlungen       | Stripe (Sponsoring-Abos, Webhooks)                     |
+| Dateien         | S3-kompatibler Storage, Bildverarbeitung mit `sharp`   |
+| E-Mails         | `@nestjs-modules/mailer` + React Email Templates       |
+| Benachrichtigung| In-App, E-Mail und Telegram-Bot (`nestjs-telegraf`)    |
+| Auth            | Passwort-Hashing mit Argon2, 2FA via TOTP              |
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Features
 
-## Project setup
+- **Auth**: Registrierung, Login/Logout, Sessions (mit Geräte- und Standortinfo), E-Mail-Verifizierung, Passwort-Reset, TOTP-2FA, Account-Deaktivierung
+- **Profil**: Avatar, Profildaten, Social Links
+- **Streams**: Stream-Verwaltung, LiveKit-Ingress (RTMP/WHIP), Thumbnails, Kategorien
+- **Chat**: Live-Chat pro Stream über GraphQL-Subscriptions
+- **Follows**: Kanälen folgen
+- **Benachrichtigungen**: Neue Follower, Stream-Start, Sponsoring u. a. – per App, E-Mail und Telegram, einstellbar pro User
+- **Sponsoring**: Sponsoring-Pläne, Abos und Transaktionen über Stripe
+- **Cron-Jobs**: Löschen deaktivierter Accounts und alter Benachrichtigungen, automatische Kanal-Verifizierung, Erinnerung an 2FA
 
-```bash
-$ yarn install
+## Projektstruktur
+
+```
+backend/
+├── prisma/
+│   ├── schema.prisma        # Datenbankschema
+│   ├── migrations/          # Versionierte Migrationen (committed)
+│   └── generated/           # Generierter Prisma Client (nicht committed)
+├── scripts/
+│   ├── fetch-assets.ts      # Lädt Platzhalter-Bilder für den Seed nach S3
+│   └── assets/              # Lokale Bilder für Nicht-Steam-Kategorien
+└── src/
+    ├── main.ts              # Bootstrap: Session, CORS, Upload, Validation
+    ├── core.module.ts       # Root-Modul
+    ├── core/
+    │   ├── config/          # Configs für GraphQL, Mailer, LiveKit, Stripe, Telegram
+    │   ├── graphql/         # Automatisch generiertes schema.gql
+    │   ├── prisma/          # PrismaService + Seed
+    │   └── redis/           # RedisService
+    ├── modules/
+    │   ├── auth/            # account, session, profile, totp, verification, …
+    │   ├── category/  channel/  chat/  follow/  stream/
+    │   ├── notification/    # Benachrichtigungen + Einstellungen
+    │   ├── sponsorship/     # plan, subscription, transaction
+    │   ├── webhook/         # REST-Endpunkte für LiveKit und Stripe
+    │   ├── cron/
+    │   └── libs/            # livekit, mail, storage, stripe, telegram
+    └── shared/              # Decorators, Guards, Pipes, Middlewares, Utils
 ```
 
-## Compile and run the project
+## Voraussetzungen
+
+- Node.js 22+
+- Docker (für PostgreSQL und Redis)
+- Accounts/Keys für: S3-Storage, LiveKit, Stripe, SMTP, Telegram-Bot
+
+## Setup
+
+### 1. Umgebungsvariablen
+
+Die `.env` liegt im **Root des Monorepos** und wird von Backend und Docker Compose gemeinsam genutzt:
 
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+# im Root des Repos
+cp .env.example .env
 ```
 
-## Run tests
+Danach die leeren Werte (Secrets, Zugangsdaten) ausfüllen.
+
+### 2. Datenbank und Redis starten
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+# im Root des Repos
+docker compose up -d
 ```
 
-## Deployment
+- PostgreSQL läuft auf **Port 5433** (Host) → 5432 (Container)
+- Redis läuft auf **Port 6379**, mit Passwort aus `REDIS_PASSWORD`
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 3. Abhängigkeiten installieren
 
 ```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
+cd backend
+npm install        # führt automatisch `prisma generate` aus (postinstall)
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 4. Datenbank migrieren und befüllen
 
-## Resources
+```bash
+npm run db:push    # Migrationen anwenden (prisma migrate dev)
+npm run db:seed    # Testdaten: Kategorien, User, Streams
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+Optional Platzhalter-Bilder für die Seed-Daten nach S3 hochladen:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+npm run assets:fetch
+npm run assets:fetch -- --only=avatars --force
+npm run assets:fetch -- --dry-run
+```
 
-## Support
+### 5. Starten
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+npm run start:dev
+```
 
-## Stay in touch
+Die GraphQL-API ist dann unter `http://localhost:<APPLICATION_PORT><GRAPHQL_PREFIX>` erreichbar. Im Modus `NODE_ENV=development` ist der GraphQL Playground aktiv.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Scripts
 
-## License
+| Script                 | Beschreibung                                         |
+| ---------------------- | ---------------------------------------------------- |
+| `start:dev`            | Dev-Server mit Watch-Mode                            |
+| `start:debug`          | Dev-Server mit Debugger                              |
+| `build`                | Produktions-Build nach `dist/`                       |
+| `start:prod`           | Startet den Build aus `dist/`                        |
+| `lint` / `format`      | ESLint / Prettier                                    |
+| `test` / `test:e2e`    | Unit- / E2E-Tests (Jest)                             |
+| `db:push`              | Neue Migration erstellen und anwenden (Entwicklung)  |
+| `db:deploy`            | Vorhandene Migrationen anwenden (Produktion/CI)      |
+| `db:generate`          | Prisma Client neu generieren                         |
+| `db:reset`             | Datenbank zurücksetzen und neu migrieren             |
+| `db:studio`            | Prisma Studio öffnen                                 |
+| `db:format`            | `schema.prisma` formatieren                          |
+| `db:seed`              | Testdaten einspielen                                 |
+| `assets:fetch`         | Seed-Bilder herunterladen und nach S3 hochladen      |
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Umgebungsvariablen
+
+Alle Variablen mit Beispielwerten stehen in [`../.env.example`](../.env.example). Der Pfad zur `.env` wird zentral in `src/shared/utils/env-path.util.ts` festgelegt (`../.env` relativ zu `backend/`).
+
+Variablen können über `${...}` aufeinander verweisen (`expandVariables` ist aktiv). Außerhalb von `NODE_ENV=development` wird die `.env` **nicht** geladen – dort müssen die Variablen aus der Umgebung kommen.
+
+## Webhooks
+
+| Endpunkt                | Quelle  | Zweck                                         |
+| ----------------------- | ------- | --------------------------------------------- |
+| `POST /webhook/livekit` | LiveKit | Stream-Status (live/offline) aktualisieren    |
+| `POST /webhook/stripe`  | Stripe  | Checkout-Sessions (abgeschlossen/abgelaufen)  |
+
+Für lokale Entwicklung Stripe-Events weiterleiten:
+
+```bash
+stripe listen --forward-to localhost:<APPLICATION_PORT>/webhook/stripe
+```
+
+LiveKit braucht eine öffentlich erreichbare URL (z. B. über ngrok oder Cloudflare Tunnel).
+
+## Prisma-Workflow
+
+1. `prisma/schema.prisma` ändern
+2. `npm run db:push` – erstellt eine neue Migration in `prisma/migrations/` und generiert den Client
+3. Migration zusammen mit dem Schema committen
+
+`prisma/generated/` ist in `.gitignore` und wird bei `npm install` bzw. `npm run db:generate` neu erzeugt.
