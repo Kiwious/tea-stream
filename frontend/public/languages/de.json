@@ -18,7 +18,9 @@
 			"errorMessage": "Fehler beim Erstellen des Kontos"
 		},
 		"verify": {
-			"successMessage": "Konto verifiziert"
+			"heading": "Konto Verifizierung",
+			"successMessage": "Konto verifiziert",
+			"errorMessage": "Fehler beim Verifizieren des Kontos"
 		}
 	}
 }
