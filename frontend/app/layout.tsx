@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { Geist } from 'next/font/google'
 import { cn } from 'cn'
+import { ThemeProvider } from '@/providers/theme-provider'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -17,11 +18,21 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 	const locale = await getLocale()
 	const messages = await getMessages()
 	return (
-		<html lang={locale} className={cn('font-sans', geist.variable)}>
+		<html
+			lang={locale}
+			className={cn('font-sans', geist.variable)}
+			suppressHydrationWarning
+		>
 			<body>
 				<ApolloClientProvider>
 					<NextIntlClientProvider messages={messages}>
-						{children}
+						<ThemeProvider
+							attribute='class'
+							defaultTheme='dark'
+							disableTransitionOnChange
+						>
+							{children}
+						</ThemeProvider>
 					</NextIntlClientProvider>
 				</ApolloClientProvider>
 			</body>
