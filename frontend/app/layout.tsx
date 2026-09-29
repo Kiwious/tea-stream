@@ -3,6 +3,10 @@ import '../styles/globals.css'
 import { ApolloClientProvider } from '@/providers/apollo-client-provider'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
+import { Geist } from 'next/font/google'
+import { cn } from 'cn'
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -13,7 +17,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 	const locale = await getLocale()
 	const messages = await getMessages()
 	return (
-		<html lang={locale}>
+		<html lang={locale} className={cn('font-sans', geist.variable)}>
 			<body>
 				<ApolloClientProvider>
 					<NextIntlClientProvider messages={messages}>
