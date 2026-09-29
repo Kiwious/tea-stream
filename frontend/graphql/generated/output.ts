@@ -2,7 +2,7 @@
 type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** Internal type. DO NOT USE DIRECTLY. */
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-import { useLazyQuery, useQuery, useSuspenseQuery } from '@apollo/client/react'
+import { useLazyQuery, useMutation, useQuery, useSuspenseQuery } from '@apollo/client/react'
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -590,6 +590,19 @@ export type VerificationInput = {
   token: Scalars['String']['input'];
 };
 
+export type CreateUserInput = {
+  email: string;
+  password: string;
+  username: string;
+};
+
+export type CreateUserMutationVariables = Exact<{
+  data: CreateUserInput;
+}>;
+
+
+export type CreateUserMutation = { createUser: boolean };
+
 export type FindChannelByUsernameQueryVariables = Exact<{
   username: string;
 }>;
@@ -598,7 +611,12 @@ export type FindChannelByUsernameQueryVariables = Exact<{
 export type FindChannelByUsernameQuery = { findChannelByUsername: { username: string, avatar: string | null, displayName: string, stream: { title: string, category: { title: string } } } };
 
 
+export const CreateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateUserInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<CreateUserMutation, CreateUserMutationVariables>;
 export const FindChannelByUsernameDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindChannelByUsername"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"username"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findChannelByUsername"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"username"},"value":{"kind":"Variable","name":{"kind":"Name","value":"username"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"stream"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]}}]} as unknown as DocumentNode<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>;
+export function useCreateUserMutation(options?: useMutation.Options<CreateUserMutation, CreateUserMutationVariables>) {
+	return useMutation(CreateUserDocument, options as useMutation.Options<CreateUserMutation, CreateUserMutationVariables>)
+}
+
 export function useFindChannelByUsernameQuery(...[options]: {} extends FindChannelByUsernameQueryVariables ? [options?: useQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>] : [options: useQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>]) {
 	return useQuery(FindChannelByUsernameDocument, options as useQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>)
 }

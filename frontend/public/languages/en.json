@@ -1,5 +1,21 @@
 {
-	"home": {
-		"title": "Home Page"
+	"auth": {
+		"register": {
+			"heading": "Sign up for TeaStream",
+			"backButtonLabel": "Already have an account? Log in",
+			"usernameLabel": "Username",
+			"usernameDescription": "This is the name other users will know you by.",
+			"emailLabel": "Email",
+			"emailDescription": "We may use your email to send you messages about your account.",
+			"passwordLabel": "Password",
+			"passwordDescription": "Password must be at least 8 characters long.",
+			"submitButton": "Sign up",
+			"successAlertTitle": "Check your email",
+			"successAlertDescription": "A confirmation email has been sent to your email address. If you don't see it, check your spam folder.",
+			"errorMessage": "Error creating account"
+		},
+		"verify": {
+			"successMessage": "Account verified"
+		}
 	}
 }

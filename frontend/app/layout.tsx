@@ -6,6 +6,7 @@ import { getLocale, getMessages } from 'next-intl/server'
 import { Geist } from 'next/font/google'
 import { cn } from 'cn'
 import { ThemeProvider } from '@/providers/theme-provider'
+import { Toaster } from '@/components/ui/common/toast'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -31,6 +32,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 							defaultTheme='dark'
 							disableTransitionOnChange
 						>
+							<Toaster />
 							{children}
 						</ThemeProvider>
 					</NextIntlClientProvider>
