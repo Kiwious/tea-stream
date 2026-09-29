@@ -21,6 +21,20 @@
 			"heading": "Konto Verifizierung",
 			"successMessage": "Konto verifiziert",
 			"errorMessage": "Fehler beim Verifizieren des Kontos"
+		},
+		"login": {
+			"heading": "Bei TeaStream anmelden",
+			"backButtonLabel": "Noch kein Konto? Registrieren",
+			"pinLabel": "6-stelliger Code",
+			"pinDescription": "Gib den Code aus deiner Authentifizierungs-App ein.",
+			"loginLabel": "Login",
+			"loginDescription": "Dein Benutzername oder deine E-Mail-Adresse, die du bei der Registrierung angegeben hast.",
+			"passwordLabel": "Passwort",
+			"passwordDescription": "Das Passwort, das du bei der Registrierung festgelegt hast.",
+			"forgotPassword": "Passwort vergessen?",
+			"submitButton": "Anmelden",
+			"successMessage": "Du hast dich erfolgreich angemeldet",
+			"errorMessage": "Fehler bei der Anmeldung"
 		}
 	}
 }

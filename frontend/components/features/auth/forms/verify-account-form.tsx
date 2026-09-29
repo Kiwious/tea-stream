@@ -4,7 +4,7 @@ import { toast } from '@/components/ui/common/toast'
 import { useVerifyAccountMutation } from '@/graphql/generated/output'
 import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { AuthWrapper } from '../auth-wrapper'
 import { Loader } from 'lucide-react'
 
@@ -32,7 +32,12 @@ export function VerifyAccountForm() {
 		}
 	})
 
+	const hasVerified = useRef(false)
+
 	useEffect(() => {
+		if (hasVerified.current) return
+		hasVerified.current = true
+
 		verify({
 			variables: {
 				data: {
