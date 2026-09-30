@@ -32,6 +32,27 @@
 			"submitButton": "Log in",
 			"successMessage": "You have successfully logged in",
 			"errorMessage": "Error while logging in"
+		},
+		"resetPassword": {
+			"heading": "Reset password",
+			"backButtonLabel": "Already have an account? Log in",
+			"emailLabel": "Email",
+			"emailDescription": "The email you used when signing up.",
+			"submitButton": "Reset password",
+			"successAlertTitle": "Link sent",
+			"successAlertDescription": "We've sent a password reset link to your email. If you have Telegram notifications enabled, the link was also sent there.",
+			"errorMessage": "Error while resetting password"
+		},
+		"newPassword": {
+			"heading": "New password",
+			"backButtonLabel": "Already have an account? Log in",
+			"passwordLabel": "New password",
+			"passwordDescription": "Password must be at least 8 characters long.",
+			"passwordRepeatLabel": "Repeat password",
+			"passwordRepeatDescription": "Repeat your new password to confirm it.",
+			"submitButton": "Set new password",
+			"successMessage": "Password changed successfully",
+			"errorMessage": "Error while setting new password"
 		}
 	}
 }

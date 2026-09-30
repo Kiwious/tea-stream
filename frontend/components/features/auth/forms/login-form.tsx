@@ -2,7 +2,7 @@
 
 import { toast } from '@/components/ui/common/toast'
 import { useLoginUserMutation } from '@/graphql/generated/output'
-import { LoginFormValues, loginSchema } from '@/schemas/auth/login.schema'
+import { type LoginFormValues, loginSchema } from '@/schemas/auth/login.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -16,6 +16,8 @@ import {
 	InputOTPGroup,
 	InputOTPSlot
 } from '@/components/ui/common/input-otp'
+import Link from 'next/link'
+import { Label } from '@/components/ui/common/label'
 
 export function LoginForm() {
 	const t = useTranslations('auth.login')
@@ -55,7 +57,7 @@ export function LoginForm() {
 				data: {
 					login,
 					password,
-					pin
+					pin: pin || undefined
 				}
 			}
 		})
@@ -101,22 +103,32 @@ export function LoginForm() {
 
 							<Input
 								name='password'
-								label={t('passwordLabel')}
+								label={
+									<div className='flex w-full items-center justify-between'>
+										<div>{t('passwordLabel')}</div>
+										<Link
+											href='/account/recovery'
+											className='ml-auto inline-block text-sm'
+										>
+											{t('forgotPassword')}
+										</Link>
+									</div>
+								}
 								placeholder='********'
 								description={t('passwordDescription')}
 								type='password'
 								disabled={isLoadingLogin}
 							/>
-
-							<Button
-								className='mt-2 w-full'
-								disabled={!isValid || isLoadingLogin}
-								type='submit'
-							>
-								{t('submitButton')}
-							</Button>
 						</>
 					)}
+
+					<Button
+						className='mt-2 w-full'
+						disabled={!isValid || isLoadingLogin}
+						type='submit'
+					>
+						{t('submitButton')}
+					</Button>
 				</form>
 			</FormProvider>
 		</AuthWrapper>

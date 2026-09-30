@@ -1,6 +1,6 @@
 import { Input as InputPrimitive } from '@base-ui/react/input'
 import { cn } from 'cn'
-import type { ComponentProps } from 'react'
+import type { ComponentProps, ReactNode } from 'react'
 import { useController, useFormContext } from 'react-hook-form'
 import { Field, FieldDescription } from './field'
 import { Label } from './label'
@@ -9,7 +9,7 @@ type InputProps = ComponentProps<'input'> &
 	Required<Pick<ComponentProps<'input'>, 'name'>>
 
 interface Props extends InputProps {
-	label?: string
+	label?: string | ReactNode
 	description?: string
 }
 

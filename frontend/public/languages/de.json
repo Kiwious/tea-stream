@@ -35,6 +35,27 @@
 			"submitButton": "Anmelden",
 			"successMessage": "Du hast dich erfolgreich angemeldet",
 			"errorMessage": "Fehler bei der Anmeldung"
+		},
+		"resetPassword": {
+			"heading": "Passwort zurücksetzen",
+			"backButtonLabel": "Du hast bereits ein Konto? Anmelden",
+			"emailLabel": "E-Mail",
+			"emailDescription": "Die E-Mail-Adresse, die du bei der Registrierung angegeben hast.",
+			"submitButton": "Passwort zurücksetzen",
+			"successAlertTitle": "Link gesendet",
+			"successAlertDescription": "Wir haben dir einen Link zum Zurücksetzen deines Passworts per E-Mail gesendet. Wenn du Telegram-Benachrichtigungen aktiviert hast, wurde der Link auch dorthin gesendet.",
+			"errorMessage": "Fehler beim Zurücksetzen des Passworts"
+		},
+		"newPassword": {
+			"heading": "Neues Passwort",
+			"backButtonLabel": "Du hast bereits ein Konto? Anmelden",
+			"passwordLabel": "Neues Passwort",
+			"passwordDescription": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+			"passwordRepeatLabel": "Passwort wiederholen",
+			"passwordRepeatDescription": "Wiederhole dein neues Passwort zur Bestätigung.",
+			"submitButton": "Passwort setzen",
+			"successMessage": "Passwort erfolgreich geändert",
+			"errorMessage": "Fehler beim Festlegen des neuen Passworts"
 		}
 	}
 }
