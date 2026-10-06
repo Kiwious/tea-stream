@@ -7,9 +7,12 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import { AuthWrapper } from '../auth-wrapper'
 import { Loader } from 'lucide-react'
+import { useAuth } from '@/hooks/useAuth'
 
 export function VerifyAccountForm() {
 	const t = useTranslations('auth.verify')
+
+	const { auth } = useAuth()
 
 	const router = useRouter()
 	const searchParams = useSearchParams()
@@ -18,6 +21,7 @@ export function VerifyAccountForm() {
 
 	const [verify] = useVerifyAccountMutation({
 		onCompleted: () => {
+			auth()
 			toast.add({
 				type: 'success',
 				description: t('successMessage')

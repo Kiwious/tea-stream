@@ -17,12 +17,14 @@ import {
 	InputOTPSlot
 } from '@/components/ui/common/input-otp'
 import Link from 'next/link'
-import { Label } from '@/components/ui/common/label'
+import { useAuth } from '@/hooks/useAuth'
 
 export function LoginForm() {
 	const t = useTranslations('auth.login')
 
 	const router = useRouter()
+
+	const { auth } = useAuth()
 
 	const [isShowTwoFactor, setIsShowTwoFactor] = useState(false)
 
@@ -31,6 +33,7 @@ export function LoginForm() {
 			if (data.loginUser.message) {
 				setIsShowTwoFactor(true)
 			} else {
+				auth()
 				toast.add({
 					type: 'success',
 					description: t('successMessage')
