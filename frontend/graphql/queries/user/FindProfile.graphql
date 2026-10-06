@@ -1,0 +1,8 @@
+query FindProfile {
+	findProfile {
+		username
+		email
+		displayName
+		avatar
+	}
+}

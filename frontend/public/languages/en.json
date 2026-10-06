@@ -1,4 +1,52 @@
 {
+	"layout": {
+		"logo": {
+			"platform": "Streaming platform"
+		},
+		"headerMenu": {
+			"login": "Log in",
+			"register": "Sign up",
+			"profileMenu": {
+				"logoutSuccess": "You have successfully logged out",
+				"channel": "My channel",
+				"dashboard": "Dashboard",
+				"logout": "Log out",
+				"notifications": {
+					"heading": "Notifications",
+					"loading": "Loading...",
+					"empty": "You have no notifications"
+				}
+			}
+		},
+		"search": {
+			"placeholder": "Search"
+		},
+		"dashboardNav": {
+			"settings": "Settings",
+			"streamSettings": "Stream settings",
+			"keys": "Stream keys",
+			"chatSettings": "Chat settings",
+			"followers": "Followers",
+			"sponsors": "Sponsors",
+			"premium": "Premium plans",
+			"transactions": "Transactions"
+		},
+		"sidebarHeader": {
+			"expand": "Expand",
+			"collapse": "Collapse",
+			"navigation": "Navigation",
+			"forYou": "For you"
+		},
+		"userNav": {
+			"home": "Home",
+			"categories": "Categories",
+			"streams": "Streams",
+			"recommended": "Recommended"
+		},
+		"recommended": {
+			"heading": "Recommended"
+		}
+	},
 	"auth": {
 		"register": {
 			"heading": "Sign up for TeaStream",
@@ -15,7 +63,7 @@
 			"errorMessage": "Error creating account"
 		},
 		"verify": {
-			"heading":"Account verification",
+			"heading": "Account verification",
 			"successMessage": "Account verified",
 			"errorMessage": "Error while verifying account"
 		},

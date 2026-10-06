@@ -608,6 +608,13 @@ export type NewPasswordInput = {
   token: string;
 };
 
+export type NotificationType =
+  | 'ENABLE_TWO_FACTOR'
+  | 'NEW_FOLLOWER'
+  | 'NEW_SPONSORSHIP'
+  | 'STREAM_START'
+  | 'VERIFIED_CHANNEL';
+
 export type ResetPasswordInput = {
   email: string;
 };
@@ -615,6 +622,11 @@ export type ResetPasswordInput = {
 export type VerificationInput = {
   token: string;
 };
+
+export type ClearSessionCookieMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ClearSessionCookieMutation = { clearSessionCookie: boolean };
 
 export type CreateUserMutationVariables = Exact<{
   data: CreateUserInput;
@@ -629,6 +641,11 @@ export type LoginUserMutationVariables = Exact<{
 
 
 export type LoginUserMutation = { loginUser: { message: string | null, user: { username: string } | null } };
+
+export type LogoutUserMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LogoutUserMutation = { logoutUser: boolean };
 
 export type NewPasswordMutationVariables = Exact<{
   data: NewPasswordInput;
@@ -651,26 +668,46 @@ export type VerifyAccountMutationVariables = Exact<{
 
 export type VerifyAccountMutation = { verifyAccount: { isEmailVerified: boolean } };
 
-export type FindChannelByUsernameQueryVariables = Exact<{
-  username: string;
-}>;
+export type FindNotificationsByUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FindChannelByUsernameQuery = { findChannelByUsername: { username: string, avatar: string | null, displayName: string, stream: { title: string, category: { title: string } } } };
+export type FindNotificationsByUserQuery = { findNotificationsByUser: Array<{ id: string, message: string, type: NotificationType }> };
+
+export type FindNotificationsUnreadCountQueryVariables = Exact<{ [key: string]: never; }>;
 
 
+export type FindNotificationsUnreadCountQuery = { findNotificationsUnreadCount: number };
+
+export type FindProfileQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindProfileQuery = { findProfile: { username: string, email: string, displayName: string, avatar: string | null } };
+
+
+export const ClearSessionCookieDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ClearSessionCookie"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"clearSessionCookie"}}]}}]} as unknown as DocumentNode<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>;
 export const CreateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateUserInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<CreateUserMutation, CreateUserMutationVariables>;
 export const LoginUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"LoginUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"LoginInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"loginUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}}]}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]} as unknown as DocumentNode<LoginUserMutation, LoginUserMutationVariables>;
+export const LogoutUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"LogoutUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"logoutUser"}}]}}]} as unknown as DocumentNode<LogoutUserMutation, LogoutUserMutationVariables>;
 export const NewPasswordDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"NewPassword"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"NewPasswordInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"newPassword"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<NewPasswordMutation, NewPasswordMutationVariables>;
 export const ResetPasswordDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ResetPassword"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ResetPasswordInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"resetPassword"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<ResetPasswordMutation, ResetPasswordMutationVariables>;
 export const VerifyAccountDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"VerifyAccount"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"VerificationInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verifyAccount"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEmailVerified"}}]}}]}}]} as unknown as DocumentNode<VerifyAccountMutation, VerifyAccountMutationVariables>;
-export const FindChannelByUsernameDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindChannelByUsername"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"username"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findChannelByUsername"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"username"},"value":{"kind":"Variable","name":{"kind":"Name","value":"username"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"stream"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]}}]} as unknown as DocumentNode<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>;
+export const FindNotificationsByUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindNotificationsByUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findNotificationsByUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]} as unknown as DocumentNode<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>;
+export const FindNotificationsUnreadCountDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindNotificationsUnreadCount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findNotificationsUnreadCount"}}]}}]} as unknown as DocumentNode<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>;
+export const FindProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}}]}}]}}]} as unknown as DocumentNode<FindProfileQuery, FindProfileQueryVariables>;
+export function useClearSessionCookieMutation(options?: useMutation.Options<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>) {
+	return useMutation(ClearSessionCookieDocument, options as useMutation.Options<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>)
+}
+
 export function useCreateUserMutation(options?: useMutation.Options<CreateUserMutation, CreateUserMutationVariables>) {
 	return useMutation(CreateUserDocument, options as useMutation.Options<CreateUserMutation, CreateUserMutationVariables>)
 }
 
 export function useLoginUserMutation(options?: useMutation.Options<LoginUserMutation, LoginUserMutationVariables>) {
 	return useMutation(LoginUserDocument, options as useMutation.Options<LoginUserMutation, LoginUserMutationVariables>)
+}
+
+export function useLogoutUserMutation(options?: useMutation.Options<LogoutUserMutation, LogoutUserMutationVariables>) {
+	return useMutation(LogoutUserDocument, options as useMutation.Options<LogoutUserMutation, LogoutUserMutationVariables>)
 }
 
 export function useNewPasswordMutation(options?: useMutation.Options<NewPasswordMutation, NewPasswordMutationVariables>) {
@@ -685,14 +722,38 @@ export function useVerifyAccountMutation(options?: useMutation.Options<VerifyAcc
 	return useMutation(VerifyAccountDocument, options as useMutation.Options<VerifyAccountMutation, VerifyAccountMutationVariables>)
 }
 
-export function useFindChannelByUsernameQuery(...[options]: {} extends FindChannelByUsernameQueryVariables ? [options?: useQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>] : [options: useQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>]) {
-	return useQuery(FindChannelByUsernameDocument, options as useQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>)
+export function useFindNotificationsByUserQuery(...[options]: {} extends FindNotificationsByUserQueryVariables ? [options?: useQuery.Options<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>] : [options: useQuery.Options<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>]) {
+	return useQuery(FindNotificationsByUserDocument, options as useQuery.Options<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>)
 }
 
-export function useFindChannelByUsernameLazyQuery(options?: useLazyQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>) {
-	return useLazyQuery(FindChannelByUsernameDocument, options as useLazyQuery.Options<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>)
+export function useFindNotificationsByUserLazyQuery(options?: useLazyQuery.Options<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>) {
+	return useLazyQuery(FindNotificationsByUserDocument, options as useLazyQuery.Options<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>)
 }
 
-export function useFindChannelByUsernameSuspenseQuery(...[options]: {} extends FindChannelByUsernameQueryVariables ? [options?: useSuspenseQuery.Options<FindChannelByUsernameQueryVariables>] : [options: useSuspenseQuery.Options<FindChannelByUsernameQueryVariables>]) {
-	return useSuspenseQuery(FindChannelByUsernameDocument, options as useSuspenseQuery.Options<FindChannelByUsernameQueryVariables>)
+export function useFindNotificationsByUserSuspenseQuery(...[options]: {} extends FindNotificationsByUserQueryVariables ? [options?: useSuspenseQuery.Options<FindNotificationsByUserQueryVariables>] : [options: useSuspenseQuery.Options<FindNotificationsByUserQueryVariables>]) {
+	return useSuspenseQuery(FindNotificationsByUserDocument, options as useSuspenseQuery.Options<FindNotificationsByUserQueryVariables>)
+}
+
+export function useFindNotificationsUnreadCountQuery(...[options]: {} extends FindNotificationsUnreadCountQueryVariables ? [options?: useQuery.Options<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>] : [options: useQuery.Options<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>]) {
+	return useQuery(FindNotificationsUnreadCountDocument, options as useQuery.Options<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>)
+}
+
+export function useFindNotificationsUnreadCountLazyQuery(options?: useLazyQuery.Options<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>) {
+	return useLazyQuery(FindNotificationsUnreadCountDocument, options as useLazyQuery.Options<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>)
+}
+
+export function useFindNotificationsUnreadCountSuspenseQuery(...[options]: {} extends FindNotificationsUnreadCountQueryVariables ? [options?: useSuspenseQuery.Options<FindNotificationsUnreadCountQueryVariables>] : [options: useSuspenseQuery.Options<FindNotificationsUnreadCountQueryVariables>]) {
+	return useSuspenseQuery(FindNotificationsUnreadCountDocument, options as useSuspenseQuery.Options<FindNotificationsUnreadCountQueryVariables>)
+}
+
+export function useFindProfileQuery(...[options]: {} extends FindProfileQueryVariables ? [options?: useQuery.Options<FindProfileQuery, FindProfileQueryVariables>] : [options: useQuery.Options<FindProfileQuery, FindProfileQueryVariables>]) {
+	return useQuery(FindProfileDocument, options as useQuery.Options<FindProfileQuery, FindProfileQueryVariables>)
+}
+
+export function useFindProfileLazyQuery(options?: useLazyQuery.Options<FindProfileQuery, FindProfileQueryVariables>) {
+	return useLazyQuery(FindProfileDocument, options as useLazyQuery.Options<FindProfileQuery, FindProfileQueryVariables>)
+}
+
+export function useFindProfileSuspenseQuery(...[options]: {} extends FindProfileQueryVariables ? [options?: useSuspenseQuery.Options<FindProfileQueryVariables>] : [options: useSuspenseQuery.Options<FindProfileQueryVariables>]) {
+	return useSuspenseQuery(FindProfileDocument, options as useSuspenseQuery.Options<FindProfileQueryVariables>)
 }

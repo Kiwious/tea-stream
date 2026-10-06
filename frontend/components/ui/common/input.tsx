@@ -18,7 +18,7 @@ function Input({ className, type, label, description, ...props }: Props) {
 	const { field } = useController({ name: props.name, control })
 	return (
 		<Field>
-			<Label>{label ?? ' '}</Label>
+			{label && <Label>{label}</Label>}
 			<InputPrimitive
 				{...field}
 				type={type}
