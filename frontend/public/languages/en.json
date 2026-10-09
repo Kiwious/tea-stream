@@ -105,5 +105,10 @@
 			"successMessage": "Password changed successfully",
 			"errorMessage": "Error while setting new password"
 		}
+	},
+	"components": {
+		"liveBadge": {
+			"text": "LIVE"
+		}
 	}
 }
