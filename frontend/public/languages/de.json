@@ -106,6 +106,19 @@
 			"errorMessage": "Fehler beim Festlegen des neuen Passworts"
 		}
 	},
+	"dashboard": {
+		"settings": {
+			"header": {
+				"heading": "Einstellungen",
+				"description": "Hier kannst du deine Einstellungen verwalten",
+				"profile": "Profil",
+				"account": "Konto",
+				"appearance": "Darstellung",
+				"notifications": "Benachrichtigungen",
+				"sessions": "Sitzungen"
+			}
+		}
+	},
 	"components": {
 		"liveBadge": {
 			"text": "LIVE"
