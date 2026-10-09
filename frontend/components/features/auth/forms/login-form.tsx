@@ -111,6 +111,7 @@ export function LoginForm() {
 										<div>{t('passwordLabel')}</div>
 										<Link
 											href='/account/recovery'
+											tabIndex={-1}
 											className='ml-auto inline-block text-sm'
 										>
 											{t('forgotPassword')}
