@@ -9,7 +9,7 @@ import { type ChangeEvent, type SubmitEvent, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 
 export function Search() {
-	const t = useTranslations('layout.search')
+	const t = useTranslations('layout.header.search')
 
 	const [searchTerm, setSearchTerm] = useState('')
 	const router = useRouter()

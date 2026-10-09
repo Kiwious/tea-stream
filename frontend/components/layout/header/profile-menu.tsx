@@ -19,7 +19,7 @@ import { useRouter } from 'next/navigation'
 import { Notifications } from './notifications/notifications'
 
 export function ProfileMenu() {
-	const t = useTranslations('layout.headerMenu.profileMenu')
+	const t = useTranslations('layout.header.headerMenu.profileMenu')
 	const router = useRouter()
 
 	const { exit } = useAuth()

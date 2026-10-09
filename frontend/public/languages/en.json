@@ -1,50 +1,53 @@
 {
 	"layout": {
-		"logo": {
-			"platform": "Streaming platform"
-		},
-		"headerMenu": {
-			"login": "Log in",
-			"register": "Sign up",
-			"profileMenu": {
-				"logoutSuccess": "You have successfully logged out",
-				"channel": "My channel",
-				"dashboard": "Dashboard",
-				"logout": "Log out",
-				"notifications": {
-					"heading": "Notifications",
-					"loading": "Loading...",
-					"empty": "You have no notifications"
+		"header": {
+			"logo": {
+				"platform": "Streaming platform"
+			},
+			"headerMenu": {
+				"login": "Log in",
+				"register": "Sign up",
+				"profileMenu": {
+					"logoutSuccess": "You have successfully logged out",
+					"channel": "My channel",
+					"dashboard": "Dashboard",
+					"logout": "Log out",
+					"notifications": {
+						"heading": "Notifications",
+						"loading": "Loading...",
+						"empty": "You have no notifications"
+					}
 				}
+			},
+			"search": {
+				"placeholder": "Search"
 			}
 		},
-		"search": {
-			"placeholder": "Search"
-		},
-		"dashboardNav": {
-			"settings": "Settings",
-			"streamSettings": "Stream settings",
-			"keys": "Stream keys",
-			"chatSettings": "Chat settings",
-			"followers": "Followers",
-			"sponsors": "Sponsors",
-			"premium": "Premium plans",
-			"transactions": "Transactions"
-		},
-		"sidebarHeader": {
-			"expand": "Expand",
-			"collapse": "Collapse",
-			"navigation": "Navigation",
-			"forYou": "For you"
-		},
-		"userNav": {
-			"home": "Home",
-			"categories": "Categories",
-			"streams": "Streams",
-			"recommended": "Recommended"
-		},
-		"recommended": {
-			"heading": "Recommended"
+		"sidebar": {
+			"header": {
+				"expand": "Expand",
+				"collapse": "Collapse",
+				"navigation": "Navigation"
+			},
+			"dashboardNav": {
+				"settings": "Settings",
+				"streamSettings": "Stream settings",
+				"keys": "Stream keys",
+				"chatSettings": "Chat settings",
+				"followers": "Followers",
+				"sponsors": "Sponsors",
+				"premium": "Premium plans",
+				"transactions": "Transactions"
+			},
+			"userNav": {
+				"home": "Home",
+				"categories": "Categories",
+				"streams": "Streams",
+				"recommended": "Recommended"
+			},
+			"recommended": {
+				"heading": "Recommended"
+			}
 		}
 	},
 	"auth": {

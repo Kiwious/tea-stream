@@ -1,53 +1,53 @@
 {
-	"home": {
-		"title": "Startseite"
-	},
 	"layout": {
-		"logo": {
-			"platform": "Streaming-Plattform"
-		},
-		"headerMenu": {
-			"login": "Anmelden",
-			"register": "Registrieren",
-			"profileMenu": {
-				"logoutSuccess": "Du hast dich erfolgreich abgemeldet",
-				"channel": "Mein Kanal",
-				"dashboard": "Dashboard",
-				"logout": "Abmelden",
-				"notifications": {
-					"heading": "Benachrichtigungen",
-					"loading": "Wird geladen...",
-					"empty": "Du hast keine Benachrichtigungen"
+		"header": {
+			"logo": {
+				"platform": "Streaming-Plattform"
+			},
+			"headerMenu": {
+				"login": "Anmelden",
+				"register": "Registrieren",
+				"profileMenu": {
+					"logoutSuccess": "Du hast dich erfolgreich abgemeldet",
+					"channel": "Mein Kanal",
+					"dashboard": "Dashboard",
+					"logout": "Abmelden",
+					"notifications": {
+						"heading": "Benachrichtigungen",
+						"loading": "Wird geladen...",
+						"empty": "Du hast keine Benachrichtigungen"
+					}
 				}
+			},
+			"search": {
+				"placeholder": "Suchen"
 			}
 		},
-		"search": {
-			"placeholder": "Suchen"
-		},
-		"dashboardNav": {
-			"settings": "Einstellungen",
-			"streamSettings": "Stream-Einstellungen",
-			"keys": "Stream-Schlüssel",
-			"chatSettings": "Chat-Einstellungen",
-			"followers": "Follower",
-			"sponsors": "Sponsoren",
-			"premium": "Premium-Pläne",
-			"transactions": "Transaktionen"
-		},
-		"sidebarHeader": {
-			"expand": "Ausklappen",
-			"collapse": "Einklappen",
-			"navigation": "Navigation",
-			"forYou": "Für dich"
-		},
-		"userNav": {
-			"home": "Startseite",
-			"categories": "Kategorien",
-			"streams": "Streams",
-			"recommended": "Empfehlungen"
-		},
-		"recommended": {
-			"heading": "Empfehlungen"
+		"sidebar": {
+			"header": {
+				"expand": "Ausklappen",
+				"collapse": "Einklappen",
+				"navigation": "Navigation"
+			},
+			"dashboardNav": {
+				"settings": "Einstellungen",
+				"streamSettings": "Stream-Einstellungen",
+				"keys": "Stream-Schlüssel",
+				"chatSettings": "Chat-Einstellungen",
+				"followers": "Follower",
+				"sponsors": "Sponsoren",
+				"premium": "Premium-Pläne",
+				"transactions": "Transaktionen"
+			},
+			"userNav": {
+				"home": "Startseite",
+				"categories": "Kategorien",
+				"streams": "Streams",
+				"recommended": "Empfehlungen"
+			},
+			"recommended": {
+				"heading": "Empfehlungen"
+			}
 		}
 	},
 	"auth": {
