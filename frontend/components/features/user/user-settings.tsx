@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/common/tabs'
 import { Heading } from '@/components/ui/elements/heading'
 import { useTranslations } from 'next-intl'
+import { ChangeAvatarForm } from './profile/change-avatar.form'
 
 export function UserSettings() {
 	const t = useTranslations('dashboard.settings')
@@ -32,7 +33,14 @@ export function UserSettings() {
 						{t('header.sessions')}
 					</TabsTrigger>
 				</TabsList>
-				<TabsContent value='profile'>profile</TabsContent>
+				<TabsContent value='profile'>
+					<div className='mt-5 space-y-6'>
+						<Heading description={t('profile.header.description')}>
+							{t('profile.header.heading')}
+						</Heading>
+						<ChangeAvatarForm />
+					</div>
+				</TabsContent>
 				<TabsContent value='account'>account</TabsContent>
 				<TabsContent value='appearance'>appearance</TabsContent>
 				<TabsContent value='notifications'>notifications</TabsContent>

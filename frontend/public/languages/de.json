@@ -116,12 +116,35 @@
 				"appearance": "Darstellung",
 				"notifications": "Benachrichtigungen",
 				"sessions": "Sitzungen"
+			},
+			"profile": {
+				"header": {
+					"heading": "Profil",
+					"description": "Passe dein Profil an, aktualisiere deinen Avatar, ändere die Informationen über dich und füge Links zu sozialen Netzwerken hinzu, um deine Seite für andere Nutzer attraktiver zu machen."
+				},
+				"avatar": {
+					"heading": "Profilbild",
+					"updateButton": "Profilbild aktualisieren",
+					"confirmModal": {
+						"heading": "Avatar löschen",
+						"message": "Bist du sicher, dass du dein Profilbild löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden."
+					},
+					"info": "Unterstützte Formate: JPG, JPEG, PNG, WEBP oder GIF. Max. Größe: 10 MB",
+					"successUpdateMessage": "Profilbild erfolgreich aktualisiert",
+					"errorUpdateMessage": "Fehler beim Aktualisieren des Profilbilds",
+					"successRemoveMessage": "Profilbild erfolgreich gelöscht",
+					"errorRemoveMessage": "Fehler beim Löschen des Profilbilds"
+				}
 			}
 		}
 	},
 	"components": {
 		"liveBadge": {
 			"text": "LIVE"
+		},
+		"confirmModal": {
+			"cancel": "Abbrechen",
+			"continue": "Fortfahren"
 		}
 	}
 }

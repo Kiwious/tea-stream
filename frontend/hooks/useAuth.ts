@@ -7,6 +7,8 @@ export function useAuth() {
 	const auth = () => setIsAuthenticated(true)
 	const exit = () => setIsAuthenticated(false)
 
+	console.log(isAuthenticated)
+
 	return {
 		isAuthenticated,
 		auth,

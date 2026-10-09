@@ -116,12 +116,35 @@
 				"appearance": "Appearance",
 				"notifications": "Notifications",
 				"sessions": "Sessions"
+			},
+			"profile": {
+				"header": {
+					"heading": "Profile",
+					"description": "Customize your profile, update your avatar, edit your bio and add links to your social networks to make your page more appealing to other users."
+				},
+				"avatar": {
+					"heading": "Profile picture",
+					"updateButton": "Update profile picture",
+					"confirmModal": {
+						"heading": "Delete avatar",
+						"message": "Are you sure you want to delete your profile picture? This action cannot be undone."
+					},
+					"info": "Supported formats: JPG, JPEG, PNG, WEBP or GIF. Max size: 10 MB.",
+					"successUpdateMessage": "Profile picture updated successfully",
+					"errorUpdateMessage": "Error updating profile picture",
+					"successRemoveMessage": "Profile picture removed successfully",
+					"errorRemoveMessage": "Error removing profile picture"
+				}
 			}
 		}
 	},
 	"components": {
 		"liveBadge": {
 			"text": "LIVE"
+		},
+		"confirmModal": {
+			"cancel": "Cancel",
+			"continue": "Continue"
 		}
 	}
 }
