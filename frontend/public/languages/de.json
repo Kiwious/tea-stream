@@ -149,6 +149,30 @@
 					"submitButton": "Änderungen speichern",
 					"successMessage": "Profil erfolgreich aktualisiert",
 					"errorMessage": "Fehler beim Aktualisieren des Profils"
+				},
+				"socialLinks": {
+					"createForm": {
+						"heading": "Social-Media-Links",
+						"titleLabel": "Linktitel",
+						"titlePlaceholder": "YouTube",
+						"titleDescription": "Der Text des Links.",
+						"urlLabel": "Link-URL",
+						"urlPlaceholder": "https://github.com/Kiwious",
+						"urlDescription": "Wohin führt dieser Link? Gib die vollständige URL ein, z. B. https://github.com/Kiwious",
+						"submitButton": "Hinzufügen",
+						"successMessage": "Social-Media-Link erfolgreich hinzugefügt",
+						"errorMessage": "Fehler beim Hinzufügen des Social-Media-Links"
+					},
+					"editForm": {
+						"cancelButton": "Abbrechen",
+						"submitButton": "Speichern",
+						"successUpdateMessage": "Social-Media-Link erfolgreich aktualisiert",
+						"errorUpdateMessage": "Fehler beim Aktualisieren des Social-Media-Links",
+						"successRemoveMessage": "Social-Media-Link erfolgreich gelöscht",
+						"errorRemoveMessage": "Fehler beim Löschen des Social-Media-Links"
+					},
+					"successReorderMessage": "Reihenfolge der Social-Media-Links erfolgreich geändert",
+					"errorReorderMessage": "Fehler beim Ändern der Reihenfolge der Social-Media-Links"
 				}
 			}
 		}

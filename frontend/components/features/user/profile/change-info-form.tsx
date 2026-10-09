@@ -107,5 +107,5 @@ export function ChangeInfoForm() {
 }
 
 export function ChangeInfoFormSkeleton() {
-	return <Skeleton className='h96 w-full' />
+	return <Skeleton className='h-96 w-full' />
 }

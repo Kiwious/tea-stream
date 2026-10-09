@@ -15,6 +15,7 @@
 		"@graphql-codegen/cli": "^7.4.3",
 		"@graphql-codegen/typescript": "^6.1.0",
 		"@graphql-codegen/typescript-operations": "^6.1.8",
+		"@hello-pangea/dnd": "^18.0.1",
 		"@hookform/resolvers": "^5.9.1",
 		"@parcel/watcher": "^2.6.0",
 		"apollo-upload-client": "20.0.0",

@@ -625,6 +625,16 @@ export type ResetPasswordInput = {
   email: string;
 };
 
+export type SocialLinkInput = {
+  title: string;
+  url: string;
+};
+
+export type SocialLinkOrderInput = {
+  id: string;
+  position: number;
+};
+
 export type VerificationInput = {
   token: string;
 };
@@ -688,10 +698,39 @@ export type ChangeProfileInfoMutationVariables = Exact<{
 
 export type ChangeProfileInfoMutation = { changeProfileInfo: boolean };
 
+export type CreateSocialLinkMutationVariables = Exact<{
+  data: SocialLinkInput;
+}>;
+
+
+export type CreateSocialLinkMutation = { createSocialLink: boolean };
+
 export type RemoveProfileAvatarMutationVariables = Exact<{ [key: string]: never; }>;
 
 
 export type RemoveProfileAvatarMutation = { removeAvatar: boolean };
+
+export type RemoveSocialLinkMutationVariables = Exact<{
+  id: string;
+}>;
+
+
+export type RemoveSocialLinkMutation = { removeSocialLink: boolean };
+
+export type ReorderSocialLinksMutationVariables = Exact<{
+  list: Array<SocialLinkOrderInput> | SocialLinkOrderInput;
+}>;
+
+
+export type ReorderSocialLinksMutation = { reorderSocialLinks: boolean };
+
+export type UpdateSocialLinkMutationVariables = Exact<{
+  id: string;
+  data: SocialLinkInput;
+}>;
+
+
+export type UpdateSocialLinkMutation = { updateSocialLink: boolean };
 
 export type FindRecommendedChannelsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -713,6 +752,11 @@ export type FindProfileQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type FindProfileQuery = { findProfile: { username: string, email: string, displayName: string, avatar: string | null, bio: string | null } };
 
+export type FindSocialLinksQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindSocialLinksQuery = { findSocialLinks: Array<{ id: string, title: string, url: string, position: number }> };
+
 
 export const ClearSessionCookieDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ClearSessionCookie"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"clearSessionCookie"}}]}}]} as unknown as DocumentNode<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>;
 export const CreateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateUserInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<CreateUserMutation, CreateUserMutationVariables>;
@@ -723,11 +767,16 @@ export const ResetPasswordDocument = {"kind":"Document","definitions":[{"kind":"
 export const VerifyAccountDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"VerifyAccount"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"VerificationInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verifyAccount"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEmailVerified"}}]}}]}}]} as unknown as DocumentNode<VerifyAccountMutation, VerifyAccountMutationVariables>;
 export const ChangeProfileAvatarDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ChangeProfileAvatar"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"avatar"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Upload"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"changeProfileAvatar"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"avatar"},"value":{"kind":"Variable","name":{"kind":"Name","value":"avatar"}}}]}]}}]} as unknown as DocumentNode<ChangeProfileAvatarMutation, ChangeProfileAvatarMutationVariables>;
 export const ChangeProfileInfoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ChangeProfileInfo"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ChangeProfileInfoInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"changeProfileInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<ChangeProfileInfoMutation, ChangeProfileInfoMutationVariables>;
+export const CreateSocialLinkDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateSocialLink"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SocialLinkInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createSocialLink"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<CreateSocialLinkMutation, CreateSocialLinkMutationVariables>;
 export const RemoveProfileAvatarDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RemoveProfileAvatar"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"removeAvatar"}}]}}]} as unknown as DocumentNode<RemoveProfileAvatarMutation, RemoveProfileAvatarMutationVariables>;
+export const RemoveSocialLinkDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RemoveSocialLink"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"removeSocialLink"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}]}}]} as unknown as DocumentNode<RemoveSocialLinkMutation, RemoveSocialLinkMutationVariables>;
+export const ReorderSocialLinksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ReorderSocialLinks"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"list"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SocialLinkOrderInput"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"reorderSocialLinks"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"list"},"value":{"kind":"Variable","name":{"kind":"Name","value":"list"}}}]}]}}]} as unknown as DocumentNode<ReorderSocialLinksMutation, ReorderSocialLinksMutationVariables>;
+export const UpdateSocialLinkDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateSocialLink"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SocialLinkInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateSocialLink"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<UpdateSocialLinkMutation, UpdateSocialLinkMutationVariables>;
 export const FindRecommendedChannelsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindRecommendedChannels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findRecommendedChannels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"isVerified"}},{"kind":"Field","name":{"kind":"Name","value":"stream"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isLive"}}]}}]}}]}}]} as unknown as DocumentNode<FindRecommendedChannelsQuery, FindRecommendedChannelsQueryVariables>;
 export const FindNotificationsByUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindNotificationsByUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findNotificationsByUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]} as unknown as DocumentNode<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>;
 export const FindNotificationsUnreadCountDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindNotificationsUnreadCount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findNotificationsUnreadCount"}}]}}]} as unknown as DocumentNode<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>;
 export const FindProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"bio"}}]}}]}}]} as unknown as DocumentNode<FindProfileQuery, FindProfileQueryVariables>;
+export const FindSocialLinksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindSocialLinks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findSocialLinks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"position"}}]}}]}}]} as unknown as DocumentNode<FindSocialLinksQuery, FindSocialLinksQueryVariables>;
 export function useClearSessionCookieMutation(options?: useMutation.Options<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>) {
 	return useMutation(ClearSessionCookieDocument, options as useMutation.Options<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>)
 }
@@ -764,8 +813,24 @@ export function useChangeProfileInfoMutation(options?: useMutation.Options<Chang
 	return useMutation(ChangeProfileInfoDocument, options as useMutation.Options<ChangeProfileInfoMutation, ChangeProfileInfoMutationVariables>)
 }
 
+export function useCreateSocialLinkMutation(options?: useMutation.Options<CreateSocialLinkMutation, CreateSocialLinkMutationVariables>) {
+	return useMutation(CreateSocialLinkDocument, options as useMutation.Options<CreateSocialLinkMutation, CreateSocialLinkMutationVariables>)
+}
+
 export function useRemoveProfileAvatarMutation(options?: useMutation.Options<RemoveProfileAvatarMutation, RemoveProfileAvatarMutationVariables>) {
 	return useMutation(RemoveProfileAvatarDocument, options as useMutation.Options<RemoveProfileAvatarMutation, RemoveProfileAvatarMutationVariables>)
+}
+
+export function useRemoveSocialLinkMutation(options?: useMutation.Options<RemoveSocialLinkMutation, RemoveSocialLinkMutationVariables>) {
+	return useMutation(RemoveSocialLinkDocument, options as useMutation.Options<RemoveSocialLinkMutation, RemoveSocialLinkMutationVariables>)
+}
+
+export function useReorderSocialLinksMutation(options?: useMutation.Options<ReorderSocialLinksMutation, ReorderSocialLinksMutationVariables>) {
+	return useMutation(ReorderSocialLinksDocument, options as useMutation.Options<ReorderSocialLinksMutation, ReorderSocialLinksMutationVariables>)
+}
+
+export function useUpdateSocialLinkMutation(options?: useMutation.Options<UpdateSocialLinkMutation, UpdateSocialLinkMutationVariables>) {
+	return useMutation(UpdateSocialLinkDocument, options as useMutation.Options<UpdateSocialLinkMutation, UpdateSocialLinkMutationVariables>)
 }
 
 export function useFindRecommendedChannelsQuery(...[options]: {} extends FindRecommendedChannelsQueryVariables ? [options?: useQuery.Options<FindRecommendedChannelsQuery, FindRecommendedChannelsQueryVariables>] : [options: useQuery.Options<FindRecommendedChannelsQuery, FindRecommendedChannelsQueryVariables>]) {
@@ -814,4 +879,16 @@ export function useFindProfileLazyQuery(options?: useLazyQuery.Options<FindProfi
 
 export function useFindProfileSuspenseQuery(...[options]: {} extends FindProfileQueryVariables ? [options?: useSuspenseQuery.Options<FindProfileQueryVariables>] : [options: useSuspenseQuery.Options<FindProfileQueryVariables>]) {
 	return useSuspenseQuery(FindProfileDocument, options as useSuspenseQuery.Options<FindProfileQueryVariables>)
+}
+
+export function useFindSocialLinksQuery(...[options]: {} extends FindSocialLinksQueryVariables ? [options?: useQuery.Options<FindSocialLinksQuery, FindSocialLinksQueryVariables>] : [options: useQuery.Options<FindSocialLinksQuery, FindSocialLinksQueryVariables>]) {
+	return useQuery(FindSocialLinksDocument, options as useQuery.Options<FindSocialLinksQuery, FindSocialLinksQueryVariables>)
+}
+
+export function useFindSocialLinksLazyQuery(options?: useLazyQuery.Options<FindSocialLinksQuery, FindSocialLinksQueryVariables>) {
+	return useLazyQuery(FindSocialLinksDocument, options as useLazyQuery.Options<FindSocialLinksQuery, FindSocialLinksQueryVariables>)
+}
+
+export function useFindSocialLinksSuspenseQuery(...[options]: {} extends FindSocialLinksQueryVariables ? [options?: useSuspenseQuery.Options<FindSocialLinksQueryVariables>] : [options: useSuspenseQuery.Options<FindSocialLinksQueryVariables>]) {
+	return useSuspenseQuery(FindSocialLinksDocument, options as useSuspenseQuery.Options<FindSocialLinksQueryVariables>)
 }

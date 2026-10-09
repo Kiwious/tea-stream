@@ -149,6 +149,30 @@
 					"submitButton": "Save changes",
 					"successMessage": "Profile updated successfully",
 					"errorMessage": "Error updating profile"
+				},
+				"socialLinks": {
+					"createForm": {
+						"heading": "Social links",
+						"titleLabel": "Link title",
+						"titlePlaceholder": "YouTube",
+						"titleDescription": "The text of the link.",
+						"urlLabel": "Link URL",
+						"urlPlaceholder": "https://github.com/Kiwious",
+						"urlDescription": "Where does this link go? Enter the full URL, e.g. https://github.com/Kiwious",
+						"submitButton": "Add",
+						"successMessage": "Social link added successfully",
+						"errorMessage": "Error adding social link"
+					},
+					"editForm": {
+						"cancelButton": "Cancel",
+						"submitButton": "Save",
+						"successUpdateMessage": "Social link updated successfully",
+						"errorUpdateMessage": "Error updating social link",
+						"successRemoveMessage": "Social link removed successfully",
+						"errorRemoveMessage": "Error removing social link"
+					},
+					"successReorderMessage": "Social links order updated successfully",
+					"errorReorderMessage": "Error updating social links order"
 				}
 			}
 		}
