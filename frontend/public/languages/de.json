@@ -134,6 +134,21 @@
 					"errorUpdateMessage": "Fehler beim Aktualisieren des Profilbilds",
 					"successRemoveMessage": "Profilbild erfolgreich gelöscht",
 					"errorRemoveMessage": "Fehler beim Löschen des Profilbilds"
+				},
+				"info": {
+					"heading": "Profileinstellungen",
+					"usernameLabel": "Benutzername",
+					"usernamePlaceholder": "johndoe",
+					"usernameDescription": "Unter diesem Namen werden dich andere Nutzer kennen.",
+					"displayNameLabel": "Anzeigename",
+					"displayNamePlaceholder": "John Doe",
+					"displayNameDescription": "Setze Großbuchstaben in deinem Benutzernamen nach Belieben.",
+					"bioLabel": "Über mich",
+					"bioPlaceholder": "Ich liebe Programmieren",
+					"bioDescription": "Die Angaben über dich dürfen höchstens 300 Zeichen lang sein.",
+					"submitButton": "Änderungen speichern",
+					"successMessage": "Profil erfolgreich aktualisiert",
+					"errorMessage": "Fehler beim Aktualisieren des Profils"
 				}
 			}
 		}

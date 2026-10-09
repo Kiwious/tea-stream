@@ -14,7 +14,7 @@ import {
 import { useCurrent } from '@/hooks/useCurrent'
 import {
 	uploadFileSchema,
-	UploadFileSchemaType
+	type UploadFileSchemaType
 } from '@/schemas/upload-file.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Trash } from 'lucide-react'
