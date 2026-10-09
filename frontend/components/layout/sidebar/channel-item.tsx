@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/common/button'
+import { Skeleton } from '@/components/ui/common/skeleton'
 import { ChannelAvatar } from '@/components/ui/elements/channel-avatar'
 import { ChannelVerified } from '@/components/ui/elements/channel-verified'
 import { Hint } from '@/components/ui/elements/hint'
@@ -62,4 +63,8 @@ export function ChannelItem({ channel }: Props) {
 			)}
 		</Button>
 	)
+}
+
+export function ChannelItemSkeleton() {
+	return <Skeleton className='mt-3 h-11 w-full rounded-full' />
 }
