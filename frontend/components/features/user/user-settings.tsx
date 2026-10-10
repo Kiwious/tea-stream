@@ -12,6 +12,7 @@ import { SocialLinksForm } from './profile/social-links-form/social-links-form'
 import { ChangeEmailForm } from './account/change-email-form'
 import { ChangePasswordForm } from './account/change-password-form'
 import { WrapperTotp } from './account/totp/wrapper-totp'
+import { DeactivateCard } from './account/deactivate-card'
 
 export function UserSettings() {
 	const t = useTranslations('dashboard.settings')
@@ -63,6 +64,14 @@ export function UserSettings() {
 							{t('account.header.securityHeading')}
 						</Heading>
 						<WrapperTotp />
+						<Heading
+							description={t(
+								'account.header.deactivationDescription'
+							)}
+						>
+							{t('account.header.deactivationHeading')}
+						</Heading>
+						<DeactivateCard />
 					</div>
 				</TabsContent>
 				<TabsContent value='appearance'>appearance</TabsContent>

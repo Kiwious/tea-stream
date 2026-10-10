@@ -104,6 +104,19 @@
 			"submitButton": "Passwort setzen",
 			"successMessage": "Passwort erfolgreich geändert",
 			"errorMessage": "Fehler beim Festlegen des neuen Passworts"
+		},
+		"deactivate": {
+			"heading": "Konto deaktivieren",
+			"backButtonLabel": "Zum Dashboard",
+			"pinLabel": "6-stelliger Code",
+			"pinDescription": "Wir haben dir einen Code per E-Mail gesendet. Wenn du Telegram-Benachrichtigungen aktiviert hast, haben wir den Code auch dorthin gesendet.",
+			"emailLabel": "E-Mail",
+			"emailDescription": "Die E-Mail, die du bei der Registrierung verwendet hast.",
+			"passwordLabel": "Passwort",
+			"passwordDescription": "Das Passwort, das du bei der Registrierung verwendet hast.",
+			"submitButton": "Deaktivieren",
+			"successMessage": "Du hast dein Konto erfolgreich deaktiviert",
+			"errorMessage": "Fehler bei der Deaktivierung"
 		}
 	},
 	"dashboard": {
@@ -182,7 +195,7 @@
 					"securityHeading": "Sicherheit",
 					"securityDescription": "Richte die Zwei-Faktor-Authentifizierung ein, um deine Daten besser zu schützen.",
 					"deactivationHeading": "Deaktivierung",
-					"deactivationDescription": "Wenn du dein Konto vorübergehe nd oder dauerhaft deaktivieren möchtest, nutze diese Option. Beachte die Folgen."
+					"deactivationDescription": "Wenn du dein Konto vorübergehend oder dauerhaft deaktivieren möchtest, nutze diese Option. Beachte die Folgen."
 				},
 				"email": {
 					"heading": "E-Mail-Adresse",
