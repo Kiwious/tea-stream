@@ -83,7 +83,7 @@ export class SessionService {
 			}
 		})
 
-		if (!user || !user.isDeactivated) {
+		if (!user || user.isDeactivated) {
 			throw new NotFoundException('User not found')
 		}
 
