@@ -26,7 +26,6 @@ interface Props extends VariantProps<typeof avatarSizes> {
 }
 
 export function ChannelAvatar({ size, channel, isLive = false }: Props) {
-	console.log(getMediaSource(channel.avatar))
 	return (
 		<div className='relative'>
 			<Avatar
