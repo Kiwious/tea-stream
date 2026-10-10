@@ -263,6 +263,10 @@
 					"selectPlaceholder": "Sprache auswählen",
 					"successMessage": "Sprache erfolgreich geändert",
 					"errorMessage": "Sprache konnte nicht geändert werden"
+				},
+				"color": {
+					"heading": "Akzentfarbe",
+					"description": "Wähle eine Akzentfarbe für die Oberfläche."
 				}
 			}
 		}

@@ -15,6 +15,7 @@ import { WrapperTotp } from './account/totp/wrapper-totp'
 import { DeactivateCard } from './account/deactivate-card'
 import { ChangeThemeForm } from './appearance/change-theme-form'
 import { ChangeLanguageForm } from './appearance/change-language-form'
+import { ChangeColorForm } from './appearance/change-color-form'
 
 export function UserSettings() {
 	const t = useTranslations('dashboard.settings')
@@ -85,6 +86,7 @@ export function UserSettings() {
 						</Heading>
 						<ChangeThemeForm />
 						<ChangeLanguageForm />
+						<ChangeColorForm />
 					</div>
 				</TabsContent>
 				<TabsContent value='notifications'>notifications</TabsContent>

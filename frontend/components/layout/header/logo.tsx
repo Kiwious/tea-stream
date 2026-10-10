@@ -1,7 +1,7 @@
 'use client'
 
+import { LogoImage } from '@/components/images/logo-image'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export function Logo() {
@@ -11,12 +11,7 @@ export function Logo() {
 			href='/'
 			className='flex items-center gap-x-4 transition-opacity hover:opacity-75'
 		>
-			<Image
-				src='/images/logo.svg'
-				alt='TeaStream'
-				width={35}
-				height={35}
-			/>
+			<LogoImage />
 			<div className='hidden leading-tight lg:block'>
 				<h2 className='text-accent-foreground text-lg font-semibold tracking-wider'>
 					TeaStream

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import '../styles/globals.css'
 import { ApolloClientProvider } from '@/providers/apollo-client-provider'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
@@ -7,6 +6,10 @@ import { Geist } from 'next/font/google'
 import { cn } from 'cn'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { Toaster } from '@/components/ui/common/toast'
+
+import '../styles/themes.css'
+import '../styles/globals.css'
+import { ColorSwitcher } from '@/components/ui/elements/color-switcher'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -25,6 +28,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 			suppressHydrationWarning
 		>
 			<body>
+				<ColorSwitcher />
 				<ApolloClientProvider>
 					<NextIntlClientProvider messages={messages}>
 						<ThemeProvider

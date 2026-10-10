@@ -263,6 +263,10 @@
 					"selectPlaceholder": "Select language",
 					"successMessage": "Site language changed successfully",
 					"errorMessage": "Failed to change site language"
+				},
+				"color": {
+					"heading": "Accent color",
+					"description": "Choose an accent color for the interface."
 				}
 			}
 		}
