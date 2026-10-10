@@ -174,6 +174,65 @@
 					"successReorderMessage": "Reihenfolge der Social-Media-Links erfolgreich geändert",
 					"errorReorderMessage": "Fehler beim Ändern der Reihenfolge der Social-Media-Links"
 				}
+			},
+			"account": {
+				"header": {
+					"heading": "Konto",
+					"description": "Verwalte deine Kontoeinstellungen, einschließlich der Änderung von Zugangsdaten, der Sicherheit und der Möglichkeit zur Deaktivierung.",
+					"securityHeading": "Sicherheit",
+					"securityDescription": "Richte die Zwei-Faktor-Authentifizierung ein, um deine Daten besser zu schützen.",
+					"deactivationHeading": "Deaktivierung",
+					"deactivationDescription": "Wenn du dein Konto vorübergehe nd oder dauerhaft deaktivieren möchtest, nutze diese Option. Beachte die Folgen."
+				},
+				"email": {
+					"heading": "E-Mail-Adresse",
+					"emailLabel": "E-Mail",
+					"emailDescription": "Gib deine neue E-Mail-Adresse ein. Stelle sicher, dass sie gültig ist, da eine Bestätigung an sie gesendet wird.",
+					"submitButton": "Speichern",
+					"successMessage": "E-Mail erfolgreich aktualisiert",
+					"errorMessage": "Fehler beim Aktualisieren der E-Mail"
+				},
+				"password": {
+					"heading": "Kontopasswort",
+					"oldPasswordLabel": "Altes Passwort",
+					"oldPasswordDescription": "Gib dein altes Passwort ein, um deine Identität zu bestätigen, bevor du dein Passwort änderst. Dies ist notwendig, um die Sicherheit deines Kontos zu gewährleisten.",
+					"newPasswordLabel": "Neues Passwort",
+					"newPasswordDescription": "Dein neues Passwort muss mindestens 8 Zeichen lang sein. Es wird empfohlen, zur Erhöhung der Sicherheit auch Sonderzeichen zu verwenden.",
+					"submitButton": "Speichern",
+					"successMessage": "Passwort erfolgreich aktualisiert",
+					"errorMessage": "Fehler beim Aktualisieren des Passworts"
+				},
+				"twoFactor": {
+					"heading": "TOTP-Authentifizierung",
+					"description": "Erhöhe die Sicherheit deines Kontos, indem du die TOTP-Authentifizierung aktivierst. Diese zusätzliche Schutzebene erfordert die Eingabe eines einmaligen Codes und macht dein Konto weniger anfällig für unbefugten Zugriff.",
+					"enable": {
+						"trigger": "Aktivieren",
+						"heading": "TOTP aktivieren",
+						"qrInstructions": "Scanne den QR-Code, um TOTP hinzuzufügen",
+						"secretCodeLabel": "Geheimer Code: ",
+						"pinLabel": "PIN-Code",
+						"pinDescription": "Bitte gib den 6-stelligen Code ein, den deine Authentifizierungs-App anzeigt.",
+						"submitButton": "Bestätigen",
+						"successMessage": "TOTP-Authentifizierung aktiviert",
+						"errorMessage": "Fehler bei der Überprüfung des Codes"
+					},
+					"disable": {
+						"trigger": "Deaktivieren",
+						"heading": "Möchtest du TOTP wirklich deaktivieren?",
+						"message": "Wenn du die TOTP-Authentifizierung deaktivierst, ist dein Konto weniger geschützt. Bist du sicher, dass du fortfahren möchtest?",
+						"successMessage": "TOTP-Authentifizierung deaktiviert",
+						"errorMessage": "Fehler beim Deaktivieren"
+					}
+				},
+				"deactivation": {
+					"heading": "Konto deaktivieren",
+					"description": "Nach der Deaktivierung deines Kontos kannst du dich nicht mehr anmelden. Nach 7 Tagen wird das Konto vollständig gelöscht. Bis dahin kannst du dich an den Support wenden, um den Zugang wiederherzustellen und dein Konto zu entsperren.",
+					"confirmModal": {
+						"heading": "Deaktivierung bestätigen",
+						"message": "Bist du sicher, dass du dein Konto deaktivieren möchtest? Der Zugang kann nur innerhalb von 7 Tagen wiederhergestellt werden."
+					},
+					"deactivateButton": "Deaktivieren"
+				}
 			}
 		}
 	},
