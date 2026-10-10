@@ -246,6 +246,23 @@
 					},
 					"deactivateButton": "Deactivate"
 				}
+			},
+			"appearance": {
+				"header": {
+					"heading": "Appearance",
+					"description": "Customize the look of the site to your liking. Choose a theme and language that make your experience more comfortable."
+				},
+				"theme": {
+					"heading": "Change theme",
+					"description": "You can choose a dark or light theme for the site.",
+					"successMessage": "Theme changed successfully"
+				},
+				"language": {
+					"heading": "Site language",
+					"description": "Choose the language that will be used on the site.",
+					"selectPlaceholder": "Select language",
+					"successMessage": "Site language changed successfully"
+				}
 			}
 		}
 	},

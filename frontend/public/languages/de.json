@@ -246,6 +246,23 @@
 					},
 					"deactivateButton": "Deaktivieren"
 				}
+			},
+			"appearance": {
+				"header": {
+					"heading": "Darstellung",
+					"description": "Passe die Darstellung der Website nach deinem Geschmack an. Wähle ein Theme und eine Sprache, die deine Nutzung angenehmer machen."
+				},
+				"theme": {
+					"heading": "Theme ändern",
+					"description": "Du kannst ein dunkles oder helles Theme für die Website wählen.",
+					"successMessage": "Theme erfolgreich geändert"
+				},
+				"language": {
+					"heading": "Sprache der Website",
+					"description": "Wähle die Sprache, die auf der Website verwendet werden soll.",
+					"selectPlaceholder": "Sprache auswählen",
+					"successMessage": "Sprache erfolgreich geändert"
+				}
 			}
 		}
 	},
