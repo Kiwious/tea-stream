@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const changeThemeSchema = z.object({
-	theme: z.enum(['light', 'dark'])
+	isDark: z.boolean()
 })
 
 export type ChangeThemeSchemaType = z.infer<typeof changeThemeSchema>

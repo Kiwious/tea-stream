@@ -6,5 +6,9 @@ query FindProfile {
 		avatar
 		bio
 		isTotpEnabled
+		notificationSettings {
+			siteNotifications
+			telegramNotifications
+		}
 	}
 }

@@ -19,15 +19,12 @@ export function ChangeThemeForm() {
 	const form = useForm<ChangeThemeSchemaType>({
 		resolver: zodResolver(changeThemeSchema),
 		defaultValues: {
-			theme: theme === 'dark' ? 'dark' : 'light'
+			isDark: theme === 'dark'
 		}
 	})
 
 	function onChange(value: boolean) {
-		const newTheme = value ? 'dark' : 'light'
-
-		setTheme(newTheme)
-		form.setValue('theme', newTheme)
+		setTheme(value ? 'dark' : 'light')
 
 		toast.add({
 			type: 'success',
@@ -39,10 +36,10 @@ export function ChangeThemeForm() {
 		<FormProvider {...form}>
 			<form>
 				<ToggleCard
+					name='isDark'
 					heading={t('heading')}
 					description={t('description')}
 					onChange={onChange}
-					value={form.getValues().theme === 'dark'}
 				></ToggleCard>
 			</form>
 		</FormProvider>

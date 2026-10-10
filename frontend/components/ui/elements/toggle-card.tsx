@@ -4,19 +4,19 @@ import { Switch } from '../common/switch'
 import { Skeleton } from '../common/skeleton'
 
 interface Props {
+	name: string
 	heading: string
 	description: string
 	isDisabled?: boolean
-	value: boolean
-	onChange: (value: boolean) => void
+	onChange?: (value: boolean) => void
 }
 
 export function ToggleCard({
 	children,
+	name,
 	description,
 	heading,
 	onChange,
-	value,
 	isDisabled
 }: PropsWithChildren<Props>) {
 	return (
@@ -25,8 +25,8 @@ export function ToggleCard({
 			description={description}
 			rightContent={
 				<Switch
-					checked={value}
-					onCheckedChange={onChange}
+					name={name}
+					onChange={onChange}
 					disabled={isDisabled}
 				/>
 			}
