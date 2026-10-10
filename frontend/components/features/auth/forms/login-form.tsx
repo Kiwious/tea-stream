@@ -84,9 +84,10 @@ export function LoginForm() {
 							description={t('pinDescription')}
 							maxLength={6}
 							disabled={isLoadingLogin}
+							autoFocus
 						>
 							<InputOTPGroup>
-								<InputOTPSlot index={0} />
+								<InputOTPSlot index={0} autoFocus />
 								<InputOTPSlot index={1} />
 								<InputOTPSlot index={2} />
 								<InputOTPSlot index={3} />

@@ -11,19 +11,27 @@ type InputProps = ComponentProps<'input'> &
 interface Props extends InputProps {
 	label?: string | ReactNode
 	description?: string
+	fieldClassnames?: string
 }
 
-function Input({ className, type, label, description, ...props }: Props) {
+function Input({
+	className,
+	type,
+	label,
+	description,
+	fieldClassnames = '',
+	...props
+}: Props) {
 	const { control } = useFormContext()
 	const { field } = useController({ name: props.name, control })
 	return (
-		<Field>
+		<Field className={cn(fieldClassnames)}>
 			{label && <Label>{label}</Label>}
 			<InputPrimitive
 				{...field}
 				type={type}
 				data-slot='input'
-        // placeholder=''
+				// placeholder=''
 				className={cn(
 					'border-border bg-input file:text-foreground placeholder:text-muted-foreground focus:border-primary flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
 					className

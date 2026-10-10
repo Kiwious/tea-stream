@@ -209,7 +209,7 @@
 						"trigger": "Aktivieren",
 						"heading": "TOTP aktivieren",
 						"qrInstructions": "Scanne den QR-Code, um TOTP hinzuzufügen",
-						"secretCodeLabel": "Geheimer Code: ",
+						"secretCodeLabel": "Geheimer Schlüssel: ",
 						"pinLabel": "PIN-Code",
 						"pinDescription": "Bitte gib den 6-stelligen Code ein, den deine Authentifizierungs-App anzeigt.",
 						"submitButton": "Bestätigen",
