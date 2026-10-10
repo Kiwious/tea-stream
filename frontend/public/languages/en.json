@@ -261,7 +261,8 @@
 					"heading": "Site language",
 					"description": "Choose the language that will be used on the site.",
 					"selectPlaceholder": "Select language",
-					"successMessage": "Site language changed successfully"
+					"successMessage": "Site language changed successfully",
+					"errorMessage": "Failed to change site language"
 				}
 			}
 		}

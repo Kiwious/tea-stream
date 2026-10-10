@@ -261,7 +261,8 @@
 					"heading": "Sprache der Website",
 					"description": "Wähle die Sprache, die auf der Website verwendet werden soll.",
 					"selectPlaceholder": "Sprache auswählen",
-					"successMessage": "Sprache erfolgreich geändert"
+					"successMessage": "Sprache erfolgreich geändert",
+					"errorMessage": "Sprache konnte nicht geändert werden"
 				}
 			}
 		}

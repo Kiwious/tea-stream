@@ -37,10 +37,15 @@ export function ChangeLanguageForm() {
 		startTransition(async () => {
 			try {
 				await setLanguage(value as Language)
-			} catch {
+
 				toast.add({
 					type: 'success',
 					description: t('successMessage')
+				})
+			} catch {
+				toast.add({
+					type: 'error',
+					description: t('errorMessage')
 				})
 			}
 		})

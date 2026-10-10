@@ -14,5 +14,5 @@ export async function getCurrentLanguage() {
 export async function setLanguage(language: Language) {
 	const cookiesStore = await cookies()
 
-	return cookiesStore.set(COOKIE_NAME, language)
+	cookiesStore.set(COOKIE_NAME, language)
 }
