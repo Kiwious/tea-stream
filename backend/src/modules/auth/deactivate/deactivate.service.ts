@@ -6,10 +6,12 @@ import {
 import { ConfigService } from '@nestjs/config'
 import { verify } from 'argon2'
 import type { Request } from 'express'
+import type { SessionData } from 'express-session'
 
 import type { User } from '@/prisma/generated/browser'
 import { TokenType } from '@/prisma/generated/enums'
 import { PrismaService } from '@/src/core/prisma/prisma.service'
+import { RedisService } from '@/src/core/redis/redis.service'
 import { checkTokenExpired } from '@/src/shared/utils/check-token-expired.util'
 import { generateToken } from '@/src/shared/utils/generate-token.util'
 import { getSessionMetadata } from '@/src/shared/utils/session-metadata.util'
@@ -26,7 +28,8 @@ export class DeactivateService {
 		private readonly prismaService: PrismaService,
 		private readonly configService: ConfigService,
 		private readonly mailService: MailService,
-		private readonly telegramService: TelegramService
+		private readonly telegramService: TelegramService,
+		private readonly redisService: RedisService
 	) {}
 
 	public async deactivate(
@@ -69,7 +72,7 @@ export class DeactivateService {
 			throw new NotFoundException('User not found')
 		}
 
-		await this.prismaService.user.update({
+		const user = await this.prismaService.user.update({
 			where: { id: existingToken.userId },
 			data: {
 				isDeactivated: true,
@@ -81,10 +84,12 @@ export class DeactivateService {
 			where: { id: existingToken.id, type: TokenType.DEACTIVATE_ACCOUNT }
 		})
 
+		await this.clearSessions(user.id)
+
 		return destroySession(req, this.configService)
 	}
 
-	public async sendDeactivateToken(
+	private async sendDeactivateToken(
 		req: Request,
 		user: User,
 		userAgent: string
@@ -116,5 +121,22 @@ export class DeactivateService {
 		}
 
 		return true
+	}
+
+	private async clearSessions(userId: string) {
+		if (!userId) throw new NotFoundException('User not found')
+
+		const keys = await this.redisService.client.keys('*')
+
+		for (const key of keys) {
+			const sessionData = await this.redisService.client.get(key)
+			if (!sessionData) return
+
+			const session = JSON.parse(sessionData) as SessionData
+
+			if (session.userId === userId) {
+				await this.redisService.client.del(key)
+			}
+		}
 	}
 }

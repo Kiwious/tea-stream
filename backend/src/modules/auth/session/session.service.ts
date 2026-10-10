@@ -82,7 +82,10 @@ export class SessionService {
 				]
 			}
 		})
-		if (!user) throw new NotFoundException('User not found')
+
+		if (!user || !user.isDeactivated) {
+			throw new NotFoundException('User not found')
+		}
 
 		const isValidPassword = await verify(user.password, password)
 		if (!isValidPassword) {
