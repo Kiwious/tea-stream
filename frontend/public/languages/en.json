@@ -50,6 +50,10 @@
 			}
 		}
 	},
+	"home": {
+		"streamsHeading": "Channels you might like",
+		"categoriesHeading": "Categories you might like"
+	},
 	"auth": {
 		"register": {
 			"heading": "Sign up for TeaStream",

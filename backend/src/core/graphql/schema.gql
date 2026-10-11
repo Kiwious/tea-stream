@@ -292,8 +292,8 @@ input SocialLinkOrderInput {
 }
 
 type StreamModel {
-  category: CategoryModel!
-  categoryId: String!
+  category: CategoryModel
+  categoryId: String
   chatMessages: [ChatMessageModel!]!
   createdAt: DateTime!
   id: ID!

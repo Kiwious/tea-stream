@@ -44,11 +44,11 @@ export class StreamModel implements Stream {
 	@Field(() => String)
 	userId!: string
 
-	@Field(() => CategoryModel)
-	category!: CategoryModel
+	@Field(() => CategoryModel, { nullable: true })
+	category!: CategoryModel | null
 
-	@Field(() => String)
-	categoryId!: string
+	@Field(() => String, { nullable: true })
+	categoryId!: string | null
 
 	@Field(() => [ChatMessageModel])
 	chatMessages!: ChatMessageModel[]

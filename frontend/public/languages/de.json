@@ -45,10 +45,15 @@
 				"streams": "Streams",
 				"recommended": "Empfehlungen"
 			},
+
 			"recommended": {
 				"heading": "Empfehlungen"
 			}
 		}
+	},
+	"home": {
+		"streamsHeading": "Kanäle, die dir gefallen könnten",
+		"categoriesHeading": "Kategorien, die dir gefallen könnten"
 	},
 	"auth": {
 		"register": {

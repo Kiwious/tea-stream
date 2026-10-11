@@ -55,7 +55,7 @@ export class StreamService {
 		})
 
 		const randomIndexes = new Set<number>()
-		const RANDOM_STREAMS_COUNT = 4
+		const RANDOM_STREAMS_COUNT = Math.min(4, total)
 
 		while (randomIndexes.size < RANDOM_STREAMS_COUNT) {
 			const randomIndex = Math.floor(Math.random() * total)
