@@ -385,6 +385,18 @@
 			},
 			"successMessage": "Chat-Einstellungen erfolgreich aktualisiert",
 			"errorMessage": "Fehler beim Aktualisieren der Chat-Einstellungen"
+		},
+		"followers": {
+			"header": {
+				"heading": "Follower",
+				"description": "Hier ist eine Liste aller deiner Follower."
+			},
+			"columns": {
+				"date": "Datum",
+				"user": "Benutzer",
+				"actions": "Aktionen",
+				"viewChannel": "Kanal ansehen"
+			}
 		}
 	},
 	"components": {
@@ -397,6 +409,9 @@
 		},
 		"copyButton": {
 			"successMessage": "Kopiert"
+		},
+		"dataTable": {
+			"notFound": "Nichts gefunden"
 		}
 	}
 }

@@ -1,3 +1,4 @@
+import { CombinedGraphQLErrors } from '@apollo/client/errors'
 import {
 	useClearSessionCookieMutation,
 	useFindProfileQuery
@@ -15,13 +16,22 @@ export function useCurrent() {
 	const [clearCookie] = useClearSessionCookieMutation()
 
 	useEffect(() => {
-		if (error) {
-			if (isAuthenticated) {
-				clearCookie()
-			}
-			exit()
+		if (!error) return
+
+		const isUnauthenticated =
+			CombinedGraphQLErrors.is(error) &&
+			error.errors.some(e => e.extensions?.code === 'UNAUTHENTICATED')
+
+		if (!isUnauthenticated) {
+			console.error('FindProfile failed:', error)
+			return
 		}
-	}, [clearCookie, exit, isAuthenticated])
+
+		if (isAuthenticated) {
+			clearCookie()
+		}
+		exit()
+	}, [error, clearCookie, exit, isAuthenticated])
 
 	return {
 		user: data?.findProfile,
