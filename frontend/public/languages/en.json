@@ -284,6 +284,34 @@
 				},
 				"successMessage": "Notification settings updated successfully",
 				"errorMessage": "Error updating notification settings"
+			},
+			"sessions": {
+				"header": {
+					"heading": "Sessions",
+					"description": "Sessions are devices you use or have used to log in to your TeaStream account. Here you can see the sessions that are currently active."
+				},
+				"info": {
+					"current": "Current session",
+					"active": "Active sessions",
+					"notFound": "No active sessions found"
+				},
+				"sessionItem": {
+					"deleteButton": "Delete",
+					"detailsButton": "Details",
+					"confirmModal": {
+						"heading": "Delete session",
+						"message": "Are you sure you want to delete this session? This action will permanently remove the session on this device and end all active activity associated with it."
+					},
+					"successMessage": "Session deleted",
+					"errorMessage": "Error deleting session"
+				},
+				"sessionModal": {
+					"heading": "Session information",
+					"device": "Device:",
+					"location": "Location:",
+					"ipAddress": "IP address:",
+					"createdAt": "Created at:"
+				}
 			}
 		}
 	},

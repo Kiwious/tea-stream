@@ -284,6 +284,34 @@
 				},
 				"successMessage": "Benachrichtigungseinstellungen erfolgreich aktualisiert",
 				"errorMessage": "Fehler beim Aktualisieren der Benachrichtigungseinstellungen"
+			},
+			"sessions": {
+				"header": {
+					"heading": "Sitzungen",
+					"description": "Sitzungen sind Geräte, die du verwendest oder verwendet hast, um dich bei deinem TeaStream-Konto anzumelden. Hier werden die aktuell aktiven Sitzungen angezeigt."
+				},
+				"info": {
+					"current": "Aktuelle Sitzung",
+					"active": "Aktive Sitzungen",
+					"notFound": "Keine aktiven Sitzungen gefunden"
+				},
+				"sessionItem": {
+					"deleteButton": "Löschen",
+					"detailsButton": "Details",
+					"confirmModal": {
+						"heading": "Sitzung löschen",
+						"message": "Bist du sicher, dass du diese Sitzung löschen möchtest? Diese Aktion entfernt die Sitzung auf diesem Gerät unwiderruflich und beendet alle damit verbundenen aktiven Vorgänge."
+					},
+					"successMessage": "Sitzung gelöscht",
+					"errorMessage": "Fehler beim Löschen der Sitzung"
+				},
+				"sessionModal": {
+					"heading": "Sitzungsinformationen",
+					"device": "Gerät:",
+					"location": "Standort:",
+					"ipAddress": "IP-Adresse:",
+					"createdAt": "Erstellt am:"
+				}
 			}
 		}
 	},

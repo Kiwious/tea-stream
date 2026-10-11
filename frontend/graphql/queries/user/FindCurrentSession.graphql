@@ -1,0 +1,19 @@
+query FindCurrentSession {
+    findCurrentSession {
+        id
+        createdAt
+        metadata {
+            device {
+                browser
+                os
+            }
+            location {
+                city
+                country
+                latitude
+                longitude
+            }
+            ip
+        }
+    }
+}
