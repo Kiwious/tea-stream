@@ -14,7 +14,18 @@ interface Props extends InputProps {
 	fieldClassnames?: string
 }
 
-function Input({
+function Input(props: Props) {
+	const form = useFormContext()
+	return form ? <FormInput {...props} /> : <BaseInput {...props} />
+}
+
+function FormInput(props: Props) {
+	const { control } = useFormContext()
+	const { field } = useController({ name: props.name, control })
+	return <BaseInput {...field} {...props} />
+}
+
+function BaseInput({
 	className,
 	type,
 	label,
@@ -22,13 +33,10 @@ function Input({
 	fieldClassnames = '',
 	...props
 }: Props) {
-	const { control } = useFormContext()
-	const { field } = useController({ name: props.name, control })
 	return (
 		<Field className={cn(fieldClassnames)}>
 			{label && <Label>{label}</Label>}
 			<InputPrimitive
-				{...field}
 				type={type}
 				data-slot='input'
 				// placeholder=''

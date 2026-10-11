@@ -313,6 +313,58 @@
 					"createdAt": "Erstellt am:"
 				}
 			}
+		},
+		"keys": {
+			"header": {
+				"heading": "Stream-Schlüssel",
+				"description": "Generiere eine URL und einen Schlüssel, um einen Stream zu starten."
+			},
+			"url": {
+				"heading": "URL"
+			},
+			"key": {
+				"heading": "Schlüssel"
+			},
+			"instructionModal": {
+				"trigger": "Anleitung",
+				"heading": "🛠️ Anleitung zur Einrichtung von OBS für Livestreams 🛠️",
+				"description": "Um deine Inhalte mit deinem Publikum zu teilen, folge der ausführlichen Anleitung zur Verbindung von OBS Studio. Es sind nur wenige Schritte, und du bist bereit, live zu gehen!",
+				"step1Title": "🔑 Schritt 1: OBS Studio herunterladen und Server URL und Stream Key generieren",
+				"step1Description": "Um einen Stream zu starten, benötigst du zwei wichtige Elemente: die Server URL und den Stream Key (Stream-Schlüssel). Befolge diese Schritte:",
+				"downloadObs": "Lade OBS Studio herunter",
+				"downloadObsDescription": "Bevor du den Stream einrichtest, lade das Programm herunter und installiere es",
+				"obsLinkText": "OBS Studio",
+				"copyKeys": "Kopiere die Server URL und den Stream Key",
+				"copyKeysDescription": "Nach der Generierung erscheinen auf dem Bildschirm zwei Felder: Server URL und Stream Key. Klicke auf die Kopiersymbole neben den Feldern, um die Daten in die Zwischenablage zu kopieren.",
+				"step2Title": "⚙️ Schritt 2: OBS Studio einrichten",
+				"step2Description": "Jetzt, wo du die nötigen Daten hast, richten wir OBS für deinen Stream ein:",
+				"openObs": "Öffne OBS Studio",
+				"openObsDescription": "Falls OBS noch nicht installiert ist, lade es von der offiziellen Website herunter und installiere es. Nach dem Start öffnet sich das Hauptfenster von OBS.",
+				"openStreamSettings": "Öffne die Stream-Einstellungen",
+				"openStreamSettingsDescription": "Klicke im oberen Menü auf „Datei“ → „Einstellungen“. Wechsle zum Tab „Stream“.",
+				"enterDetails": "Gib deine Daten ein",
+				"enterDetailsDescription": "Wähle im Feld „Dienst“ die Option „Benutzerdefiniert...“. Füge die zuvor kopierte Server URL in das Feld „Server“ ein. Füge deinen Stream Key in das Feld „Streamschlüssel“ ein.",
+				"saveSettings": "Speichere die Einstellungen",
+				"saveSettingsDescription": "Klicke auf „Übernehmen“ und dann auf „OK“, um die Änderungen zu speichern.",
+				"step3Title": "🚀 Schritt 3: Stream starten",
+				"step3Description": "Nachdem OBS erfolgreich eingerichtet ist, kannst du mit dem Livestream beginnen:",
+				"startStream": "Starte den Stream",
+				"startStreamDescription": "Kehre zum Hauptfenster von OBS zurück und klicke auf die Schaltfläche „Stream starten“.",
+				"monitorStream": "Behalte deinen Stream im Blick",
+				"monitorStreamDescription": "Dein Stream startet in Echtzeit, und du kannst ihn sowohl auf der Plattform als auch in OBS verfolgen.",
+				"congrats": "✨ Herzlichen Glückwunsch! Du hast OBS erfolgreich für Streams auf unserer Plattform eingerichtet. Dein Publikum wartet auf neue spannende Momente und Inhalte! 🎉",
+				"close": "Schließen"
+			},
+			"createModal": {
+				"trigger": "Schlüssel generieren",
+				"heading": "Schlüssel generieren",
+				"ingressTypeLabel": "Verbindungstyp",
+				"ingressTypeDescription": "Wähle RTMP für klassisches Streaming oder WHIP für WebRTC-Verbindungen.",
+				"ingressTypePlaceholder": "Verbindungstyp auswählen",
+				"submitButton": "Generieren",
+				"successMessage": "Eingangsstream erstellt",
+				"errorMessage": "Fehler beim Erstellen des Eingangsstreams"
+			}
 		}
 	},
 	"components": {
@@ -322,6 +374,9 @@
 		"confirmModal": {
 			"cancel": "Abbrechen",
 			"continue": "Fortfahren"
+		},
+		"copyButton": {
+			"successMessage": "Kopiert"
 		}
 	}
 }

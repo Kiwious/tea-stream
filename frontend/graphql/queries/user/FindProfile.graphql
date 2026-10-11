@@ -10,5 +10,9 @@ query FindProfile {
 			siteNotifications
 			telegramNotifications
 		}
+		stream {
+			streamKey
+			serverUrl
+		}
 	}
 }

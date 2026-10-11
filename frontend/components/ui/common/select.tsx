@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Select as SelectPrimitive } from '@base-ui/react/select'
 import { cn } from 'cn'
 import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from 'lucide-react'
-import { Field } from './field'
+import { Field, FieldDescription } from './field'
 import { Label } from './label'
 import { useController, useFormContext } from 'react-hook-form'
 
@@ -17,9 +17,18 @@ interface Props {
 	items: Record<string, string>
 	disabled?: boolean
 	onChange?: (value: string) => void
+	description?: string
 }
 
-function Select({ name, label, placeholder, items, disabled, onChange }: Props) {
+function Select({
+	name,
+	label,
+	placeholder,
+	items,
+	disabled,
+	onChange,
+	description
+}: Props) {
 	const { control } = useFormContext()
 	const { field } = useController({ name, control })
 
@@ -34,7 +43,7 @@ function Select({ name, label, placeholder, items, disabled, onChange }: Props) 
 			{label && <Label>{label}</Label>}
 			<SelectPrimitive.Root
 				name={field.name}
-				value={field.value}
+				value={field.value ?? null}
 				onValueChange={handleValueChange}
 				disabled={disabled ?? field.disabled}
 				inputRef={field.ref}
@@ -51,6 +60,7 @@ function Select({ name, label, placeholder, items, disabled, onChange }: Props) 
 					))}
 				</SelectContent>
 			</SelectPrimitive.Root>
+			{description && <FieldDescription>{description}</FieldDescription>}
 		</Field>
 	)
 }
@@ -136,7 +146,7 @@ function SelectContent({
 					data-slot='select-content'
 					data-align-trigger={alignItemWithTrigger}
 					className={cn(
-						'bg-popover text-popover-foreground border-border border p-1 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-36 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md shadow-md duration-100 data-[align-trigger=true]:animate-none',
+						'bg-popover text-popover-foreground border-border data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-36 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md duration-100 data-[align-trigger=true]:animate-none',
 						className
 					)}
 					{...props}
