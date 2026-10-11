@@ -1,15 +1,16 @@
 import * as React from 'react'
 import { cn } from 'cn'
 import { useController, useFormContext } from 'react-hook-form'
-import { Field, FieldLabel } from './field'
+import { Field, FieldDescription, FieldLabel } from './field'
 
 interface Props extends React.ComponentProps<'textarea'> {
 	name: string
 	label: string
 	className?: string
+	description?: string
 }
 
-function Textarea({ className, label, ...props }: Props) {
+function Textarea({ className, label, description, ...props }: Props) {
 	const { control } = useFormContext()
 	const { field } = useController({ name: props.name, control })
 	return (
@@ -24,6 +25,7 @@ function Textarea({ className, label, ...props }: Props) {
 				)}
 				{...props}
 			/>
+			{description && <FieldDescription>{description}</FieldDescription>}
 		</Field>
 	)
 }

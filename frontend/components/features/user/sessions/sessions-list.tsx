@@ -1,13 +1,16 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 import { Heading } from '@/components/ui/elements/heading'
 import { ToggleCardSkeleton } from '@/components/ui/elements/toggle-card'
+
 import {
 	type FindSessionsByUserQuery,
 	useFindCurrentSessionQuery,
 	useFindSessionsByUserQuery
 } from '@/graphql/generated/output'
-import { useTranslations } from 'next-intl'
+
 import { SessionItem } from './session-item'
 
 export function SessionsList() {
@@ -29,13 +32,13 @@ export function SessionsList() {
 
 	return (
 		<div className='space-y-6'>
-			<Heading size='sm'>{t('info.current')}</Heading>
+			<Heading title={t('info.current')} size='sm' />
 			{isLoadingCurrent ? (
 				<ToggleCardSkeleton />
 			) : (
 				<SessionItem session={currentSession} isCurrentSession />
 			)}
-			<Heading size='sm'>{t('info.active')}</Heading>
+			<Heading title={t('info.active')} size='sm' />
 			{isLoadingSessions ? (
 				Array.from({ length: 3 }).map((_, index) => (
 					<ToggleCardSkeleton key={index} />

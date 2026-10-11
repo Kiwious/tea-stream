@@ -5,6 +5,7 @@ query FindProfile {
 		displayName
 		avatar
 		bio
+		isVerified
 		isTotpEnabled
 		notificationSettings {
 			siteNotifications

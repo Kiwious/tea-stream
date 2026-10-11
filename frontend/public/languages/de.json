@@ -410,6 +410,40 @@
 				"actions": "Aktionen",
 				"viewChannel": "Zum Kanal"
 			}
+		},
+		"plans": {
+			"header": {
+				"heading": "Premium-Pläne",
+				"description": "Hier wird eine Liste der Premium-Pläne für deinen Kanal angezeigt."
+			},
+			"alert": {
+				"heading": "Kanalverifizierung erforderlich",
+				"description": "Um Premium-Pläne zu erstellen, muss dein Kanal verifiziert sein. Dafür brauchst du nur 10 Follower, um das Häkchen zu erhalten und diese Funktion freizuschalten."
+			},
+			"createForm": {
+				"trigger": "Plan erstellen",
+				"heading": "Plan erstellen",
+				"titleLabel": "Titel",
+				"titlePlaceholder": "Premium-Abo für den Kanal",
+				"titleDescription": "Gib den Titel deines Plans ein. Dieser Titel wird deinen Followern angezeigt.",
+				"descriptionLabel": "Beschreibung",
+				"descriptionPlaceholder": "Beschreibe, was dein Plan beinhaltet",
+				"descriptionDescription": "Beschreibe, was dein Plan beinhaltet. Das hilft deinen Followern, die Vorteile des Abos zu verstehen.",
+				"priceLabel": "Preis",
+				"priceDescription": "Gib den Preis deines Plans in der Währung an. Das ist der Betrag, den Nutzer für das Abo bezahlen.",
+				"submitButton": "Erstellen",
+				"successMessage": "Premium-Plan erstellt",
+				"errorMessage": "Fehler beim Erstellen des Plans"
+			},
+			"columns": {
+				"date": "Erstellungsdatum",
+				"title": "Titel",
+				"price": "Preis",
+				"actions": "Aktionen",
+				"remove": "Löschen",
+				"successMessage": "Plan erfolgreich gelöscht",
+				"removeMessage": "Fehler beim Löschen des Plans"
+			}
 		}
 	},
 	"components": {

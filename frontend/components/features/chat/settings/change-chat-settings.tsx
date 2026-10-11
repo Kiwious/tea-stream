@@ -1,20 +1,24 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { FormProvider, useForm } from 'react-hook-form'
+
 import { toast } from '@/components/ui/common/toast'
 import { Heading } from '@/components/ui/elements/heading'
 import {
 	ToggleCard,
 	ToggleCardSkeleton
 } from '@/components/ui/elements/toggle-card'
+
 import { useChangeChatSettingsMutation } from '@/graphql/generated/output'
+
 import { useCurrent } from '@/hooks/useCurrent'
+
 import {
 	changeChatSettingsSchema,
 	type ChangeChatSettingsSchemaType
 } from '@/schemas/stream/change-chat-settings.schema'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
-import { FormProvider, useForm } from 'react-hook-form'
 
 export function ChangeChatSettings() {
 	const t = useTranslations('dashboard.chat')
@@ -58,9 +62,11 @@ export function ChangeChatSettings() {
 
 	return (
 		<div className='lg:px-10'>
-			<Heading description={t('header.description')} size='lg'>
-				{t('header.heading')}
-			</Heading>
+			<Heading
+				title={t('header.heading')}
+				description={t('header.description')}
+				size='lg'
+			/>
 			{isLoadingProfile ? (
 				Array.from({ length: 3 }).map((_, index) => (
 					<ToggleCardSkeleton key={index} />

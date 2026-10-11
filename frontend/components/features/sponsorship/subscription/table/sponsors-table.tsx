@@ -1,5 +1,10 @@
 'use client'
 
+import type { ColumnDef } from '@tanstack/react-table'
+import { MoreHorizontal, User } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
+
 import { Button } from '@/components/ui/common/button'
 import {
 	DropdownMenu,
@@ -15,15 +20,13 @@ import {
 } from '@/components/ui/elements/data-table'
 import type { DataTableFeatures } from '@/components/ui/elements/data-table-features'
 import { Heading } from '@/components/ui/elements/heading'
+
 import {
 	type FindMySponsorsQuery,
 	useFindMySponsorsQuery
 } from '@/graphql/generated/output'
+
 import { formatDate } from '@/utils/formatDate'
-import type { ColumnDef } from '@tanstack/react-table'
-import { MoreHorizontal, User } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
 
 export function SponsorsTable() {
 	const t = useTranslations('dashboard.sponsors')
@@ -91,9 +94,11 @@ export function SponsorsTable() {
 
 	return (
 		<div className='lg:px-10'>
-			<Heading description={t('header.description')} size='lg'>
-				{t('header.heading')}
-			</Heading>
+			<Heading
+				title={t('header.heading')}
+				description={t('header.description')}
+				size='lg'
+			/>
 			<div className='mt-5'>
 				{isLoadingSponsors ? (
 					<DataTableSkeleton />

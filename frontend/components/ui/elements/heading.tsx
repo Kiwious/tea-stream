@@ -1,6 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
-import { PropsWithChildren } from 'react'
 
 const headingSizes = cva('', {
 	variants: {
@@ -17,14 +16,11 @@ const headingSizes = cva('', {
 })
 
 interface Props extends VariantProps<typeof headingSizes> {
+	title: string
 	description?: string
 }
 
-export function Heading({
-	children,
-	size,
-	description
-}: PropsWithChildren<Props>) {
+export function Heading({ title, size, description }: Props) {
 	return (
 		<div className='space-y-2'>
 			<h1
@@ -33,7 +29,7 @@ export function Heading({
 					headingSizes({ size })
 				)}
 			>
-				{children}
+				{title}
 			</h1>
 			{description && (
 				<p className='text-muted-foreground'>{description}</p>

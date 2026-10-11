@@ -1,0 +1,3 @@
+mutation CreateSponsorshipPlan($data: CreatePlanInput!) {
+	createSponsorshipPlan(data: $data)
+}

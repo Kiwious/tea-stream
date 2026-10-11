@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl'
+
 import {
 	Tabs,
 	TabsContent,
@@ -5,27 +7,29 @@ import {
 	TabsTrigger
 } from '@/components/ui/common/tabs'
 import { Heading } from '@/components/ui/elements/heading'
-import { useTranslations } from 'next-intl'
+
+import { ChangeEmailForm } from './account/change-email-form'
+import { ChangePasswordForm } from './account/change-password-form'
+import { DeactivateCard } from './account/deactivate-card'
+import { WrapperTotp } from './account/totp/wrapper-totp'
+import { ChangeColorForm } from './appearance/change-color-form'
+import { ChangeLanguageForm } from './appearance/change-language-form'
+import { ChangeThemeForm } from './appearance/change-theme-form'
+import { ChangeNotificationsSettingsForm } from './notifications/change-notifications-settings-form'
 import { ChangeAvatarForm } from './profile/change-avatar-form'
 import { ChangeInfoForm } from './profile/change-info-form'
 import { SocialLinksForm } from './profile/social-links-form/social-links-form'
-import { ChangeEmailForm } from './account/change-email-form'
-import { ChangePasswordForm } from './account/change-password-form'
-import { WrapperTotp } from './account/totp/wrapper-totp'
-import { DeactivateCard } from './account/deactivate-card'
-import { ChangeThemeForm } from './appearance/change-theme-form'
-import { ChangeLanguageForm } from './appearance/change-language-form'
-import { ChangeColorForm } from './appearance/change-color-form'
-import { ChangeNotificationsSettingsForm } from './notifications/change-notifications-settings-form'
 import { SessionsList } from './sessions/sessions-list'
 
 export function UserSettings() {
 	const t = useTranslations('dashboard.settings')
 	return (
 		<div className='lg:px-10'>
-			<Heading description={t('header.description')} size='lg'>
-				{t('header.heading')}
-			</Heading>
+			<Heading
+				title={t('header.heading')}
+				description={t('header.description')}
+				size='lg'
+			/>
 			<Tabs defaultValue='profile' className='mt-3 w-full'>
 				<TabsList className='grid max-w-2xl grid-cols-5'>
 					<TabsTrigger value='profile'>
@@ -46,9 +50,10 @@ export function UserSettings() {
 				</TabsList>
 				<TabsContent value='profile'>
 					<div className='mt-5 space-y-6'>
-						<Heading description={t('profile.header.description')}>
-							{t('profile.header.heading')}
-						</Heading>
+						<Heading
+							title={t('profile.header.heading')}
+							description={t('profile.header.description')}
+						/>
 						<ChangeAvatarForm />
 						<ChangeInfoForm />
 						<SocialLinksForm />
@@ -56,36 +61,34 @@ export function UserSettings() {
 				</TabsContent>
 				<TabsContent value='account'>
 					<div className='mt-5 space-y-6'>
-						<Heading description={t('account.header.description')}>
-							{t('account.header.heading')}
-						</Heading>
+						<Heading
+							title={t('account.header.heading')}
+							description={t('account.header.description')}
+						/>
 						<ChangeEmailForm />
 						<ChangePasswordForm />
 						<Heading
+							title={t('account.header.securityHeading')}
 							description={t(
 								'account.header.securityDescription'
 							)}
-						>
-							{t('account.header.securityHeading')}
-						</Heading>
+						/>
 						<WrapperTotp />
 						<Heading
+							title={t('account.header.deactivationHeading')}
 							description={t(
 								'account.header.deactivationDescription'
 							)}
-						>
-							{t('account.header.deactivationHeading')}
-						</Heading>
+						/>
 						<DeactivateCard />
 					</div>
 				</TabsContent>
 				<TabsContent value='appearance'>
 					<div className='mt-5 space-y-6'>
 						<Heading
+							title={t('appearance.header.heading')}
 							description={t('appearance.header.description')}
-						>
-							{t('appearance.header.heading')}
-						</Heading>
+						/>
 						<ChangeThemeForm />
 						<ChangeLanguageForm />
 						<ChangeColorForm />
@@ -94,18 +97,18 @@ export function UserSettings() {
 				<TabsContent value='notifications'>
 					<div className='mt-5 space-y-6'>
 						<Heading
+							title={t('notifications.header.heading')}
 							description={t('notifications.header.description')}
-						>
-							{t('notifications.header.heading')}
-						</Heading>
+						/>
 						<ChangeNotificationsSettingsForm />
 					</div>
 				</TabsContent>
 				<TabsContent value='sessions'>
 					<div className='mt-5 space-y-6'>
-						<Heading description={t('sessions.header.description')}>
-							{t('sessions.header.heading')}
-						</Heading>
+						<Heading
+							title={t('sessions.header.heading')}
+							description={t('sessions.header.description')}
+						/>
 						<SessionsList />
 					</div>
 				</TabsContent>
