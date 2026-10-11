@@ -31,16 +31,17 @@ export function KeysSettings() {
 				</div>
 			</div>
 			<div className='mt-5 space-y-6'>
-				{isLoadingProfile ? (
-					Array.from({ length: 2 }).map((_, index) => (
-						<ToggleCardSkeleton key={index} />
-					))
-				) : (
-					<>
-						<StreamUrl value={user?.stream.serverUrl} />
-						<StreamKey value={user?.stream.streamKey} />
-					</>
-				)}
+				{isLoadingProfile
+					? Array.from({ length: 2 }).map((_, index) => (
+							<ToggleCardSkeleton key={index} />
+						))
+					: user?.stream.serverUrl &&
+						user.stream.streamKey && (
+							<>
+								<StreamUrl value={user?.stream.serverUrl} />
+								<StreamKey value={user?.stream.streamKey} />
+							</>
+						)}
 			</div>
 		</div>
 	)
