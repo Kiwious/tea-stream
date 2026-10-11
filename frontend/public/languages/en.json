@@ -444,6 +444,21 @@
 				"successMessage": "Plan deleted successfully",
 				"removeMessage": "Error deleting plan"
 			}
+		},
+		"transactions": {
+			"header": {
+				"heading": "Transactions",
+				"description": "Here are the transactions related to channel sponsorships."
+			},
+			"columns": {
+				"date": "Creation date",
+				"status": "Status",
+				"success": "Successful",
+				"pending": "Pending",
+				"failed": "Failed",
+				"expired": "Expired",
+				"amount": "Amount"
+			}
 		}
 	},
 	"components": {

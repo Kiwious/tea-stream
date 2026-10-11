@@ -2,6 +2,7 @@
 
 import { toast } from '@/components/ui/common/toast'
 import { useLoginUserMutation } from '@/graphql/generated/output'
+import { useApolloClient } from '@apollo/client/react'
 import { type LoginFormValues, loginSchema } from '@/schemas/auth/login.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
@@ -25,14 +26,16 @@ export function LoginForm() {
 	const router = useRouter()
 
 	const { auth } = useAuth()
+	const client = useApolloClient()
 
 	const [isShowTwoFactor, setIsShowTwoFactor] = useState(false)
 
 	const [loginMutation, { loading: isLoadingLogin }] = useLoginUserMutation({
-		onCompleted: data => {
+		onCompleted: async data => {
 			if (data.loginUser.message) {
 				setIsShowTwoFactor(true)
 			} else {
+				await client.clearStore()
 				auth()
 				toast.add({
 					type: 'success',

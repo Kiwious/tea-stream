@@ -672,6 +672,12 @@ export type SocialLinkOrderInput = {
   position: number;
 };
 
+export type TransactionStatus =
+  | 'EXPIRED'
+  | 'FAILED'
+  | 'PENDING'
+  | 'SUCCESS';
+
 export type VerificationInput = {
   token: string;
 };
@@ -864,6 +870,11 @@ export type FindMySponsorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type FindMySponsorsQuery = { findMySponsors: Array<{ expiresAt: unknown, user: { username: string, avatar: string | null, isVerified: boolean }, sponsorshipPlan: { title: string } }> };
 
+export type FindMyTransactionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindMyTransactionsQuery = { findMyTransactions: Array<{ createdAt: unknown, status: TransactionStatus, amount: number }> };
+
 export type FindCurrentSessionQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -929,6 +940,7 @@ export const FindRecommendedChannelsDocument = {"kind":"Document","definitions":
 export const FindMyFollowersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindMyFollowers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findMyFollowers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"follower"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"isVerified"}}]}}]}}]}}]} as unknown as DocumentNode<FindMyFollowersQuery, FindMyFollowersQueryVariables>;
 export const FindMySponsorshipPlansDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindMySponsorshipPlans"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findMySponsorshipPlans"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"price"}}]}}]}}]} as unknown as DocumentNode<FindMySponsorshipPlansQuery, FindMySponsorshipPlansQueryVariables>;
 export const FindMySponsorsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindMySponsors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findMySponsors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"expiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"isVerified"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sponsorshipPlan"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<FindMySponsorsQuery, FindMySponsorsQueryVariables>;
+export const FindMyTransactionsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindMyTransactions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findMyTransactions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"amount"}}]}}]}}]} as unknown as DocumentNode<FindMyTransactionsQuery, FindMyTransactionsQueryVariables>;
 export const FindCurrentSessionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindCurrentSession"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findCurrentSession"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"metadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"device"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"browser"}},{"kind":"Field","name":{"kind":"Name","value":"os"}}]}},{"kind":"Field","name":{"kind":"Name","value":"location"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"latitude"}},{"kind":"Field","name":{"kind":"Name","value":"longitude"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ip"}}]}}]}}]}}]} as unknown as DocumentNode<FindCurrentSessionQuery, FindCurrentSessionQueryVariables>;
 export const FindNotificationsByUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindNotificationsByUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findNotificationsByUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]} as unknown as DocumentNode<FindNotificationsByUserQuery, FindNotificationsByUserQueryVariables>;
 export const FindNotificationsUnreadCountDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindNotificationsUnreadCount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findNotificationsUnreadCount"}}]}}]} as unknown as DocumentNode<FindNotificationsUnreadCountQuery, FindNotificationsUnreadCountQueryVariables>;
@@ -1082,6 +1094,18 @@ export function useFindMySponsorsLazyQuery(options?: useLazyQuery.Options<FindMy
 
 export function useFindMySponsorsSuspenseQuery(...[options]: {} extends FindMySponsorsQueryVariables ? [options?: useSuspenseQuery.Options<FindMySponsorsQueryVariables>] : [options: useSuspenseQuery.Options<FindMySponsorsQueryVariables>]) {
 	return useSuspenseQuery(FindMySponsorsDocument, options as useSuspenseQuery.Options<FindMySponsorsQueryVariables>)
+}
+
+export function useFindMyTransactionsQuery(...[options]: {} extends FindMyTransactionsQueryVariables ? [options?: useQuery.Options<FindMyTransactionsQuery, FindMyTransactionsQueryVariables>] : [options: useQuery.Options<FindMyTransactionsQuery, FindMyTransactionsQueryVariables>]) {
+	return useQuery(FindMyTransactionsDocument, options as useQuery.Options<FindMyTransactionsQuery, FindMyTransactionsQueryVariables>)
+}
+
+export function useFindMyTransactionsLazyQuery(options?: useLazyQuery.Options<FindMyTransactionsQuery, FindMyTransactionsQueryVariables>) {
+	return useLazyQuery(FindMyTransactionsDocument, options as useLazyQuery.Options<FindMyTransactionsQuery, FindMyTransactionsQueryVariables>)
+}
+
+export function useFindMyTransactionsSuspenseQuery(...[options]: {} extends FindMyTransactionsQueryVariables ? [options?: useSuspenseQuery.Options<FindMyTransactionsQueryVariables>] : [options: useSuspenseQuery.Options<FindMyTransactionsQueryVariables>]) {
+	return useSuspenseQuery(FindMyTransactionsDocument, options as useSuspenseQuery.Options<FindMyTransactionsQueryVariables>)
 }
 
 export function useFindCurrentSessionQuery(...[options]: {} extends FindCurrentSessionQueryVariables ? [options?: useQuery.Options<FindCurrentSessionQuery, FindCurrentSessionQueryVariables>] : [options: useQuery.Options<FindCurrentSessionQuery, FindCurrentSessionQueryVariables>]) {

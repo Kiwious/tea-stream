@@ -10,6 +10,7 @@ import {
 import { toast } from '@/components/ui/common/toast'
 import { ChannelAvatar } from '@/components/ui/elements/channel-avatar'
 import { useLogoutUserMutation } from '@/graphql/generated/output'
+import { useApolloClient } from '@apollo/client/react'
 import { useAuth } from '@/hooks/useAuth'
 import { useCurrent } from '@/hooks/useCurrent'
 import { LayoutDashboard, Loader, LogOut, User } from 'lucide-react'
@@ -23,11 +24,13 @@ export function ProfileMenu() {
 	const router = useRouter()
 
 	const { exit } = useAuth()
+	const client = useApolloClient()
 	const { user, isLoadingProfile } = useCurrent()
 
 	const [logout] = useLogoutUserMutation({
-		onCompleted: () => {
+		onCompleted: async () => {
 			exit()
+			await client.clearStore()
 			toast.add({
 				type: 'success',
 				description: t('logoutSuccess')

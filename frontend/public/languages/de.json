@@ -444,6 +444,21 @@
 				"successMessage": "Plan erfolgreich gelöscht",
 				"removeMessage": "Fehler beim Löschen des Plans"
 			}
+		},
+		"transactions": {
+			"header": {
+				"heading": "Transaktionen",
+				"description": "Hier werden Transaktionen im Zusammenhang mit Sponsorings für Kanäle angezeigt."
+			},
+			"columns": {
+				"date": "Erstellungsdatum",
+				"status": "Status",
+				"success": "Erfolgreich",
+				"pending": "Ausstehend",
+				"failed": "Fehlgeschlagen",
+				"expired": "Abgelaufen",
+				"amount": "Betrag"
+			}
 		}
 	},
 	"components": {
