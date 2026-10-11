@@ -13,6 +13,9 @@ query FindProfile {
 		stream {
 			streamKey
 			serverUrl
+			isChatEnabled
+			isChatFollowersOnly
+			isChatPremiumFollowersOnly
 		}
 	}
 }

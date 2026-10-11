@@ -365,6 +365,26 @@
 				"successMessage": "Eingangsstream erstellt",
 				"errorMessage": "Fehler beim Erstellen des Eingangsstreams"
 			}
+		},
+		"chat": {
+			"header": {
+				"heading": "Chat-Einstellungen",
+				"description": "Hier kannst du die Einstellungen deines Chats verwalten."
+			},
+			"isChatEnabled": {
+				"heading": "Chat aktivieren",
+				"description": "Wenn du den Chat aktivierst, können Zuschauer während deines Streams Nachrichten im Chat schreiben."
+			},
+			"isChatFollowersOnly": {
+				"heading": "Chat nur für Follower",
+				"description": "Wenn du diese Einstellung aktivierst, können nur deine Follower Nachrichten im Chat schreiben."
+			},
+			"isChatPremiumFollowersOnly": {
+				"heading": "Chat nur für Premium-Follower",
+				"description": "Wenn du diese Einstellung aktivierst, können nur Premium-Follower Nachrichten im Chat schreiben."
+			},
+			"successMessage": "Chat-Einstellungen erfolgreich aktualisiert",
+			"errorMessage": "Fehler beim Aktualisieren der Chat-Einstellungen"
 		}
 	},
 	"components": {
