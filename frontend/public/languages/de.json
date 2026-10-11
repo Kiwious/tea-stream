@@ -397,6 +397,19 @@
 				"actions": "Aktionen",
 				"viewChannel": "Kanal ansehen"
 			}
+		},
+		"sponsors": {
+			"header": {
+				"heading": "Sponsoren",
+				"description": "Hier wird eine Liste aller deiner Sponsoren angezeigt."
+			},
+			"columns": {
+				"date": "Ablaufdatum",
+				"user": "Benutzer",
+				"plan": "Plan",
+				"actions": "Aktionen",
+				"viewChannel": "Zum Kanal"
+			}
 		}
 	},
 	"components": {

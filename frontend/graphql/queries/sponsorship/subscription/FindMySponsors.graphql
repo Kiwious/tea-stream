@@ -1,0 +1,13 @@
+query FindMySponsors {
+	findMySponsors {
+		expiresAt
+		user {
+			username
+			avatar
+			isVerified
+		}
+		sponsorshipPlan {
+			title
+		}
+	}
+}
