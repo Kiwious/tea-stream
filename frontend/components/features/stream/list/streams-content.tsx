@@ -80,6 +80,7 @@ export function StreamsContent({ streams }: Props) {
 				dataLength={streamList.length}
 				next={fetchMoreStreams}
 				hasMore={hasMore}
+				style={{ overflow: 'visible' }}
 				loader={
 					<div className='mt-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
 						{Array.from({ length: 12 }).map((_, index) => (
