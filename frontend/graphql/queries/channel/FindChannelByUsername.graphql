@@ -7,7 +7,12 @@ query FindChannelByUsername($username: String!) {
 		isVerified
 		bio
 		stream {
+			title
 			thumbnailUrl
+			isLive
+			category {
+				title
+			}
 		}
 	}
 }

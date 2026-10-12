@@ -4,6 +4,7 @@ import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
 import { useStreamToken } from '@/hooks/useStreamToken'
 import { LiveKitRoom } from '@livekit/components-react'
 import { StreamVideo, StreamVideoSkeleton } from './player/stream-video'
+import { StreamInfo } from './info/stream-info'
 
 interface Props {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
@@ -24,6 +25,7 @@ export function StreamOverview({ channel }: Props) {
 		>
 			<div className='order-1 col-span-1 flex flex-col lg:col-span-5'>
 				<StreamVideo channel={channel} />
+				<StreamInfo channel={channel} />
 			</div>
 			<div className='order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2'>
 				Chat
