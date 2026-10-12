@@ -60,6 +60,10 @@
 			"heading": "Streams in this category"
 		}
 	},
+	"streams": {
+		"heading": "Streams",
+		"searchHeading": "Search results for"
+	},
 	"auth": {
 		"register": {
 			"heading": "Sign up for TeaStream",

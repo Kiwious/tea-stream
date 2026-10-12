@@ -61,6 +61,10 @@
 			"heading": "Streams in dieser Kategorie"
 		}
 	},
+	"streams": {
+		"heading": "Streams",
+		"searchHeading": "Suchergebnisse für"
+	},
 	"auth": {
 		"register": {
 			"heading": "Registrierung bei TeaStream",
