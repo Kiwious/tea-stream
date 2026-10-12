@@ -231,6 +231,14 @@ export class StreamService {
 							mode: 'insensitive'
 						}
 					}
+				},
+				{
+					category: {
+						title: {
+							contains: searchTerm,
+							mode: 'insensitive'
+						}
+					}
 				}
 			]
 		}
