@@ -1,8 +1,4 @@
-import {
-	HeadObjectCommand,
-	PutObjectCommand,
-	S3Client
-} from '@aws-sdk/client-s3'
+import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { BadRequestException, Logger } from '@nestjs/common'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { hash } from 'argon2'
@@ -38,72 +34,25 @@ const s3 = new S3Client({
 	}
 })
 
-function escapeXml(value: string) {
-	return value
-		.replace(/&/g, '&amp;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;')
-		.replace(/"/g, '&quot;')
+// Golden-angle hue spacing gives every user a distinct pastel color
+function getPastelColor(index: number) {
+	const hue = Math.round((index * 137.508) % 360)
+	return `hsl(${hue}, 70%, 80%)`
 }
 
-function hueFromString(value: string) {
-	let hash = 0
-	for (const char of value) {
-		hash = (hash * 31 + char.charCodeAt(0)) % 360
-	}
-	return hash
-}
-
-async function existsInStorage(key: string) {
-	try {
-		await s3.send(
-			new HeadObjectCommand({
-				Bucket: process.env.S3_BUCKET_NAME,
-				Key: key
-			})
-		)
-		return true
-	} catch {
-		return false
-	}
-}
-
-async function generateStreamThumbnail(
-	username: string,
-	categoryTitle: string,
-	streamTitle: string
-) {
-	const hue = hueFromString(username)
-	const svg = `
-		<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="hsl(${hue}, 70%, 45%)" />
-					<stop offset="100%" stop-color="hsl(${(hue + 60) % 360}, 70%, 20%)" />
-				</linearGradient>
-			</defs>
-			<rect width="1280" height="720" fill="url(#bg)" />
-			<text x="64" y="120" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff" fill-opacity="0.75">${escapeXml(categoryTitle.toUpperCase())}</text>
-			<text x="64" y="600" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff">${escapeXml(streamTitle)}</text>
-			<text x="64" y="660" font-family="Arial, sans-serif" font-size="36" fill="#ffffff" fill-opacity="0.85">@${escapeXml(username)}</text>
-		</svg>`
-
-	return sharp(Buffer.from(svg)).webp().toBuffer()
-}
-
-async function ensureStreamThumbnail(
-	username: string,
-	categoryTitle: string,
-	streamTitle: string
-) {
+async function uploadStreamThumbnail(username: string, index: number) {
 	const key = `streams/${username}.webp`
-	if (await existsInStorage(key)) return key
+	const buffer = await sharp({
+		create: {
+			width: 1280,
+			height: 720,
+			channels: 3,
+			background: getPastelColor(index)
+		}
+	})
+		.webp()
+		.toBuffer()
 
-	const buffer = await generateStreamThumbnail(
-		username,
-		categoryTitle,
-		streamTitle
-	)
 	await s3.send(
 		new PutObjectCommand({
 			Bucket: process.env.S3_BUCKET_NAME,
@@ -138,7 +87,7 @@ async function main() {
 
 		// Uploads happen outside the transaction so they don't hit its timeout
 		const streamsData = await Promise.all(
-			usernames.map(async username => {
+			usernames.map(async (username, index) => {
 				const category =
 					categoriesBySlug[
 						Object.keys(categoriesBySlug)[
@@ -150,10 +99,9 @@ async function main() {
 					]
 				const titles = streamTitles[category.slug]
 				const title = titles[Math.floor(Math.random() * titles.length)]
-				const thumbnailUrl = await ensureStreamThumbnail(
+				const thumbnailUrl = await uploadStreamThumbnail(
 					username,
-					category.title,
-					title
+					index
 				)
 
 				return { username, category, title, thumbnailUrl }
