@@ -850,6 +850,23 @@ export type UpdateSocialLinkMutationVariables = Exact<{
 
 export type UpdateSocialLinkMutation = { updateSocialLink: boolean };
 
+export type FindAllCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindAllCategoriesQuery = { findAllCategories: Array<{ title: string, slug: string, thumbnailUrl: string }> };
+
+export type FindCategoryBySlugQueryVariables = Exact<{
+  slug: string;
+}>;
+
+
+export type FindCategoryBySlugQuery = { findCategoryBySlug: { title: string, thumbnailUrl: string, description: string | null, streams: Array<{ title: string, thumbnailUrl: string | null, isLive: boolean, user: { username: string, avatar: string | null, isVerified: boolean }, category: { title: string, slug: string } | null }> } };
+
+export type FindRandomCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindRandomCategoriesQuery = { findRandomCategories: Array<{ title: string, slug: string, thumbnailUrl: string }> };
+
 export type FindRecommendedChannelsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -941,6 +958,9 @@ export const RemoveSessionDocument = {"kind":"Document","definitions":[{"kind":"
 export const RemoveSocialLinkDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RemoveSocialLink"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"removeSocialLink"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}]}}]} as unknown as DocumentNode<RemoveSocialLinkMutation, RemoveSocialLinkMutationVariables>;
 export const ReorderSocialLinksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ReorderSocialLinks"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"list"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SocialLinkOrderInput"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"reorderSocialLinks"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"list"},"value":{"kind":"Variable","name":{"kind":"Name","value":"list"}}}]}]}}]} as unknown as DocumentNode<ReorderSocialLinksMutation, ReorderSocialLinksMutationVariables>;
 export const UpdateSocialLinkDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateSocialLink"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SocialLinkInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateSocialLink"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}]}}]} as unknown as DocumentNode<UpdateSocialLinkMutation, UpdateSocialLinkMutationVariables>;
+export const FindAllCategoriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindAllCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findAllCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnailUrl"}}]}}]}}]} as unknown as DocumentNode<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>;
+export const FindCategoryBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindCategoryBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findCategoryBySlug"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnailUrl"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"streams"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnailUrl"}},{"kind":"Field","name":{"kind":"Name","value":"isLive"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"isVerified"}}]}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]}}]}}]} as unknown as DocumentNode<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>;
+export const FindRandomCategoriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindRandomCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findRandomCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnailUrl"}}]}}]}}]} as unknown as DocumentNode<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>;
 export const FindRecommendedChannelsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindRecommendedChannels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findRecommendedChannels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"isVerified"}},{"kind":"Field","name":{"kind":"Name","value":"stream"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isLive"}}]}}]}}]}}]} as unknown as DocumentNode<FindRecommendedChannelsQuery, FindRecommendedChannelsQueryVariables>;
 export const FindMyFollowersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindMyFollowers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findMyFollowers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"follower"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar"}},{"kind":"Field","name":{"kind":"Name","value":"isVerified"}}]}}]}}]}}]} as unknown as DocumentNode<FindMyFollowersQuery, FindMyFollowersQueryVariables>;
 export const FindMySponsorshipPlansDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FindMySponsorshipPlans"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"findMySponsorshipPlans"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"price"}}]}}]}}]} as unknown as DocumentNode<FindMySponsorshipPlansQuery, FindMySponsorshipPlansQueryVariables>;
@@ -1052,6 +1072,42 @@ export function useReorderSocialLinksMutation(options?: useMutation.Options<Reor
 
 export function useUpdateSocialLinkMutation(options?: useMutation.Options<UpdateSocialLinkMutation, UpdateSocialLinkMutationVariables>) {
 	return useMutation(UpdateSocialLinkDocument, options as useMutation.Options<UpdateSocialLinkMutation, UpdateSocialLinkMutationVariables>)
+}
+
+export function useFindAllCategoriesQuery(...[options]: {} extends FindAllCategoriesQueryVariables ? [options?: useQuery.Options<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>] : [options: useQuery.Options<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>]) {
+	return useQuery(FindAllCategoriesDocument, options as useQuery.Options<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>)
+}
+
+export function useFindAllCategoriesLazyQuery(options?: useLazyQuery.Options<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>) {
+	return useLazyQuery(FindAllCategoriesDocument, options as useLazyQuery.Options<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>)
+}
+
+export function useFindAllCategoriesSuspenseQuery(...[options]: {} extends FindAllCategoriesQueryVariables ? [options?: useSuspenseQuery.Options<FindAllCategoriesQueryVariables>] : [options: useSuspenseQuery.Options<FindAllCategoriesQueryVariables>]) {
+	return useSuspenseQuery(FindAllCategoriesDocument, options as useSuspenseQuery.Options<FindAllCategoriesQueryVariables>)
+}
+
+export function useFindCategoryBySlugQuery(...[options]: {} extends FindCategoryBySlugQueryVariables ? [options?: useQuery.Options<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>] : [options: useQuery.Options<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>]) {
+	return useQuery(FindCategoryBySlugDocument, options as useQuery.Options<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>)
+}
+
+export function useFindCategoryBySlugLazyQuery(options?: useLazyQuery.Options<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>) {
+	return useLazyQuery(FindCategoryBySlugDocument, options as useLazyQuery.Options<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>)
+}
+
+export function useFindCategoryBySlugSuspenseQuery(...[options]: {} extends FindCategoryBySlugQueryVariables ? [options?: useSuspenseQuery.Options<FindCategoryBySlugQueryVariables>] : [options: useSuspenseQuery.Options<FindCategoryBySlugQueryVariables>]) {
+	return useSuspenseQuery(FindCategoryBySlugDocument, options as useSuspenseQuery.Options<FindCategoryBySlugQueryVariables>)
+}
+
+export function useFindRandomCategoriesQuery(...[options]: {} extends FindRandomCategoriesQueryVariables ? [options?: useQuery.Options<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>] : [options: useQuery.Options<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>]) {
+	return useQuery(FindRandomCategoriesDocument, options as useQuery.Options<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>)
+}
+
+export function useFindRandomCategoriesLazyQuery(options?: useLazyQuery.Options<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>) {
+	return useLazyQuery(FindRandomCategoriesDocument, options as useLazyQuery.Options<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>)
+}
+
+export function useFindRandomCategoriesSuspenseQuery(...[options]: {} extends FindRandomCategoriesQueryVariables ? [options?: useSuspenseQuery.Options<FindRandomCategoriesQueryVariables>] : [options: useSuspenseQuery.Options<FindRandomCategoriesQueryVariables>]) {
+	return useSuspenseQuery(FindRandomCategoriesDocument, options as useSuspenseQuery.Options<FindRandomCategoriesQueryVariables>)
 }
 
 export function useFindRecommendedChannelsQuery(...[options]: {} extends FindRecommendedChannelsQueryVariables ? [options?: useQuery.Options<FindRecommendedChannelsQuery, FindRecommendedChannelsQueryVariables>] : [options: useQuery.Options<FindRecommendedChannelsQuery, FindRecommendedChannelsQueryVariables>]) {

@@ -32,7 +32,7 @@ export function StreamCard({ stream }: Props) {
 					</h2>
 					{stream.category && (
 						<Link
-							href={`/category/${stream.category.slug}`}
+							href={`/categories/${stream.category.slug}`}
 							className='text-muted-foreground'
 						>
 							{stream.category.title}

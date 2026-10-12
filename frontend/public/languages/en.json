@@ -54,6 +54,12 @@
 		"streamsHeading": "Channels you might like",
 		"categoriesHeading": "Categories you might like"
 	},
+	"categories": {
+		"heading": "Categories",
+		"overview": {
+			"heading": "Streams in this category"
+		}
+	},
 	"auth": {
 		"register": {
 			"heading": "Sign up for TeaStream",
@@ -478,6 +484,10 @@
 		},
 		"dataTable": {
 			"notFound": "Nothing found"
+		},
+		"emptyState": {
+			"heading": "Nothing found",
+			"text": "We searched every corner of our site, but unfortunately nothing matched your request. Maybe try something else?"
 		}
 	}
 }

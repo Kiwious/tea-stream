@@ -1,6 +1,7 @@
 import { Heading } from '@/components/ui/elements/heading'
 import type { FindRandomStreamsQuery } from '@/graphql/generated/output'
 import { StreamCard } from './stream-card'
+import { EmptyState } from '@/components/ui/elements/empty-state'
 
 interface Props {
 	heading?: string
@@ -9,7 +10,7 @@ interface Props {
 
 export function StreamsList({ streams, heading }: Props) {
 	if (!streams.length) {
-		return <div>Not Found</div>
+		return <EmptyState />
 	}
 
 	return (

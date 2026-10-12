@@ -55,6 +55,12 @@
 		"streamsHeading": "Kanäle, die dir gefallen könnten",
 		"categoriesHeading": "Kategorien, die dir gefallen könnten"
 	},
+	"categories": {
+		"heading": "Kategorien",
+		"overview": {
+			"heading": "Streams in dieser Kategorie"
+		}
+	},
 	"auth": {
 		"register": {
 			"heading": "Registrierung bei TeaStream",
@@ -479,6 +485,10 @@
 		},
 		"dataTable": {
 			"notFound": "Nichts gefunden"
+		},
+		"emptyState": {
+			"heading": "Nichts gefunden",
+			"text": "Wir haben jeden Winkel unserer Website durchsucht, aber leider wurde zu deiner Anfrage nichts gefunden. Vielleicht probierst du etwas anderes?"
 		}
 	}
 }

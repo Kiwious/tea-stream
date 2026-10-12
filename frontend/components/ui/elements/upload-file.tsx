@@ -28,7 +28,6 @@ export function UploadFile({
 			setValue(name, file)
 			mutation()
 		}
-		console.log('working')
 	}
 
 	return (
