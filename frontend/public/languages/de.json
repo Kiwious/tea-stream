@@ -65,6 +65,70 @@
 		"heading": "Streams",
 		"searchHeading": "Suchergebnisse für"
 	},
+	"stream": {
+		"video": {
+			"offline": "ist offline",
+			"loading": "Verbinden...",
+			"player": {
+				"volume": "Lautstärke",
+				"fullscreen": {
+					"open": "Vollbildmodus",
+					"exit": "Vollbildmodus beenden"
+				}
+			}
+		},
+		"info": {
+			"viewers": "Zuschauer",
+			"offline": "Offline"
+		},
+		"actions": {
+			"follow": {
+				"confirmUnfollowHeading": "Nicht mehr folgen",
+				"confirmUnfollowMessage": "Du erhältst keine Benachrichtigungen mehr von diesem Kanal und er verschwindet aus der Liste der Kanäle, denen du folgst.",
+				"unfollowButton": "Nicht mehr folgen",
+				"followButton": "Folgen",
+				"successFollowMessage": "Du folgst dem Kanal jetzt",
+				"errorFollowMessage": "Fehler beim Folgen",
+				"successUnfollowMessage": "Du folgst dem Kanal nicht mehr",
+				"errorUnfollowMessage": "Fehler beim Entfolgen"
+			},
+			"support": {
+				"alreadySponsor": "Du bist bereits Sponsor",
+				"supportAuthor": "Autor unterstützen",
+				"perMonth": "pro Monat",
+				"choose": "Auswählen",
+				"errorMessage": "Fehler beim Erstellen der Zahlung"
+			},
+			"share": {
+				"heading": "Teilen über"
+			}
+		},
+		"aboutChannel": {
+			"heading": "Über",
+			"followersCount": "Follower",
+			"noDescription": "Keine Beschreibung angegeben"
+		},
+		"sponsors": {
+			"heading": "Sponsoren des Kanals"
+		},
+		"chat": {
+			"heading": "Chat",
+			"unavailable": "Chat nicht verfügbar",
+			"unavailableMessage": "Der Chat ist nicht verfügbar, solange auf dem Kanal kein Stream läuft. Schau bitte später wieder vorbei!",
+			"loading": "Verbinden...",
+			"info": {
+				"authRequired": "Anmeldung erforderlich",
+				"chatDisabled": "Chat deaktiviert",
+				"premiumFollowersOnly": "Nur für Sponsoren",
+				"followersOnly": "Nur für Follower"
+			},
+			"sendMessage": {
+				"placeholder": "Nachricht senden",
+				"emojiPlaceholder": "Suchen",
+				"errorMessage": "Fehler beim Senden der Nachricht"
+			}
+		}
+	},
 	"auth": {
 		"register": {
 			"heading": "Registrierung bei TeaStream",

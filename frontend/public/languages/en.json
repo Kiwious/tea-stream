@@ -64,6 +64,70 @@
 		"heading": "Streams",
 		"searchHeading": "Search results for"
 	},
+	"stream": {
+		"video": {
+			"offline": "is offline",
+			"loading": "Connecting...",
+			"player": {
+				"volume": "Volume",
+				"fullscreen": {
+					"open": "Fullscreen",
+					"exit": "Exit fullscreen"
+				}
+			}
+		},
+		"info": {
+			"viewers": "viewers",
+			"offline": "Offline"
+		},
+		"actions": {
+			"follow": {
+				"confirmUnfollowHeading": "Unfollow",
+				"confirmUnfollowMessage": "You will no longer receive notifications from this channel, and it will disappear from your following list.",
+				"unfollowButton": "Unfollow",
+				"followButton": "Follow",
+				"successFollowMessage": "You have successfully followed",
+				"errorFollowMessage": "Error while following",
+				"successUnfollowMessage": "You have successfully unfollowed",
+				"errorUnfollowMessage": "Error while unfollowing"
+			},
+			"support": {
+				"alreadySponsor": "You are already a sponsor",
+				"supportAuthor": "Support the author",
+				"perMonth": "per month",
+				"choose": "Choose",
+				"errorMessage": "Error creating payment"
+			},
+			"share": {
+				"heading": "Share via"
+			}
+		},
+		"aboutChannel": {
+			"heading": "About",
+			"followersCount": "followers",
+			"noDescription": "No description provided"
+		},
+		"sponsors": {
+			"heading": "Channel sponsors"
+		},
+		"chat": {
+			"heading": "Chat",
+			"unavailable": "Chat unavailable",
+			"unavailableMessage": "Chat is unavailable while the channel is not streaming. Please check back later!",
+			"loading": "Connecting...",
+			"info": {
+				"authRequired": "Login required",
+				"chatDisabled": "Chat disabled",
+				"premiumFollowersOnly": "Sponsors only",
+				"followersOnly": "Followers only"
+			},
+			"sendMessage": {
+				"placeholder": "Send a message",
+				"emojiPlaceholder": "Search",
+				"errorMessage": "Error sending message"
+			}
+		}
+	},
 	"auth": {
 		"register": {
 			"heading": "Sign up for TeaStream",
