@@ -6,6 +6,7 @@ import { LiveKitRoom } from '@livekit/components-react'
 import { StreamVideo, StreamVideoSkeleton } from './player/stream-video'
 import { StreamInfo, StreamInfoSkeleton } from './info/stream-info'
 import { AboutChannel, AboutChannelSkeleton } from './info/about-channel'
+import { ChannelSponsors } from './info/channel-sponsors'
 
 interface Props {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
@@ -28,6 +29,7 @@ export function StreamOverview({ channel }: Props) {
 				<StreamVideo channel={channel} />
 				<StreamInfo channel={channel} />
 				<AboutChannel channel={channel} />
+				<ChannelSponsors channel={channel} />
 			</div>
 			<div className='order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2'>
 				Chat
