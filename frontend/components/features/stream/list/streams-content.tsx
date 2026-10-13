@@ -40,6 +40,7 @@ export function StreamsContent({ streams }: Props) {
 
 	useEffect(() => {
 		if (data?.findAllStreams) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setStreamList(data.findAllStreams)
 			setHasMore(data.findAllStreams.length === 12)
 		}

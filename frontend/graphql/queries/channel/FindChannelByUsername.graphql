@@ -20,5 +20,12 @@ query FindChannelByUsername($username: String!) {
 			description
 			price
 		}
+		followers {
+			id
+		}
+		socialLinks {
+			title
+			url
+		}
 	}
 }
