@@ -6,6 +6,7 @@ import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
 import { useParticipants } from '@livekit/components-react'
 import { User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { StreamActions } from './stream-actions'
 
 interface Props {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
@@ -49,6 +50,7 @@ export function StreamInfo({ channel }: Props) {
 						)}
 					</div>
 				</div>
+				<StreamActions channel={channel} />
 			</div>
 		</div>
 	)

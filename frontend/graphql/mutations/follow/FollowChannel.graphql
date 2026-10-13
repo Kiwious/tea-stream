@@ -1,0 +1,3 @@
+mutation FollowChannel($channelId: String!) {
+	followChannel(channelId: $channelId)
+}
