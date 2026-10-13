@@ -129,6 +129,20 @@
 			}
 		}
 	},
+	"success": {
+		"heading": "Zahlung erfolgreich!",
+		"details": {
+			"heading": "Details zum Sponsoring:",
+			"price": "Preis:",
+			"duration": "Dauer:",
+			"channel": "Kanal:",
+			"month": "Monat"
+		},
+		"congratulations": "Jetzt hast du Zugang zu den Premium-Inhalten des Kanals!",
+		"backToHome": "Zur Startseite",
+		"backToChannel": "Zurück zum Kanal",
+		"support": "Wenn du Fragen hast, wende dich an unseren Support."
+	},
 	"auth": {
 		"register": {
 			"heading": "Registrierung bei TeaStream",
