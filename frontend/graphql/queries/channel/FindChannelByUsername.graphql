@@ -7,12 +7,16 @@ query FindChannelByUsername($username: String!) {
 		isVerified
 		bio
 		stream {
+			id
 			title
 			thumbnailUrl
 			isLive
 			category {
 				title
 			}
+			isChatEnabled
+			isChatFollowersOnly
+			isChatPremiumFollowersOnly
 		}
 		sponsorshipPlans {
 			id

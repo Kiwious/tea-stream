@@ -18,7 +18,7 @@ import { useCurrent } from '@/hooks/useCurrent'
 import {
 	changeChatSettingsSchema,
 	type ChangeChatSettingsSchemaType
-} from '@/schemas/stream/change-chat-settings.schema'
+} from '@/schemas/chat/change-chat-settings.schema'
 
 export function ChangeChatSettings() {
 	const t = useTranslations('dashboard.chat')
@@ -27,8 +27,8 @@ export function ChangeChatSettings() {
 
 	const form = useForm<ChangeChatSettingsSchemaType>({
 		resolver: zodResolver(changeChatSettingsSchema),
-		defaultValues: {
-			isChatEnabled: user?.stream.isChatEnabled ?? true,
+		values: {
+			isChatEnabled: user?.stream.isChatEnabled ?? false,
 			isChatFollowersOnly: user?.stream.isChatFollowersOnly ?? false,
 			isChatPremiumFollowersOnly:
 				user?.stream.isChatPremiumFollowersOnly ?? false
@@ -95,7 +95,7 @@ export function ChangeChatSettings() {
 								'isChatPremiumFollowersOnly.description'
 							)}
 							onChange={onChange}
-							isDisabled={isLoadingUpdate}
+							isDisabled={isLoadingUpdate || !user?.isVerified}
 						/>
 					</form>
 				</FormProvider>

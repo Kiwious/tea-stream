@@ -5,7 +5,7 @@ import { Field, FieldDescription, FieldLabel } from './field'
 
 interface Props extends React.ComponentProps<'textarea'> {
 	name: string
-	label: string
+	label?: string
 	className?: string
 	description?: string
 }
@@ -15,7 +15,7 @@ function Textarea({ className, label, description, ...props }: Props) {
 	const { field } = useController({ name: props.name, control })
 	return (
 		<Field>
-			<FieldLabel>{label}</FieldLabel>
+			{label && <FieldLabel>{label}</FieldLabel>}
 			<textarea
 				{...field}
 				data-slot='textarea'
