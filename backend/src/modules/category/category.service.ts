@@ -27,7 +27,7 @@ export class CategoryService {
 		const total = await this.prismaService.category.count()
 
 		const randomIndexes = new Set<number>()
-		const RANDOM_CATEGORIES_COUNT = 7
+		const RANDOM_CATEGORIES_COUNT = Math.min(7, total)
 
 		while (randomIndexes.size < RANDOM_CATEGORIES_COUNT) {
 			const randomIndex = Math.floor(Math.random() * total)
