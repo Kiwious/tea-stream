@@ -13,7 +13,8 @@ COPY src/shared/utils ./src/shared/utils
 
 # prisma generate (postinstall) only needs a syntactically valid URL
 RUN POSTGRES_URI=postgresql://build:build@localhost:5432/build \
-	yarn install --frozen-lockfile
+	yarn install --frozen-lockfile \
+	&& yarn cache clean
 
 COPY . .
 # Node sizes its default heap from physical RAM, which is too small for tsc on a small VPS
