@@ -5,16 +5,16 @@ import { type ChangeEvent, useRef } from 'react'
 import { Button } from '../common/button'
 
 interface Props {
-	name: string
+	name?: string
 	label?: string
-	isLoading: boolean
 	mutation: (...args: unknown[]) => void
+	disabled?: boolean
 }
 
 export function UploadFile({
-	name,
+	name = 'file',
 	label = 'Upload file',
-	isLoading,
+	disabled = false,
 	mutation
 }: Props) {
 	const { setValue } = useFormContext()
@@ -30,6 +30,10 @@ export function UploadFile({
 		}
 	}
 
+	function onClick() {
+		inputRef.current?.click()
+	}
+
 	return (
 		<>
 			<input
@@ -40,8 +44,8 @@ export function UploadFile({
 			/>
 			<Button
 				variant='secondary'
-				onClick={() => inputRef.current?.click()}
-				disabled={isLoading}
+				onClick={onClick}
+				disabled={disabled}
 			>
 				{label}
 			</Button>

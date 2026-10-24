@@ -12,6 +12,7 @@ query FindChannelByUsername($username: String!) {
 			thumbnailUrl
 			isLive
 			category {
+				id
 				title
 			}
 			isChatEnabled

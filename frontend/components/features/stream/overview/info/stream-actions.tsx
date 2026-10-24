@@ -3,6 +3,7 @@ import { FollowButton } from './follow-button'
 import { SupportButton } from './support-button'
 import { ShareActions } from './share-actions'
 import { Skeleton } from '@/components/ui/common/skeleton'
+import { StreamSettings } from '../../settings/stream-settings'
 
 interface Props {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
@@ -15,6 +16,7 @@ export function StreamActions({ channel }: Props) {
 			{channel.isVerified && channel.sponsorshipPlans.length > 0 && (
 				<SupportButton channel={channel} />
 			)}
+			<StreamSettings channel={channel} />
 			<ShareActions channel={channel} />
 		</div>
 	)

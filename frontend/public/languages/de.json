@@ -127,6 +127,32 @@
 				"emojiPlaceholder": "Suchen",
 				"errorMessage": "Fehler beim Senden der Nachricht"
 			}
+		},
+		"settings": {
+			"heading": "Stream-Einstellungen",
+			"thumbnail": {
+				"updateButton": "Bild aktualisieren",
+				"confirmModal": {
+					"heading": "Stream-Vorschaubild löschen",
+					"message": "Bist du sicher, dass du das Bild des Streams löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden."
+				},
+				"info": "Unterstützte Formate: JPG, JPEG, PNG oder GIF. Max. Größe: 10 MB.",
+				"successUpdateMessage": "Stream-Bild erfolgreich aktualisiert",
+				"errorUpdateMessage": "Fehler beim Aktualisieren des Stream-Bilds",
+				"successRemoveMessage": "Stream-Bild erfolgreich gelöscht",
+				"errorRemoveMessage": "Fehler beim Löschen des Stream-Bilds"
+			},
+			"info": {
+				"titleLabel": "Titel",
+				"titlePlaceholder": "GTA 5 Stream",
+				"titleDescription": "Gib den Titel deines Streams ein. Er sollte kurz und einprägsam sein.",
+				"categoryLabel": "Kategorie",
+				"categoryPlaceholder": "Kategorie auswählen",
+				"categoryDescription": "Wähle die Kategorie, zu der dein Inhalt gehört. So finden Zuschauer deine Streams leichter.",
+				"submitButton": "Änderungen speichern",
+				"successMessage": "Stream-Einstellungen erfolgreich aktualisiert",
+				"errorMessage": "Fehler beim Aktualisieren der Stream-Einstellungen"
+			}
 		}
 	},
 	"success": {

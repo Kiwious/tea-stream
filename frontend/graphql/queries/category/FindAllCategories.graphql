@@ -1,5 +1,6 @@
 query FindAllCategories {
 	findAllCategories {
+		id
 		title
 		slug
 		thumbnailUrl

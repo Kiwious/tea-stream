@@ -86,9 +86,8 @@ export function ChangeAvatarForm() {
 							<div className='space-y-3'>
 								<div className='flex items-center gap-x-3'>
 									<UploadFile
-										name='file'
 										label={t('updateButton')}
-										isLoading={
+										disabled={
 											isLoadingUpdate || isLoadingRemove
 										}
 										mutation={() => {

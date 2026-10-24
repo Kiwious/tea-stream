@@ -126,6 +126,32 @@
 				"emojiPlaceholder": "Search",
 				"errorMessage": "Error sending message"
 			}
+		},
+		"settings": {
+			"heading": "Stream settings",
+			"thumbnail": {
+				"updateButton": "Update image",
+				"confirmModal": {
+					"heading": "Delete stream thumbnail",
+					"message": "Are you sure you want to delete the stream image? This action cannot be undone."
+				},
+				"info": "Supported formats: JPG, JPEG, PNG or GIF. Max size: 10 MB.",
+				"successUpdateMessage": "Stream image updated successfully",
+				"errorUpdateMessage": "Error updating stream image",
+				"successRemoveMessage": "Stream image deleted successfully",
+				"errorRemoveMessage": "Error deleting stream image"
+			},
+			"info": {
+				"titleLabel": "Title",
+				"titlePlaceholder": "GTA 5 stream",
+				"titleDescription": "Enter the title of your stream. It should be short and memorable.",
+				"categoryLabel": "Category",
+				"categoryPlaceholder": "Select a category",
+				"categoryDescription": "Choose the category your content belongs to. This will help viewers find your streams more easily.",
+				"submitButton": "Save changes",
+				"successMessage": "Stream settings updated successfully",
+				"errorMessage": "Error updating stream settings"
+			}
 		}
 	},
 	"success": {

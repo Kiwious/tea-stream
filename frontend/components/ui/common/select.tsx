@@ -10,6 +10,8 @@ import { useController, useFormContext } from 'react-hook-form'
 
 // const Select = SelectPrimitive.Root
 
+// items format:
+// VALUE - LABEL
 interface Props {
 	name: string
 	label?: string
