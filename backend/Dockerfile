@@ -16,7 +16,8 @@ RUN POSTGRES_URI=postgresql://build:build@localhost:5432/build \
 	yarn install --frozen-lockfile
 
 COPY . .
-RUN yarn build
+# Node sizes its default heap from physical RAM, which is too small for tsc on a small VPS
+RUN NODE_OPTIONS=--max-old-space-size=2048 yarn build
 
 ENV NODE_ENV=production
 EXPOSE 4000

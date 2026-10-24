@@ -19,7 +19,7 @@ ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL \
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # graphql/generated/output.ts is committed, so codegen is skipped here
-RUN node node_modules/next/dist/bin/next build
+RUN NODE_OPTIONS=--max-old-space-size=2048 node node_modules/next/dist/bin/next build
 
 FROM node:24-bookworm-slim AS runner
 WORKDIR /app
