@@ -4,5 +4,6 @@ query FindAllCategories {
 		title
 		slug
 		thumbnailUrl
+		updatedAt
 	}
 }

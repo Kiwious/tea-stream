@@ -1,9 +1,11 @@
 import { VerifyAccountForm } from '@/components/features/auth/forms/verify-account-form'
 import type { Metadata } from 'next'
+import { NO_INDEX_PAGE } from '@/libs/constants/seo.constants'
 import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
-	title: 'Title'
+	title: 'Title',
+	...NO_INDEX_PAGE
 }
 
 interface Props {

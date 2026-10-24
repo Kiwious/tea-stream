@@ -38,11 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('categories')
 
 	return {
-		title: t('heading'),
-		robots: {
-			index: false,
-			follow: false
-		}
+		title: t('heading')
 	}
 }
 

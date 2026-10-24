@@ -168,6 +168,10 @@
 		"backToChannel": "Back to channel",
 		"support": "If you have any questions, please contact our support."
 	},
+	"notFound": {
+		"description": "Oops, something went wrong.",
+		"backToHome": "Go to home page"
+	},
 	"auth": {
 		"register": {
 			"heading": "Sign up for TeaStream",

@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/common/card'
 import { CheckCircle } from 'lucide-react'
 import type { Metadata } from 'next'
+import { NO_INDEX_PAGE } from '@/libs/constants/seo.constants'
 import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
@@ -17,10 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 	return {
 		title: t('heading'),
-		robots: {
-			index: false,
-			follow: false
-		}
+		...NO_INDEX_PAGE
 	}
 }
 

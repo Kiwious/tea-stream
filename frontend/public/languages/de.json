@@ -169,6 +169,10 @@
 		"backToChannel": "Zurück zum Kanal",
 		"support": "Wenn du Fragen hast, wende dich an unseren Support."
 	},
+	"notFound": {
+		"description": "Hoppla, da ist etwas schiefgelaufen.",
+		"backToHome": "Zur Startseite"
+	},
 	"auth": {
 		"register": {
 			"heading": "Registrierung bei TeaStream",
