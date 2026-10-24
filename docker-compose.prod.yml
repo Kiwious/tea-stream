@@ -77,6 +77,7 @@ services:
         - NEXT_PUBLIC_SERVER_URL=https://${DOMAIN}/graphql
         - NEXT_PUBLIC_WEBSOCKET_URL=wss://${DOMAIN}/graphql
         - NEXT_PUBLIC_MEDIA_URL=${MEDIA_URL}
+        - NEXT_PUBLIC_LIVEKIT_WS_URL=${LIVEKIT_WS_URL}
     restart: always
     depends_on:
       - backend
