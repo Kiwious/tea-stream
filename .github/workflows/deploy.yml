@@ -40,6 +40,8 @@ jobs:
         with:
           bun-version: 1.3.3
       - run: bun install --frozen-lockfile
+      # Generates route types like LayoutProps into .next/types (normally done by next dev/build)
+      - run: bunx next typegen
       - run: bunx tsc --noEmit
 
   deploy:
