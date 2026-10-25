@@ -9,11 +9,13 @@ const config: CodegenConfig = {
 	generates: {
 		'./graphql/generated/output.ts': {
 			plugins: [
-				'typescript',
 				'typescript-operations',
 				'typed-document-node',
 				'./graphql/codegen/apollo-hooks.cjs'
-			]
+			],
+			config: {
+				enumType: 'native'
+			}
 		}
 	},
 	ignoreNoDocuments: true
