@@ -132,24 +132,67 @@ export class WebhookService {
 
 			expiresAt.setDate(expiresAt.getDate() + 30)
 
-			const sponsorshipSubscription =
-				await this.prismaService.sponsorshipSubscription.create({
-					data: {
-						expiresAt,
-						sponsorshipPlanId: planId,
-						channelId,
-						userId
+			const result = await this.prismaService.$transaction(async tx => {
+				const { count } = await tx.transaction.updateMany({
+					where: {
+						stripeSubscriptionId: session.id,
+						status: TransactionStatus.PENDING
 					},
-					include: {
-						sponsorshipPlan: true,
-						user: true,
-						channel: {
-							include: {
-								notificationSettings: true
-							}
-						}
+					data: {
+						status: TransactionStatus.SUCCESS
 					}
 				})
+
+				if (count === 0) return null
+
+				const existingSubscription =
+					await tx.sponsorshipSubscription.findUnique({
+						where: {
+							userId_channelId: {
+								userId,
+								channelId
+							}
+						}
+					})
+
+				const sponsorshipSubscription =
+					await tx.sponsorshipSubscription.upsert({
+						where: {
+							userId_channelId: {
+								userId,
+								channelId
+							}
+						},
+						create: {
+							expiresAt,
+							sponsorshipPlanId: planId,
+							channelId,
+							userId
+						},
+						update: {
+							expiresAt,
+							sponsorshipPlanId: planId
+						},
+						include: {
+							sponsorshipPlan: true,
+							user: true,
+							channel: {
+								include: {
+									notificationSettings: true
+								}
+							}
+						}
+					})
+
+				return {
+					sponsorshipSubscription,
+					isNew: !existingSubscription
+				}
+			})
+
+			if (!result?.isNew) return
+
+			const { sponsorshipSubscription } = result
 
 			if (!sponsorshipSubscription.user) {
 				throw new NotFoundException('User not found')
@@ -158,16 +201,6 @@ export class WebhookService {
 			if (!sponsorshipSubscription.sponsorshipPlan) {
 				throw new NotFoundException('Sponsorship plan not found')
 			}
-
-			await this.prismaService.transaction.updateMany({
-				where: {
-					stripeSubscriptionId: session.id,
-					status: TransactionStatus.PENDING
-				},
-				data: {
-					status: TransactionStatus.SUCCESS
-				}
-			})
 
 			if (
 				sponsorshipSubscription.channel?.notificationSettings
