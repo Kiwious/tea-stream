@@ -26,7 +26,7 @@ export function ChannelSponsors({ channel }: Props) {
 			channelId: channel.id
 		}
 	})
-	const sponsors = data?.findSponsorsByChannel ?? []
+	const sponsors = Array.from(new Set(data?.findSponsorsByChannel ?? []))
 
 	if (!sponsors.length || isLoadingSponsors) {
 		return null

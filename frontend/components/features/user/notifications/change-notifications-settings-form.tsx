@@ -30,6 +30,9 @@ export function ChangeNotificationsSettingsForm() {
 		}
 	})
 
+	const TELEGRAM_BOT_USERNAME =
+		process.env.TELEGRAM_BOT_USERNAME ?? 'nestjs_teastream_bot'
+
 	const [update, { loading: isLoadingUpdate }] =
 		useChangeNotificationsSettingsMutation({
 			onCompleted: data => {
@@ -41,7 +44,7 @@ export function ChangeNotificationsSettingsForm() {
 
 				if (data.changeNotificationSettings.telegramAuthToken) {
 					window.open(
-						`https://t.me/nestjs_teastream_bot?start=${data.changeNotificationSettings.telegramAuthToken}`,
+						`https://t.me/${TELEGRAM_BOT_USERNAME}?start=${data.changeNotificationSettings.telegramAuthToken}`,
 						'_blank'
 					)
 				}
