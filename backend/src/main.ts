@@ -23,6 +23,7 @@ async function bootstrap() {
 		session({
 			secret: config.getOrThrow<string>('SESSION_SECRET'),
 			name: config.getOrThrow<string>('SESSION_NAME'),
+			proxy: true,
 			resave: false,
 			saveUninitialized: false,
 			cookie: {
