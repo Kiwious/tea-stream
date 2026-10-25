@@ -26,7 +26,7 @@ export function ChannelSponsors({ channel }: Props) {
 			channelId: channel.id
 		}
 	})
-	const sponsors = Array.from(new Set(data?.findSponsorsByChannel ?? []))
+	const sponsors = data?.findSponsorsByChannel ?? []
 
 	if (!sponsors.length || isLoadingSponsors) {
 		return null
@@ -40,8 +40,8 @@ export function ChannelSponsors({ channel }: Props) {
 				</CardTitle>
 			</CardHeader>
 			<CardContent className='flex space-x-4 px-4'>
-				{sponsors.map((sponsor, index) => (
-					<Link key={index} href={`/${sponsor.user.username}`}>
+				{sponsors.map(sponsor => (
+					<Link key={sponsor.user.id} href={`/${sponsor.user.username}`}>
 						<ChannelAvatar channel={sponsor.user} size='lg' />
 					</Link>
 				))}

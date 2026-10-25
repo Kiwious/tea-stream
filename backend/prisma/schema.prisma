@@ -253,6 +253,7 @@ model SponsorshipSubscription {
   sponsorshipPlan   SponsorshipPlan? @relation(fields: [sponsorshipPlanId], references: [id])
   sponsorshipPlanId String?          @db.Uuid
 
+  @@unique([userId, channelId])
   @@map("sponsorship_subscriptions")
 }
 
