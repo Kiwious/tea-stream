@@ -46,7 +46,7 @@ export function StreamThumbnail({ url, user, isLive }: Props) {
 					className='rounded-xl object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2'
 				/>
 			) : (
-				<Card className='flex h-full w-full flex-col items-center gap-y-4 rounded-xl transition-transform group-hover:translate-x-2 group-hover:-translate-y-2'>
+				<Card className='flex h-full w-full flex-col items-center justify-center gap-y-4 rounded-xl transition-transform group-hover:translate-x-2 group-hover:-translate-y-2'>
 					<ChannelAvatar channel={user} isLive={isLive} />
 				</Card>
 			)}
