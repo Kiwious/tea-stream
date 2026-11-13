@@ -14,7 +14,11 @@ import { TOTP } from 'otpauth'
 import { PrismaService } from '@/src/core/prisma/prisma.service'
 import { RedisService } from '@/src/core/redis/redis.service'
 import { getSessionMetadata } from '@/src/shared/utils/session-metadata.util'
-import { destroySession, saveSession } from '@/src/shared/utils/session.util'
+import {
+	clearSessionCookie,
+	destroySession,
+	saveSession
+} from '@/src/shared/utils/session.util'
 
 import { VerificationService } from '../verification/verification.service'
 
@@ -128,9 +132,7 @@ export class SessionService {
 	}
 
 	public clearSession(req: Request) {
-		req.res?.clearCookie(
-			this.configService.getOrThrow<string>('SESSION_NAME')
-		)
+		clearSessionCookie(req, this.configService)
 
 		return true
 	}
