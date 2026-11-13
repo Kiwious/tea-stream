@@ -37,10 +37,15 @@ export function destroySession(req: Request, configService: ConfigService) {
 					new InternalServerErrorException('Couldnt abort session')
 				)
 			}
-			req.res?.clearCookie(
-				configService.getOrThrow<string>('SESSION_NAME')
-			)
+			clearSessionCookie(req, configService)
 			resolve(true)
 		})
+	})
+}
+
+// domain must match the one set in main.ts, otherwise the browser ignores the clear
+export function clearSessionCookie(req: Request, configService: ConfigService) {
+	req.res?.clearCookie(configService.getOrThrow<string>('SESSION_NAME'), {
+		domain: configService.getOrThrow<string>('SESSION_DOMAIN')
 	})
 }
